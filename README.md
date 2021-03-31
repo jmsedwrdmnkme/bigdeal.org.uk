@@ -27,8 +27,6 @@ Will play nice(st) with the latest versions of modern browsers:-
 * Bootstrap V5 Beta
 * SASS styles process (linting, compression, autoprefixing, concat, loading of modules)
 * PurgeCSS to rid of bloat and unused styles
-* Critical path CSS inline in document head (increased load speed, less http round trips)
-* Lazyloading of non-critical CSS files (loadCSS, loads after initial paint)
 
 ### Assets
 * Handlebars HTML templating process (featuring partials)
