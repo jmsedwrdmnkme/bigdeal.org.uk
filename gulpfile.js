@@ -18,7 +18,6 @@ const ext = require('gulp-ext-replace');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const hb = require('gulp-hb');
-const purgecss = require('gulp-purgecss');
 const log = require('fancy-log');
 
 
@@ -116,9 +115,6 @@ function cssnoncritical() {
   return gulp
     .src('./src/scss/main.scss', { allowEmpty: true })
     .pipe(sass({outputStyle: 'compressed'}))
-    .pipe(purgecss({
-      content: ['./wp-content/themes/synthetic/*.php']
-    }))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
     .pipe(gulp.dest('./wp-content/themes/synthetic/css/'));
@@ -175,6 +171,12 @@ function images() {
     .pipe(gulp.dest('./wp-content/themes/synthetic/img/'));
 }
 
+function fonts() {
+  return gulp
+    .src('./src/fonts/*', { allowEmpty: true })
+    .pipe(gulp.dest('./wp-content/themes/synthetic/fonts/'));
+}
+
 
 //
 // HTML
@@ -205,6 +207,7 @@ const watch =
       jslint,
       csslint
     ),
+    fonts,
     html,
     gulp.parallel(
       cssnoncritical,
@@ -235,8 +238,9 @@ function watchFiles() {
   gulp.watch('./src/scss/**/*.scss', csswatch);
   gulp.watch('./src/js/**/*.js', jswatch);
   gulp.watch('./src/sprite/**/*.svg', sprite);
-  gulp.watch('./src/html/**/*.hbs', html);
+  gulp.watch('./src/html/**/*.hbs', csswatch, html);
   gulp.watch('./src/img/**/*', images);
+  gulp.watch('./src/fonts/*', fonts);
 }
 
 
