@@ -63,7 +63,19 @@ Text Domain: synthetic
 
 // Partials
 @import 'partials/typography';
+@import 'partials/images';
+@import 'partials/containers';
+@import 'partials/backgrounds';
 
 // Components
 @import 'components/header';
+@import 'components/footer';
 @import 'components/nav';
+@import 'components/buttons';
+@import 'components/cards';
+
+// Gutenberg blocks
+@import 'components/wp-embed-block';
+@import 'components/wp-block-group';
+@import 'components/wp-block-buttons';
+@import 'components/wp-block-columns';

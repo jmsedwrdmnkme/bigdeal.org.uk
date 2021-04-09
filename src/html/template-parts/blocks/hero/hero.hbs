@@ -1,0 +1,62 @@
+<?php
+/**
+ * Hero block
+ *
+ * @package      Synthetic
+ * @author       James Monk
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
+
+$page_title = get_field('page_title');
+$page_tagline = get_field('page_tagline');
+$hero_text = get_field('hero_text');
+$image = get_field('image');
+$button_text = get_field('button_text');
+$button_link = get_field('button_link');
+
+// disable block frontend wrapper.
+add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
+?>
+<div class="full-width hero bg-indigo text-white py-5 text-center text-lg-start">
+  <div class="pb-5">
+    <div class="container pt-lg-4 pb-5 mb-5">
+      <div class="row justify-content-between pb-5 mb-5">
+        <div class="col-lg-6 order-lg-1">
+          <img src="<?php echo $image['url']; ?>" class="img-fluid" alt="<?php echo $image['alt']; ?>">
+        </div>
+        <div class="col-lg-5 mt-n5 mt-lg-0">
+          <?php if ( !is_front_page() ) : echo '<h1 class="mb-0">'; endif; ?>
+          <span class="d-block display-1"><?php echo $page_title; ?></span>
+          <?php if ( !is_front_page() ) : echo '</h1>'; endif; ?>
+          <span class="d-block h1 text-white col-lg-10"><?php echo $page_tagline; ?></span>
+          <p class="fs-4 py-4"><?php echo $hero_text; ?></p>
+          <a href="<?php echo $button_link; ?>" class="btn btn-outline-primary"><?php echo $button_text; ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .hero {
+      position: relative;
+      margin-bottom: 1.45vw;
+    }
+
+    .hero::before {
+      content: '';
+      height: 1.45vw;
+      position: absolute;
+      width: 100%;
+      top: calc(100% - 2px);
+      background-image: url("data:image/svg+xml,%3Csvg width='1440' height='19' viewBox='0 0 1440 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 7.50066C68 11.1064 71.5 4.08984 174 1.55608C212.8 -0.977685 320.1 7.11083 329.5 7.11083C424 7.40318 519 8.08542 614.2 8.86504C686.3 9.44975 758.4 10.1319 830.5 10.7167C899.3 11.3014 968 11.6911 1036.4 11.9834C1109.3 12.2758 1181.9 6.52623 1254.1 6.23387C1321.7 5.94152 1388.3 18.0256 1440 16.9536V19.0001V0.556152H0V11.9834V7.50066Z' fill='%236D5CB8'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% 100%;
+    }
+
+    .hero + * {
+      margin-top: -15rem;
+      position: relative;
+    }
+  </style>
+</div>

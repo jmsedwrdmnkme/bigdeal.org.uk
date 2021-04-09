@@ -1,0 +1,17 @@
+//
+// Buttons
+//
+
+.btn {
+  font-weight: $font-weight-bold;
+
+  &:not(:hover) {
+    &:visited {
+      color: unset !important;
+    }
+
+    &.text-white {
+      color: $white !important;
+    }
+  }
+}

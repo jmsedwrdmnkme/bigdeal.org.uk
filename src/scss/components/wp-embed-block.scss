@@ -1,0 +1,17 @@
+//
+// Gutenberg embed block
+//
+
+.wp-block-embed {
+  @extend .mb-3;
+
+  &__wrapper {
+    @extend .ratio;
+    @extend .ratio-16x9;
+    @extend .border;
+    @extend .border-white;
+    border-width: 0.4rem !important;
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+}

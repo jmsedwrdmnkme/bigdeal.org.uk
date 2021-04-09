@@ -62,7 +62,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
     $classes = empty($item->classes) ? array() : (array) $item->classes;
 
     $classes[] = ($args->walker->has_children) ? 'dropdown' : '';
-    $classes[] = 'nav-item';
+    $classes[] = 'nav-item flex-fill';
     $classes[] = 'nav-item-' . $item->ID;
     if ($depth && $args->walker->has_children) {
       $classes[] = 'dropdown-menu dropdown-menu-end';
@@ -174,5 +174,30 @@ function synthetic_comment_count( $count ) {
     return count( $comments_by_type['comment'] );
   } else {
     return $count;
+  }
+}
+
+add_action('acf/init', 'my_acf_init_block_types');
+function my_acf_init_block_types() {
+  if( function_exists('acf_register_block_type') ) {
+    acf_register_block_type(array(
+      'name'              => 'hero',
+      'title'             => __('Hero'),
+      'description'       => __('Hero block.'),
+      'render_template'   => 'template-parts/blocks/hero/hero.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'hero', 'banner', 'header' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'footer_help',
+      'title'             => __('Footer help'),
+      'description'       => __('Footer help block.'),
+      'render_template'   => 'template-parts/blocks/footer-help/footer-help.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'footer', 'help', 'contact' ),
+    ));
   }
 }

@@ -11,36 +11,45 @@
   <link rel="preload" href="<?php echo get_theme_file_uri(); ?>/fonts/oswald-v36-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body <?php body_class(); ?>>
-<div class="hidden">{{> global/sprite }}</div>
+<div class="d-none">{{> global/sprite }}</div>
 <a class="visually-hidden-focusable" href="#content">Skip to main content</a>
 <header>
   <div class="container-fluid">
     <div class="row align-items-center py-2">
       <a class="col-auto" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
-        <img src="<?php echo get_theme_file_uri(); ?>/img/header-logo.png" width="140" height="71" alt="BigDeal logo">
+        <img src="<?php echo get_theme_file_uri(); ?>/img/header-logo.png" class="header-logo" width="140" height="71" alt="BigDeal logo">
         <span class="visually-hidden"><?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }  echo esc_html( get_bloginfo( 'name' ) ); if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; } ?></span>
       </a>
       <div class="header-description col">
         <?php bloginfo( 'description' ); ?>
       </div>
       <div class="d-none d-lg-block col-auto ms-lg-auto">
-        Call free 0203 092 6964
+        <a href="#" target="_blank" class="fw-bold text-decoration-none">
+          <svg class="sprite">
+            <use xlink:href="#phone"></use>
+          </svg>
+          Call free 0203 092 6964
+        </a>
       </div>
       <div class="d-none d-lg-block col-auto">
-        <a href="#" target="_blank" class="btn btn-outline-primary">Live chat</a>
+        <a href="#" target="_blank" class="btn btn-outline-primary text-purple">Live chat</a>
       </div>
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-purple">
-    <div class="container-fluid">
+  <nav class="header-nav navbar navbar-expand-lg navbar-light bg-purple">
+    <div class="container-fluid g-0 align-items-stretch">
       <div class="col-auto d-lg-none">
-        Call
+        <a href="#" target="_blank" class="text-white d-block px-2">
+          <svg class="sprite">
+            <use xlink:href="#phone"></use>
+          </svg>
+        </a>
       </div>
-      <div class="col d-lg-none text-center">
-        <a href="#" target="_blank" class="btn btn-outline-primary">Live chat</a>
+      <div class="col d-lg-none px-3">
+        <a href="#" target="_blank" class="btn btn-sm btn-outline-primary text-white">Live chat</a>
       </div>
-      <a href="#" target="_blank" class="nav-link col-auto bg-yellow">Get help</a>
-      <button class="ms-auto navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="#" target="_blank" class="nav-link d-lg-none col-auto bg-yellow">Get help</a>
+      <button class="ms-auto navbar-toggler bg-indigo" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -51,7 +60,7 @@
             'container' => false,
             'menu_class' => '',
             'fallback_cb' => '__return_false',
-            'items_wrap' => '<ul id="%1$s" class="navbar-nav me-auto mb-2 mb-md-0 %2$s">%3$s</ul>',
+            'items_wrap' => '<ul id="%1$s" class="navbar-nav w-100 text-lg-center %2$s">%3$s</ul>',
             'depth' => 2,
             'walker' => new bootstrap_5_wp_nav_menu_walker()
           ));
@@ -60,4 +69,5 @@
     </div>
   </nav>
 </header>
+<div class="overflow-hidden">
 <div class="container py-5">

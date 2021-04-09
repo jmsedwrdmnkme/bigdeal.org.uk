@@ -1,0 +1,51 @@
+//
+// Gutenberg button block
+//
+
+.wp-block-buttons {
+  @extend .mt-auto;
+}
+
+.wp-block-button__link {
+  @extend .mt-4;
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.is-style-fill {
+  .wp-block-button__link {
+    @extend .btn-primary;
+  }
+}
+
+.is-style-outline {
+  .wp-block-button__link {
+    @extend .btn-outline-blue;
+    border-radius: 0 !important;
+
+    &:not(:hover) {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.bg-primary,
+.bg-yellow,
+.bg-primary-offset {
+  .is-style-fill {
+    .wp-block-button__link {
+      background-color: $white !important;
+      border-color: transparent !important;
+    }
+  }
+
+  .is-style-outline {
+    .wp-block-button__link {
+      border-color: $white !important;
+
+      &:not(:hover) {
+        background-color: transparent !important;
+      }
+    }
+  }
+}

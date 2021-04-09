@@ -1,0 +1,30 @@
+//
+// Site footer
+//
+
+.footer {
+  a {
+    text-decoration: none;
+
+    &:not(:hover) {
+      @extend .text-reset;
+    }
+  }
+
+  .fw-bold {
+    margin-bottom: 1.25rem;
+  }
+
+  .menu {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .menu-item {
+    padding: 0.425rem 0;
+
+    &[class*="bg-"] {
+      background-color: transparent !important;
+    }
+  }
+}

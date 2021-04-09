@@ -1,0 +1,89 @@
+<?php
+/**
+ * Footer Help block
+ *
+ * @package      Synthetic
+ * @author       James Monk
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
+
+// disable block frontend wrapper.
+add_filter( 'acf/footer-help/frontend_allow_wrapper', '__return_false' );
+
+$top_title = get_field('top_title');
+$main_title = get_field('main_title');
+$main_text = get_field('main_text');
+$image = get_field('image');
+
+$col_one_title = get_field('column_one_title');
+$col_two_title = get_field('column_two_title');
+$col_three_title = get_field('column_three_title');
+
+$col_one_text = get_field('column_one_text');
+$col_two_text = get_field('column_two_text');
+$col_three_text = get_field('column_three_text');
+
+$col_one_link = get_field('column_one_link');
+$col_two_tel = get_field('column_two_telephone');
+$col_three_link = get_field('column_three_link');
+?>
+<aside class="full-width footer-top bg-indigo text-white py-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <div class="col-md-auto order-md-1">
+        <img src="<?php echo $image['url']; ?>" class="img-fluid" alt="<?php echo $image['alt']; ?>">
+      </div>
+      <div class="col-md mt-3 mt-md-0">
+        <?php if (isset($top_title)) { ?><h2 class="display-2 text-reset mb-0"><?php echo $top_title; ?></h2><?php } ?>
+        <p class="h2 text-reset"><?php echo $main_title; ?></p>
+        <span class="fs-4 d-block mt-3"><?php echo $main_text; ?></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mt-5 py-3 pe-4 d-flex flex-column">
+        <h3 class="fs-4 text-reset"><?php echo $col_one_title; ?></h3>
+        <span><?php echo $col_one_text; ?></span>
+        <?php if (isset($col_one_link)) { ?>
+        <div class="mt-auto w-100">
+          <a href="<?php echo $col_one_link; ?>" class="btn btn-outline-primary text-white mt-4"><?php echo $col_one_title; ?></a>
+        </div>
+        <?php }; ?>
+      </div>
+      <div class="col mt-5 border-start border-white py-3 ps-4 px-md-4 d-flex flex-column">
+        <h3 class="text-reset"><?php echo $col_two_title; ?></h3>
+        <p><?php echo $col_two_text; ?></p>
+        <?php if (isset($col_two_tel)) { ?>
+        <span class="d-block mt-auto fw-bold mb-2"><?php echo $col_two_tel; ?></span>
+        <?php }; ?>
+      </div>
+      <div class="d-none col-md mt-5 border-start border-white py-3 ps-4 d-md-flex flex-column">
+        <h3 class="text-reset"><?php echo $col_three_title; ?></h3>
+        <span><?php echo $col_three_text; ?></span>
+        <?php if (isset($col_three_link)) { ?>
+        <div class="mt-auto w-100">
+          <a href="<?php echo $col_three_link; ?>" class="btn btn-outline-white mt-4"><?php echo $col_three_title; ?></a>
+        </div>
+        <?php }; ?>
+      </div>
+    </div>
+  </div>
+  <style>
+    .footer-top {
+      position: relative;
+      margin-top: 1.815vw;
+    }
+
+    .footer-top::before {
+      content: '';
+      height: 1.815vw;
+      position: absolute;
+      width: 100%;
+      bottom: calc(100% - 1px);
+      background-image: url("data:image/svg+xml,%3Csvg width='1440' height='25' viewBox='0 0 1440 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1392.35 5.62059C1405.51 6.3386 1420.04 7.13134 1439.99 7.85V25.0002H719.99L745.273 2.42077C772.112 2.58015 798.951 2.73719 825.79 2.88505C920.99 3.41465 1015.99 3.87805 1110.49 4.07666C1112.11 4.07666 1116.59 4.11984 1123.09 4.18255C1154.34 4.484 1232.37 5.23665 1264.49 3.81184C1336.92 2.59566 1360.66 3.89142 1392.35 5.62059ZM694.368 2.1174L719.99 25.0002L-0.00976562 25.0001L-0.00976362 2.0906C26.336 1.71952 56.5511 2.44863 88.796 3.22671C119.827 3.97551 152.739 4.76967 185.89 4.67228C220.067 4.57828 254.333 3.65363 288.678 2.72685C326.889 1.69575 365.198 0.662006 403.59 0.7666C471.99 0.965204 540.69 1.23001 609.49 1.62721C637.783 1.78308 666.076 1.94914 694.368 2.1174Z' fill='%236D5CB8'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% 100%;
+    }
+  </style>
+</aside>

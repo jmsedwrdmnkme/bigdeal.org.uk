@@ -5,5 +5,44 @@
 .header-description {
   color: $indigo-200;
   font-family: $headings-font-family;
-  font-size: $font-size-lg;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-sm;
+  }
+
+  @include media-breakpoint-up(sm) {
+    font-size: $font-size-lg;
+  }
+}
+
+.header-logo {
+  max-width: 26vw;
+  height: auto;
+}
+
+.header-nav {
+  @include media-breakpoint-up(lg) {
+    border-bottom: 2px solid $white;
+  }
+
+  .container-fluid {
+    > * {
+      &.nav-link {
+        font-family: $headings-font-family;
+      }
+
+      &:not([id]) {
+        display: flex;
+        align-items: center;
+        @extend .border-bottom;
+        @extend .border-2;
+        @extend .border-white;
+
+        &:not(:first-child) {
+          @extend .border-start;
+          @extend .border-2;
+        }
+      }
+    }
+  }
 }

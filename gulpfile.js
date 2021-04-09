@@ -27,7 +27,7 @@ const log = require('fancy-log');
 
 // Clean
 function clean() {
-  return del('./wp-content/themes/synthetic');
+  return del('./dist');
 }
 
 //
@@ -95,7 +95,7 @@ function jsnoncritical() {
       }}
     ))
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('./wp-content/themes/synthetic/js/'));
+    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/js/'));
 }
 
 
@@ -117,7 +117,7 @@ function cssnoncritical() {
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
-    .pipe(gulp.dest('./wp-content/themes/synthetic/css/'));
+    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/css/'));
 }
 
 
@@ -168,13 +168,13 @@ function images() {
         })
       ])
     )
-    .pipe(gulp.dest('./wp-content/themes/synthetic/img/'));
+    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/img/'));
 }
 
 function fonts() {
   return gulp
     .src('./src/fonts/*', { allowEmpty: true })
-    .pipe(gulp.dest('./wp-content/themes/synthetic/fonts/'));
+    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/fonts/'));
 }
 
 
@@ -185,12 +185,12 @@ function fonts() {
 // HTML
 function html() {
   return gulp
-    .src('./src/html/*.hbs')
+    .src(['./src/html/**/*.hbs', '!./src/html/partials/**/*.hbs'])
     .pipe(hb()
       .partials('./src/html/partials/**/*.hbs')
     )
     .pipe(ext('.php'))
-    .pipe(gulp.dest('./wp-content/themes/synthetic/'));
+    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/'));
 }
 
 

@@ -42,8 +42,26 @@ $theme-colors: (
   "black":      $black
 );
 
+// Options
+$enable-negative-margins:     true;
+
 // Spacing
 $spacer: 1rem * 1.11111111111111111111; // 20px
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 768px,
+  lg: 992px
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px
+);
 
 // Typography
 $font-family-sans-serif:      "Raleway";
@@ -51,6 +69,7 @@ $font-family-sans-serif:      "Raleway";
 $font-size-root:              1.125rem;
 $font-size-base:              1rem; // 18px
 $font-size-sm:                $font-size-base * .0.88888888888888888889; // 16px
+$font-size-sm:                $font-size-base * 0.55555555555555555556; // 10px
 $font-size-lg:                $font-size-base * 1.11111111111111111111; // 20px
 
 $font-weight-light:           300;
@@ -96,18 +115,68 @@ $link-hover-color:                        $secondary;
 
 // Navs
 $nav-link-padding-y:                0.75rem;
-$nav-link-padding-x:                1rem !default;
-$nav-link-font-size:                null !default;
-$nav-link-font-weight:              null !default;
-$nav-link-color:                    null !default;
-$nav-link-hover-color:              null !default;
+$nav-link-padding-x:                1.5rem;
+$nav-link-font-size:                1.27777777777777777778rem; // 23px
+$nav-link-font-weight:              700;
+$nav-link-color:                    null;
+$nav-link-hover-color:              null;
 $nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
 
 // Navbar
 $navbar-padding-y:                  0;
-
 $navbar-light-color:                $white;
 $navbar-light-hover-color:          rgba($white, .7);
 $navbar-light-active-color:         rgba($white, .9);
-$navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+
+$navbar-toggler-padding-y:          .25rem;
+$navbar-toggler-padding-x:          .75rem;
+$navbar-toggler-font-size:          $font-size-lg;
+$navbar-toggler-border-radius:      0;
+$navbar-toggler-focus-width:        0;
+$navbar-toggler-transition:         0;
+$navbar-light-toggler-icon-bg:      url("data:image/svg+xml,%3Csvg width='35' height='29' viewBox='0 0 35 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='2.49902' y1='14.3636' x2='33.5001' y2='14.3636' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='2.49805' y1='26.7273' x2='33.5011' y2='26.7273' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='2.5' y1='1.5' x2='33.5' y2='1.5' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E%0A");
 $navbar-light-toggler-border-color: transparent;
+
+// Dropdowns
+$dropdown-min-width:                null;
+$dropdown-padding-x:                0;
+$dropdown-padding-y:                0;
+$dropdown-spacer:                   0;
+$dropdown-font-size:                $font-size-base;
+$dropdown-color:                    $white;
+$dropdown-bg:                       $purple;
+$dropdown-border-color:             transparent;
+$dropdown-border-radius:            0;
+$dropdown-border-width:             0;
+$dropdown-inner-border-radius:      0;
+$dropdown-divider-bg:               $white;
+$dropdown-divider-margin-y:         $spacer / 2;
+$dropdown-box-shadow:               box-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+$dropdown-link-color:               $white;
+$dropdown-link-hover-color:         null;
+$dropdown-link-hover-bg:            $yellow;
+
+$dropdown-link-active-color:        $purple;
+$dropdown-link-active-bg:           $yellow;
+
+$dropdown-item-padding-y:           $spacer / 2;
+$dropdown-item-padding-x:           $spacer;
+
+$dropdown-header-color:             $white;
+$dropdown-header-padding:           $dropdown-padding-y $dropdown-item-padding-x;
+
+// Buttons
+$btn-padding-y:               0.3em;
+$btn-padding-x:               1.5em;
+$btn-padding-y-sm:            0.425em;
+$btn-padding-x-sm:            1.2em;
+$btn-border-width:            0.2em;
+$btn-border-radius:           0 0.5rem 0.5rem 0.5rem;
+$btn-border-radius-sm:        0.5rem 0.5rem 0.5rem 0;
+
+// Cards
+$card-spacer-y:                     $spacer * 1.5;
+$card-spacer-x:                     $spacer * 1.5;
+$card-border-width:                 0;
+$card-border-radius:                0.5rem;

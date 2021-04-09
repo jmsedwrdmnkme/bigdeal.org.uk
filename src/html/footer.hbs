@@ -1,6 +1,8 @@
 </div>
-<footer class="bg-purple text-white py-5">
+</div>
+<footer class="footer bg-purple text-white py-5">
   <div class="container">
+    <img src="<?php echo get_theme_file_uri(); ?>/img/footer-logo.png" class="d-md-none mt-n3 mb-4" width="140" height="71" alt="BigDeal logo">
     <div class="row">
       <nav class="col-md">
         <span class="d-block fw-bold">Topics to explore</span>
@@ -9,20 +11,47 @@
           'depth' => 1,
         ) ); ?>
       </nav>
-      <div class="col-md">
+      <div class="col-md mb-3 mb-md-0">
         <span class="d-block fw-bold">Follow us</span>
-        <a href="#" target="_blank"><span>facebook</span></a>
-        <a href="#" target="_blank"><span>twitter</span></a>
-        <a href="#" target="_blank"><span>instagram</span></a>
-        <a href="#" target="_blank"><span>youtube</span></a>
+        <a href="https://www.facebook.com/BigDealUK" target="_blank">
+          <span class="visually-hidden">Facebook</span>
+          <svg class="social">
+            <use xlink:href="#facebook"></use>
+          </svg>
+        </a>
+        <a href="https://twitter.com/BigDealUK" target="_blank">
+          <span class="visually-hidden">Twitter</span>
+          <svg class="social">
+            <use xlink:href="#twitter"></use>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/bigdealUK" target="_blank">
+          <span class="visually-hidden">Instagram</span>
+          <svg class="social">
+            <use xlink:href="#instagram"></use>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/user/BigDealGamcare" target="_blank">
+          <span class="visually-hidden">Youtube</span>
+          <svg class="social">
+            <use xlink:href="#youtube"></use>
+          </svg>
+        </a>
       </div>
-      <nav class="col-md">
-        <?php wp_nav_menu( array( 
-          'theme_location' => 'extra-menu',
-          'depth' => 1,
-        ) ); ?>
-        <span class="d-block">&copy; <?php echo esc_html( date_i18n( __( 'y', 'synthetic' ) ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
-        <span class="d-block">GamCare is a registered charity no. 1060005</span>
+      <nav class="col-md text-reset row">
+        <div class="col col-md-12">
+          <?php wp_nav_menu( array( 
+            'theme_location' => 'extra-menu',
+            'depth' => 1,
+          ) ); ?>
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
+            <img src="<?php echo get_theme_file_uri(); ?>/img/footer-logo.png" class="d-none d-md-block mt-2 mb-1" width="140" height="71" alt="BigDeal logo">
+          </a>
+        </div>
+        <div class="col col-md-12">
+          <span class="d-block">&copy; <?php echo esc_html( date_i18n( __( 'y', 'synthetic' ) ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+          <span class="d-block">GamCare is a registered charity no. 1060005</span>
+        </div>
       </div>
     </div>
   </div>

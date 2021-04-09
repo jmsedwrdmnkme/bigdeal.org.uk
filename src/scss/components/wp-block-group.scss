@@ -1,0 +1,12 @@
+//
+// Gutenberg group block
+//
+
+.wp-block-group {
+  @extend .full-width;
+  @extend .py-5;
+
+  &__inner-container {
+    @extend .container;
+  }
+}
