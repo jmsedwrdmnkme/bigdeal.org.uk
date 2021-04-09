@@ -32,7 +32,7 @@ $col_three_link = get_field('column_three_link');
   <div class="container">
     <div class="row text-center text-md-start">
       <div class="col-md-auto order-md-1">
-        <img src="<?php echo $image['url']; ?>" class="img-fluid" alt="<?php echo $image['alt']; ?>">
+        <?php echo wp_get_attachment_image($image, full, '', ['class' => 'img-fluid']); ?>
       </div>
       <div class="col-md mt-3 mt-md-0">
         <?php if (isset($top_title)) { ?><h2 class="display-2 text-reset mb-0"><?php echo $top_title; ?></h2><?php } ?>
