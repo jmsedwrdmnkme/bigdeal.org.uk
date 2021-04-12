@@ -18,6 +18,11 @@ function synthetic_setup() {
   ) );
 }
 
+add_action( 'wp_enqueue_scripts', 'synthetic_scripts' );
+function synthetic_scripts() {
+  wp_enqueue_style( 'synthetic-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+}
+
 // bootstrap 5 wp_nav_menu walker
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
 {
