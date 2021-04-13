@@ -9,8 +9,8 @@
   font-weight: 700;
   font-display: swap;
   src: local(''),
-  url('../fonts/caveat-v10-latin-700.woff2') format('woff2'),
-  url('../fonts/caveat-v10-latin-700.woff') format('woff');
+  url('./fonts/caveat-v10-latin-700.woff2') format('woff2'),
+  url('./fonts/caveat-v10-latin-700.woff') format('woff');
 }
 
 // Oswald
@@ -20,8 +20,8 @@
   font-weight: 700;
   font-display: swap;
   src: local(''),
-  url('../fonts/oswald-v36-latin-700.woff2') format('woff2'),
-  url('../fonts/oswald-v36-latin-700.woff') format('woff');
+  url('./fonts/oswald-v36-latin-700.woff2') format('woff2'),
+  url('./fonts/oswald-v36-latin-700.woff') format('woff');
 }
 
 // Raleway
@@ -31,8 +31,8 @@
   font-weight: 300;
   font-display: swap;
   src: local(''),
-  url('../fonts/raleway-v19-latin-300.woff2') format('woff2'),
-  url('../fonts/raleway-v19-latin-300.woff') format('woff');
+  url('./fonts/raleway-v19-latin-300.woff2') format('woff2'),
+  url('./fonts/raleway-v19-latin-300.woff') format('woff');
 }
 
 @font-face {
@@ -41,8 +41,8 @@
   font-weight: 400;
   font-display: swap;
   src: local(''),
-  url('../fonts/raleway-v19-latin-regular.woff2') format('woff2'),
-  url('../fonts/raleway-v19-latin-regular.woff') format('woff');
+  url('./fonts/raleway-v19-latin-regular.woff2') format('woff2'),
+  url('./fonts/raleway-v19-latin-regular.woff') format('woff');
 }
 
 @font-face {
@@ -51,8 +51,8 @@
   font-weight: 600;
   font-display: swap;
   src: local(''),
-  url('../fonts/raleway-v19-latin-600.woff2') format('woff2'),
-  url('../fonts/raleway-v19-latin-600.woff') format('woff');
+  url('./fonts/raleway-v19-latin-600.woff2') format('woff2'),
+  url('./fonts/raleway-v19-latin-600.woff') format('woff');
 }
 
 @font-face {
@@ -61,8 +61,8 @@
   font-weight: 700;
   font-display: swap;
   src: local(''),
-  url('../fonts/raleway-v19-latin-700.woff2') format('woff2'),
-  url('../fonts/raleway-v19-latin-700.woff') format('woff');
+  url('./fonts/raleway-v19-latin-700.woff2') format('woff2'),
+  url('./fonts/raleway-v19-latin-700.woff') format('woff');
 }
 
 //
@@ -89,6 +89,13 @@ h5,
 
 h2 {
   @extend .mb-4;
+}
+
+h6,
+.h6 {
+  text-transform: inherit !important;
+  color: $purple;
+  margin-bottom: 1rem !important;
 }
 
 [class*="display-"] {

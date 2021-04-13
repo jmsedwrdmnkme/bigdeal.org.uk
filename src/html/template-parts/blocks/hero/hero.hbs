@@ -60,8 +60,19 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
     }
 
     .hero + * {
-      margin-top: -15rem;
       position: relative;
+    }
+
+    @media (max-width: 991.98px) {
+      .hero + * {
+        margin-top: -15rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .hero + * {
+        margin-top: -35%;
+      }
     }
   </style>
 </div>

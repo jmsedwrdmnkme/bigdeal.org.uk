@@ -1,5 +1,27 @@
-<?php $args = array(
-'prev_text' => sprintf( esc_html__( '%s older', 'synthetic' ), '<span class="meta-nav">&larr;</span>' ),
-'next_text' => sprintf( esc_html__( 'newer %s', 'synthetic' ), '<span class="meta-nav">&rarr;</span>' )
-);
-the_posts_navigation( $args ); ?>
+<div class="text-center pt-4" id="load-more-posts">
+  <button class="btn btn-primary" type="button">Load More</button>
+</div>
+
+<?php $nonce = wp_create_nonce('extra-special'); ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  offset = 6;
+  jQuery('#load-more-posts button').click(function() {
+    var ajax_url = '/wp-admin/admin-ajax.php';
+    var data = {
+      'action': 'load_more_posts',
+      'offset': offset,
+      'security': '<?php echo $nonce; ?>',
+    };
+
+    jQuery.post(ajax_url, data, function(response) {
+      if (response !== ''){
+        jQuery('#extra-posts').append(response);
+        offset += 6;
+        jQuery('#extra-posts').css('opacity', '1');
+      } else {
+        jQuery('#load-more-posts').hide();
+      }
+    });
+  });
+</script>

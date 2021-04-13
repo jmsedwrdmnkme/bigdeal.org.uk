@@ -4,7 +4,10 @@
 
 .wp-block-group {
   @extend .full-width;
-  @extend .py-5;
+
+  &:not([class*="py"]) {
+    @extend .py-5;
+  }
 
   &__inner-container {
     @extend .container;

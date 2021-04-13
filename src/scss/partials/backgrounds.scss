@@ -25,11 +25,17 @@
     z-index: -1;
   }
 
+  &.center {
+    &::before {
+      background-size: cover;
+      bottom: 15%;
+    }
+  }
+
   > * {
     @extend .mb-3;
   }
 }
-
 
 .bg-green-offset {
   position: relative;
@@ -49,4 +55,19 @@
     min-width: 50rem;
     z-index: -1;
   }
+
+  &.center {
+    &::before {
+      background-size: cover;
+      bottom: 15%;
+    }
+  }
+}
+
+.bg-green-band {
+  @extend .text-white;
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='427' viewBox='0 0 1440 427' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1440V412H734.5L718 427L701.5 412H0V0Z' fill='%2326A195'/%3E%3C/svg%3E%0A");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
 }

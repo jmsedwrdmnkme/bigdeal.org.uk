@@ -113,11 +113,11 @@ function csslint() {
 
 function cssnoncritical() {
   return gulp
-    .src('./src/scss/main.scss', { allowEmpty: true })
+    .src('./src/scss/style.scss', { allowEmpty: true })
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
-    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/css/'));
+    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/'));
 }
 
 

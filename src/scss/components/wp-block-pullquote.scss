@@ -1,0 +1,9 @@
+//
+// Gutenberg pullquote block
+//
+
+.wp-block-pullquote {
+  padding: $spacer;
+  @extend .fw-bold;
+  @extend .text-white;
+}
