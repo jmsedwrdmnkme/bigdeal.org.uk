@@ -1,12 +1,62 @@
 <?php get_header(); ?>
-<main id="content single">
+<main id="content" class="my-n5">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <?php get_template_part( 'entry' ); ?>
-  <?php if ( comments_open() && ! post_password_required() ) { comments_template( '', true ); } ?>
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <header class="full-width pt-4 pt-md-5 bg-indigo-offset text-center text-md-start">
+        <div class="container">
+          <h1 class="post-title text-white"><?php the_title(); ?></h1>
+          <?php if ( has_post_thumbnail() ) : ?>
+            <?php the_post_thumbnail(array(933, 425), ['class' => 'post-image img-fluid']); ?>
+          <?php endif; ?>
+          <div class="post-meta d-flex">
+            <span class="post-category col-auto">
+              <?php
+              $categories = get_the_category();
+              if ( ! empty( $categories ) ) {
+                foreach( $categories as $category ) {
+                  echo '<span class="btn btn-blue text-white">'. esc_html( $category->name ) .'</span>';
+                }
+              }
+              ?>
+            </span>
+            <span class="post-author col-auto btn">Written by <?php the_author(); ?></span>
+            <span class="post-date col-auto ms-auto"><?php the_time( get_option( 'date_format' ) ); ?></span>
+          </div>
+        </div>
+      </header>
+      <div class="py-3">
+        <?php the_content(); ?>
+      </div>
+      <footer class="pb-5">
+        <div class="post-share">
+          <p class="h2">Share this blog:</p>
+          <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
+            <span class="visually-hidden">Share on Twitter</span>
+            <svg class="social">
+              <use xlink:href="#facebook"></use>
+            </svg>
+          </a>
+          <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
+            <span class="visually-hidden">Share on Twitter</span>
+            <svg class="social">
+              <use xlink:href="#twitter"></use>
+            </svg>
+          </a>
+          <script>
+            const encodedPageUrl = encodeURI(window.location.href);
+            document.querySelector('.facebook').href += encodedPageUrl;
+            document.querySelector('.twitter').href += encodedPageUrl;
+          </script>
+        </div>
+        <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="post-back d-block mt-5 fw-bold">Back to all blogs</a>
+      </footer>
+
+    </article>
   <?php endwhile; endif; ?>
-  <footer class="footer">
-    <?php get_template_part( 'nav', 'below-single' ); ?>
-  </footer>
+  <?php
+    $footer_top = get_post( 298 );
+    $footer_top_content = apply_filters('the_content', $footer_top->post_content);
+    echo $footer_top_content;
+  ?>
 </main>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

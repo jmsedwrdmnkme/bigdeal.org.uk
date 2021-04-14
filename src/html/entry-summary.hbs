@@ -1,8 +1,0 @@
-<div class="mt-auto entry-summary">
-  <?php
-    $excerpt = get_the_excerpt(); 
-    $excerpt = substr( $excerpt, 0, 105 );
-    $result = substr( $excerpt, 0, strrpos( $excerpt, ' ' ) );
-    echo $result;
-  ?>
-</div>
