@@ -1,0 +1,34 @@
+.accordion-button {
+  font-weight: bold !important;
+
+  &:not(.collapsed) {
+    &::before {
+      background-image: escape-svg($accordion-button-active-icon);
+      transform: $accordion-icon-transform;
+    }
+
+    &::after {
+      background-image: none;
+    }
+  }
+
+  &::before {
+    flex-shrink: 0;
+    width: $accordion-icon-width;
+    height: $accordion-icon-width;
+    margin-right: $spacer;
+    content: "";
+    background-image: escape-svg($accordion-button-icon);
+    background-repeat: no-repeat;
+    background-size: $accordion-icon-width;
+    @include transition($accordion-icon-transition);
+  }
+
+  &::after {
+    content: inherit;
+  }
+}
+
+.accordion-body {
+  margin-left: 3rem;
+}

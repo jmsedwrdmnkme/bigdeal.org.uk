@@ -57,6 +57,12 @@
         }
       }
     }
+
+    .is-style-fill {
+      .wp-block-button__link {
+        background-color: $primary !important;
+      }
+    }
   }
 
   [src*="icon"] {

@@ -32,7 +32,7 @@
 .bg-primary,
 .bg-yellow,
 .bg-primary-offset {
-  .is-style-fill {
+  :not(.is-style-outline) {
     .wp-block-button__link {
       background-color: $white !important;
       border-color: transparent !important;
