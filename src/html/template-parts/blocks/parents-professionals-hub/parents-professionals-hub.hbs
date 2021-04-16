@@ -1,0 +1,84 @@
+<?php
+/**
+ * Parents and professionals hub block
+ *
+ * @package      Synthetic
+ * @author       James Monk
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
+
+// disable block frontend wrapper.
+add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
+?>
+<div class="text-center">
+  <?php $image =  get_field('image'); echo wp_get_attachment_image($image, full, '', ['class' => 'img-fluid']); ?>
+  <h1><?php echo get_field('title'); ?></h1>
+  <?php echo get_field('text'); ?>
+  <div class="row justify-content-center mt-4">
+    <?php if( have_rows('section') ): while ( have_rows('section') ) : the_row();?>
+      <div class="col-auto">
+        <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="btn btn-lg btn-purple text-white">I am a <?php echo substr(get_sub_field('title'), 0, -1); ?></a>
+      </div>
+    <?php endwhile; endif;?>
+  </div>
+</div>
+
+<div class="row mt-5 position-relative">
+  <div class="hub-aside col-md-4">
+    <div class="card px-3 py-4 sticky-top">
+      <p class="text-orange h4">Section</p>
+      <ul class="nav flex-column">
+        <?php if( have_rows('section') ): while ( have_rows('section') ) : the_row();?>
+          <li class="nav-item">
+            <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="text-decoration-none py-2 d-block lh-sm">For <?php echo get_sub_field('title'); ?></a>
+          </li>
+        <?php endwhile; endif;?>
+      </ul>
+      <p class="text-orange h4 mt-3">On this page</p>
+      <ul class="nav flex-column aside-nav"></ul>
+    </div>
+  </div>
+  <div class="hub-main col-md ps-md-5">
+    <?php if( have_rows('section') ): while ( have_rows('section') ) : the_row();?>
+      <div id="<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>">
+        <h2 class="visually-hidden"><?php echo ucfirst(get_sub_field('title')); ?></h2>
+        <?php if( have_rows('content_block') ): while ( have_rows('content_block') ) : the_row();?>
+          <div class="mb-5">
+            <div class="row">
+              <div class="col-auto">
+                <?php $image =  get_sub_field('image'); echo wp_get_attachment_image($image, full, '', ['class' => 'img-fluid']); ?>
+              </div>
+              <h3 class="col h6 text-purple"><?php echo get_sub_field('title'); ?></h3>
+            </div>
+            <?php echo get_sub_field('text'); ?>
+          </div>
+        <?php endwhile; endif;?>
+      </div>
+    <?php endwhile; endif;?>
+  </div>
+</div>
+
+<style>
+  [id]:target:before {
+    content: "";
+    display: block;
+    height: 50px;
+    margin: -50px 0 0;
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+    let asideNav = document.querySelector('.aside-nav');
+
+    const headers = document.querySelectorAll('.hub-main h3');
+    headers.forEach(function (item, index) {
+      const title = item.innerHTML;
+      const handle = title.toLowerCase().replace(/[^\w\u00C0-\u024f]+/g, "-").replace(/^-+|-+$/g, "");
+      item.id = handle;
+      asideNav.innerHTML = asideNav.innerHTML + '<li class="nav-item">\n<a href="#' + handle + '" class="text-decoration-none py-2 d-block lh-sm">' + title + '</li>';
+    });
+  })();
+</script>
