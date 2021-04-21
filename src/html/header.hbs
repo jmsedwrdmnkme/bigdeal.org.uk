@@ -12,11 +12,11 @@
 <body <?php body_class(); ?>>
 <div class="d-none">{{> global/sprite }}</div>
 <a class="visually-hidden-focusable" href="#content">Skip to main content</a>
-<header>
+<header class="bg-white sticky-top">
   <div class="container-fluid">
     <div class="row align-items-center py-2">
       <a class="col-auto" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
-        <img src="<?php echo get_theme_file_uri(); ?>/img/header-logo.png" class="header-logo" width="140" height="71" alt="BigDeal logo">
+        <img src="<?php echo get_theme_file_uri(); ?>/img/header-logo.svg" class="header-logo" width="128" height="56" alt="BigDeal logo">
         <span class="visually-hidden"><?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }  echo esc_html( get_bloginfo( 'name' ) ); if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; } ?></span>
       </a>
       <div class="header-description col">
@@ -68,5 +68,4 @@
     </div>
   </nav>
 </header>
-<div class="overflow-hidden">
 <div class="container py-5">

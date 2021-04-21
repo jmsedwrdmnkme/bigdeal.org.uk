@@ -19,6 +19,10 @@
     @include media-breakpoint-down(sm) {
       margin-top: 2rem;
     }
+
+    @include media-breakpoint-up(md) {
+      margin-left: 1rem;
+    }
   }
 
   &.card {
@@ -119,12 +123,36 @@
       }
     }
 
-    > *:last-child {
+    > *:not(ul):last-child {
       margin-top: auto;
     }
   }
 }
 
+// Heading number styling
+h3 {
+  &.space {
+    overflow: hidden;
+    font-size: 1.66rem !important;
+  }
+
+  strong {
+    font-family: $headings-font-family !important;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 0.75rem;
+    margin: -2rem 0;
+    position: relative;
+    top: -0.33rem;
+    font-size: 3.666rem;
+    vertical-align: middle;
+
+    @include media-breakpoint-between(sm, lg) {
+      display: none;
+    }
+  }
+}
 
 // About page Gamcare block
 .gamcare {
@@ -176,5 +204,55 @@
 
   p {
     margin: 0;
+  }
+}
+
+.gambling-risk {
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    overflow: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='23' height='33' viewBox='0 0 23 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.8104 3.06668C16.258 3.40688 15.9613 3.81672 15.8244 4.15877C14.2779 9.2827 12.6904 14.443 11.185 19.5306C10.9843 20.2972 10.6191 20.5468 9.85638 20.2646C9.74221 20.2184 9.62803 20.1721 9.43623 20.121C5.94267 19.2366 5.94267 19.2366 6.80471 15.823C7.94961 11.5699 8.74744 7.25576 10.1983 3.10004C10.6637 1.80457 11.2253 1.52846 12.4036 2.03196C13.4722 2.41159 14.623 2.71849 15.8104 3.06668Z' fill='white'/%3E%3Cpath d='M3.34337 24.2428C5.1475 22.5754 7.19028 22.6758 8.83888 24.5386C10.3121 26.2033 10.3861 28.2581 8.96921 29.6534C7.27841 31.2911 4.5556 31.3685 3.14848 29.8574C1.57003 28.0739 1.61749 25.8409 3.34337 24.2428Z' fill='white'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1rem) 1rem;
+
+    &::before {
+      z-index: 0;
+      position: absolute;
+      content: '';
+      box-shadow: -13rem 0 1rem white;
+      height: 200%;
+      width: 100%;
+      border-radius: 50%;
+      top: 50%;
+      left: 11%;
+      transform: translateY(-50%);
+    }
+
+    > * {
+      position: relative;
+    }
+  }
+}
+
+.gambling-navigation {
+  .wp-block-button {
+    @extend .w-100;
+    display: block;
+  }
+
+  .wp-block-button__link {
+    display: block;
+    font-size: 0.875rem !important;
+  }
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.position-sm-absolute {
+  @include media-breakpoint-up(sm) {
+    position: absolute;
   }
 }

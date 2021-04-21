@@ -1,0 +1,25 @@
+<div class="col-md-6 col-lg-4 d-flex mb-3 post-wrapper">
+  <article id="post-<?php the_ID(); ?>" <?php post_class(['class' => 'd-flex']); ?>>
+    <div class="card p-3">
+      <header>
+        <?php if ( has_post_thumbnail() ) : ?>
+          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+            <?php the_post_thumbnail( array(532, 225), ['class' => 'img-fluid']); ?>
+          </a>
+        <?php endif; ?>
+        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="text-decoration-none" rel="bookmark">
+          <h3 class="entry-title my-3"><?php the_title(); ?></h3>
+        </a>
+      </header>
+      <div class="mt-auto entry-summary">
+        <?php
+          $excerpt = get_the_excerpt(); 
+          $excerpt = substr( $excerpt, 0, 105 );
+          $result = substr( $excerpt, 0, strrpos( $excerpt, ' ' ) );
+          echo $result;
+        ?>
+      </div>
+      <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="footer-link">Read more</a>
+    </div>
+  </article>
+</div>

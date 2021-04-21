@@ -2,6 +2,61 @@
 <main id="content" class="my-n5">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <?php if (get_post_type() == "personal_stories") { ?>
+      <?php
+        $personal_stories_hero = get_post( 280 );
+        $personal_stories_hero_content = apply_filters('the_content', $personal_stories_hero->post_content);
+        echo $personal_stories_hero_content;
+      ?>
+
+      <div class="wp-block-group position-relative mb-n5">
+        <div class="wp-block-group__inner-container">
+          <div class="wp-block-columns">
+            <div class="wp-block-column card block-heading blue">
+              <header>
+                <h1 class="has-text-align-center h3 display-2"><?php the_title(); ?></h1>
+              </header>
+              <?php the_content(); ?>
+              <footer class="pt-2">
+                <div class="post-share">
+                  <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
+                    <span class="visually-hidden">Share on Twitter</span>
+                    <svg class="social">
+                      <use xlink:href="#facebook"></use>
+                    </svg>
+                  </a>
+                  <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
+                    <span class="visually-hidden">Share on Twitter</span>
+                    <svg class="social">
+                      <use xlink:href="#twitter"></use>
+                    </svg>
+                  </a>
+                  <script>
+                    const encodedPageUrl = encodeURI(window.location.href);
+                    document.querySelector('.facebook').href += encodedPageUrl;
+                    document.querySelector('.twitter').href += encodedPageUrl;
+                  </script>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        h1 { text-transform: inherit !important; }
+      </style>
+
+      <?php
+        $personal_stories = get_post( 171 );
+        $personal_stories_content = apply_filters('the_content', $personal_stories->post_content);
+        echo $personal_stories_content;
+      ?>
+      <style>
+        .bg-green-offset::before { content: inherit; }
+        .bg-green-offset h2::before { content: 'More '; }
+        .bg-green-offset .wp-block-buttons { display: none; }
+      </style>
+    <?php } else { ?>
       <header class="full-width pt-4 pt-md-5 bg-indigo-offset text-center text-md-start">
         <div class="container">
           <h1 class="post-title text-white"><?php the_title(); ?></h1>
@@ -50,11 +105,11 @@
         </div>
         <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="post-back d-block mt-5 fw-bold">Back to all blogs</a>
       </footer>
-
+    <?php } ?>
     </article>
   <?php endwhile; endif; ?>
   <?php
-    $footer_top = get_post( 298 );
+    $footer_top = get_post( 101 );
     $footer_top_content = apply_filters('the_content', $footer_top->post_content);
     echo $footer_top_content;
   ?>

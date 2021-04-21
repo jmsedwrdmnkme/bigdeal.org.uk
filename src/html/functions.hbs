@@ -196,6 +196,16 @@ function my_acf_init_block_types() {
     ));
 
     acf_register_block_type(array(
+      'name'              => 'hero_get_help',
+      'title'             => __('Get help hero'),
+      'description'       => __('get help hero block.'),
+      'render_template'   => 'template-parts/blocks/hero-get-help/hero-get-help.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'hero', 'banner', 'get help' ),
+    ));
+
+    acf_register_block_type(array(
       'name'              => 'footer_help',
       'title'             => __('Footer help'),
       'description'       => __('Footer help block.'),
@@ -203,6 +213,46 @@ function my_acf_init_block_types() {
       'category'          => 'formatting',
       'icon'              => 'admin-comments',
       'keywords'          => array( 'footer', 'help', 'contact' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'personal_stories',
+      'title'             => __('Personal stories'),
+      'description'       => __('Personal stories block.'),
+      'render_template'   => 'template-parts/blocks/personal-stories/personal-stories.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'stories', 'blog', 'post' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'questions',
+      'title'             => __('Questions'),
+      'description'       => __('Questions block.'),
+      'render_template'   => 'template-parts/blocks/questions/questions.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'questions', 'faqs', 'query' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'questions_get_help',
+      'title'             => __('Get help questions'),
+      'description'       => __('Get help questions block.'),
+      'render_template'   => 'template-parts/blocks/questions-get-help/questions-get-help.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'questions', 'faqs', 'get help' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'parents_professionals_hub',
+      'title'             => __('Parents and professionals'),
+      'description'       => __('Parents and professionals block.'),
+      'render_template'   => 'template-parts/blocks/parents-professionals-hub/parents-professionals-hub.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'hub', 'parents', 'professional' ),
     ));
   }
 }
@@ -239,3 +289,83 @@ function load_more_posts() {
   }
   wp_die();
 }
+
+// Custom post types
+function cptui_register_my_cpts() {
+
+	/**
+	 * Post Type: Personal stories.
+	 */
+
+	$labels = [
+		"name" => __( "Personal stories", "synthetic" ),
+		"singular_name" => __( "Personal story", "synthetic" ),
+	];
+
+	$args = [
+		"label" => __( "Personal stories", "synthetic" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "personal_stories", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "excerpt" ],
+	];
+
+	register_post_type( "personal_stories", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts' );
+
+function cptui_register_my_cpts_personal_stories() {
+
+	/**
+	 * Post Type: Personal stories.
+	 */
+
+	$labels = [
+		"name" => __( "Personal stories", "synthetic" ),
+		"singular_name" => __( "Personal story", "synthetic" ),
+	];
+
+	$args = [
+		"label" => __( "Personal stories", "synthetic" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "personal_stories", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "excerpt" ],
+	];
+
+	register_post_type( "personal_stories", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_personal_stories' );
+

@@ -5,7 +5,7 @@
 // Colours
 $blue:    #5ecbd4;
 $indigo:  #6d5cb8;
-$purple:  #312c77;
+$purple:  #2E008B;
 $red:     #e83942;
 $orange:  #f59422;
 $yellow:  #f7c844;
@@ -53,14 +53,14 @@ $grid-breakpoints: (
   xs: 0,
   sm: 600px,
   md: 768px,
-  lg: 992px
+  lg: 1024px
 );
 
 // Grid containers
 $container-max-widths: (
   sm: 540px,
   md: 720px,
-  lg: 960px
+  lg: 987px
 );
 
 // Typography
@@ -180,3 +180,20 @@ $card-spacer-y:                     $spacer * 1.5;
 $card-spacer-x:                     $spacer * 1.5;
 $card-border-width:                 0;
 $card-border-radius:                0.5rem;
+
+// Accordion
+$accordion-padding-x:                     0;
+$accordion-border-color:                  $secondary;
+
+$accordion-button-active-bg:              none;
+$accordion-button-active-color:           none;
+$accordion-button-focus-border-color:     none;
+$accordion-button-focus-box-shadow:       none;
+
+$accordion-icon-width:                    1.88rem;
+$accordion-icon-color:                    $primary;
+$accordion-icon-transition:               none;
+$accordion-icon-transform:                none;
+
+$accordion-button-icon:         url("data:image/svg+xml,%3Csvg width='34' height='34' viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19.8672 2C19.8672 0.895431 18.9718 0 17.8672 0C16.7626 0 15.8672 0.895431 15.8672 2V14.8889H2C0.895431 14.8889 0 15.7843 0 16.8889C0 17.9935 0.895431 18.8889 2 18.8889H15.8672V32C15.8672 33.1046 16.7626 34 17.8672 34C18.9718 34 19.8672 33.1046 19.8672 32V18.8889H32C33.1046 18.8889 34 17.9935 34 16.8889C34 15.7843 33.1046 14.8889 32 14.8889H19.8672V2Z' fill='#{$accordion-icon-color}'/%3E%3C/svg%3E%0A");
+$accordion-button-active-icon:  url("data:image/svg+xml,%3Csvg width='34' height='34' viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='2' y1='17' x2='32' y2='17' stroke='#{$accordion-icon-color}' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E%0A");

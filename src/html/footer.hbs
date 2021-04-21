@@ -1,8 +1,7 @@
 </div>
-</div>
 <footer class="footer bg-purple text-white py-5">
   <div class="container">
-    <img src="<?php echo get_theme_file_uri(); ?>/img/footer-logo.png" class="d-md-none mt-n3 mb-4" width="140" height="71" alt="BigDeal logo">
+    <img src="<?php echo get_theme_file_uri(); ?>/img/footer-logo.svg" class="d-md-none mt-n3 mb-4" width="208" height="46" alt="BigDeal logo">
     <div class="row">
       <nav class="col-md">
         <span class="d-block fw-bold">Topics to explore</span>
@@ -45,7 +44,7 @@
             'depth' => 1,
           ) ); ?>
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
-            <img src="<?php echo get_theme_file_uri(); ?>/img/footer-logo.png" class="d-none d-md-block mt-2 mb-1" width="140" height="71" alt="BigDeal logo">
+            <img src="<?php echo get_theme_file_uri(); ?>/img/footer-logo.svg" class="d-none d-md-block mt-2 mb-1" width="208" height="46" alt="BigDeal logo">
           </a>
         </div>
         <div class="col col-md-12">
@@ -56,7 +55,9 @@
     </div>
   </div>
 </footer>
-<script>{{> global/loadjs.min }}loadjs('<?php echo get_theme_file_uri(); ?>/js/main.js');{{> global/js }}</script>
+<script>
+  {{> global/loadjs.min }}loadjs('<?php echo get_theme_file_uri(); ?>/js/main.js');{{> global/js }}
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>
