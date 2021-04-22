@@ -39,24 +39,26 @@
     p {
       @extend .card-text;
 
-      a {
-        &:not(.wp-block-button__link) {
-          display: inline-block;
-          position: relative;
-          text-decoration: none;
-          font-weight: $font-weight-bold;
-          margin-top: $spacer;
-
-          &::before {
-            content: '';
+      &:not(.strip) {
+        a {
+          &:not(.wp-block-button__link) {
             display: inline-block;
-            background-image: url("data:image/svg+xml,%3Csvg width='17' height='19' viewBox='0 0 17 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5 8.63397C17.1667 9.01887 17.1667 9.98113 16.5 10.366L2.25 18.5933C1.58333 18.9782 0.75 18.497 0.75 17.7272V1.27276C0.75 0.502958 1.58333 0.0218328 2.25 0.406733L16.5 8.63397Z' fill='%23F7C844'/%3E%3C/svg%3E%0A");
-            height: 1rem;
-            width: 1rem;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: 100%;
-            margin: 0 .5rem -0.2em 0;
+            position: relative;
+            text-decoration: none;
+            font-weight: $font-weight-bold;
+            margin-top: $spacer;
+
+            &::before {
+              content: '';
+              display: inline-block;
+              background-image: url("data:image/svg+xml,%3Csvg width='17' height='19' viewBox='0 0 17 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5 8.63397C17.1667 9.01887 17.1667 9.98113 16.5 10.366L2.25 18.5933C1.58333 18.9782 0.75 18.497 0.75 17.7272V1.27276C0.75 0.502958 1.58333 0.0218328 2.25 0.406733L16.5 8.63397Z' fill='%23F7C844'/%3E%3C/svg%3E%0A");
+              height: 1rem;
+              width: 1rem;
+              background-repeat: no-repeat;
+              background-position: 50% 50%;
+              background-size: 100%;
+              margin: 0 .5rem -0.2em 0;
+            }
           }
         }
       }
@@ -185,13 +187,12 @@ h3 {
     top: 2rem;
 
     @include media-breakpoint-between(md, lg) {
-      left: 1.5rem;
-      top: 1.5rem;
+      left: 2.35rem;
     }
 
     @include media-breakpoint-up(lg) {
-      top: 1.3rem;
-      left: 3rem;
+      top: 2.05rem;
+      left: 3.65rem;
     }
 
     img {

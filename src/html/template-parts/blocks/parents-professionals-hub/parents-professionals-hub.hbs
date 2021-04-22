@@ -22,7 +22,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       if( have_rows('section') ): while ( have_rows('section') ) : the_row();
         $counter++; ?>
         <div class="col-auto pb-2">
-          <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="btn-toggle btn btn<?php if ($counter > 1) : echo '-outline'; endif; ?>-purple text-white">I am a <?php echo substr(get_sub_field('title'), 0, -1); ?></a>
+          <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="btn-toggle btn btn<?php if ($counter > 1) : echo '-outline'; endif; ?>-purple text-white"><?php if ($counter == 1) : echo 'I am a '. substr(get_sub_field('title'), 0, -1); else : echo 'I work with young people'; ; endif; ?></a>
         </div>
       <?php endwhile; endif;?>
     </div>
@@ -92,13 +92,6 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 </div>
 
 <style>
-  [id]:target:before {
-    content: "";
-    display: block;
-    height: 150px;
-    margin: -150px 0 0;
-  }
-
   .section-content ul {
     list-style: none;
     padding: 0;
@@ -245,6 +238,11 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       });
       sectionContent[index].classList.remove('visually-hidden');
 
+      footerContent.forEach(function (item, index) {
+        item.classList.add('visually-hidden');
+      });
+      footerContent[index].classList.remove('visually-hidden');
+
       document.getElementById(item.hash.substr(1)).scrollIntoView();
     });
   });
@@ -276,6 +274,11 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         item.classList.add('visually-hidden');
       });
       sectionContent[index].classList.remove('visually-hidden');
+
+      footerContent.forEach(function (item, index) {
+        item.classList.add('visually-hidden');
+      });
+      footerContent[index].classList.remove('visually-hidden');
 
       document.getElementById(item.hash.substr(1)).scrollIntoView();
     });

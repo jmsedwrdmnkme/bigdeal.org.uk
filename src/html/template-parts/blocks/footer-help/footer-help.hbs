@@ -18,15 +18,12 @@ $image = get_field('image');
 
 $col_one_title = get_field('column_one_title');
 $col_two_title = get_field('column_two_title');
-$col_three_title = get_field('column_three_title');
 
 $col_one_text = get_field('column_one_text');
 $col_two_text = get_field('column_two_text');
-$col_three_text = get_field('column_three_text');
 
 $col_one_link = get_field('column_one_link');
 $col_two_tel = get_field('column_two_telephone');
-$col_three_link = get_field('column_three_link');
 ?>
 <aside class="full-width footer-top bg-indigo text-white py-5">
   <div class="container">
@@ -55,15 +52,6 @@ $col_three_link = get_field('column_three_link');
         <p><?php echo $col_two_text; ?></p>
         <?php if (isset($col_two_tel)) { ?>
         <span class="d-block mt-auto fw-bold mb-2"><?php echo $col_two_tel; ?></span>
-        <?php }; ?>
-      </div>
-      <div class="d-none col-md mt-5 border-start border-white py-3 ps-4 d-md-flex flex-column">
-        <h3 class="text-reset"><?php echo $col_three_title; ?></h3>
-        <span><?php echo $col_three_text; ?></span>
-        <?php if (isset($col_three_link)) { ?>
-        <div class="mt-auto w-100">
-          <a href="<?php echo $col_three_link; ?>" class="btn btn-outline-white mt-4"><?php echo $col_three_title; ?></a>
-        </div>
         <?php }; ?>
       </div>
     </div>
