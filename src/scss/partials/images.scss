@@ -19,3 +19,27 @@ a {
     }
   }
 }
+
+.mobile-size {
+  @include media-breakpoint-down(sm) {
+    max-width: 9rem;
+    margin: 0 auto;
+    max-height: 11rem;
+  }
+}
+
+.young-peoples-logo {
+  @include media-breakpoint-down(md) {
+    top: 0 !important;
+
+    img {
+      width: 6rem !important;
+      height: 6rem !important;
+    }
+  }
+}
+
+.wp-block-image img {
+  max-width: 100%;
+  height: auto;
+}

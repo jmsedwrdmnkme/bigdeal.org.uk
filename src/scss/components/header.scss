@@ -13,7 +13,7 @@ header {
   font-family: $headings-font-family;
 
   @include media-breakpoint-down(sm) {
-    font-size: $font-size-sm;
+    font-size: $font-size-sm * 1.475;
   }
 
   @include media-breakpoint-up(sm) {

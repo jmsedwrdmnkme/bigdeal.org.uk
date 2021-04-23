@@ -8,10 +8,10 @@
           </a>
         <?php endif; ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="text-decoration-none" rel="bookmark">
-          <h3 class="entry-title my-3"><?php the_title(); ?></h3>
+          <h3 class="entry-title my-3 text-purple"><?php the_title(); ?></h3>
         </a>
       </header>
-      <div class="mt-auto entry-summary">
+      <div class="mt-auto entry-summary text-purple">
         <?php
           $excerpt = get_the_excerpt(); 
           $excerpt = substr( $excerpt, 0, 105 );

@@ -11,40 +11,42 @@
 // disable block frontend wrapper.
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
-<div class="questions-container position-relative">
-  <div class="questions-form d-flex bg-white p-2 p-md-3 rounded-3 col-lg-8">
-    <input class="form-control border-0 col ms-5" type="text" placeholder="Ask any question here…" id="input">
-    <a href="#search-results" class="btn btn-blue text-white col-auto">Search</a>
-  </div>
+<div class="questions-container full-width position-relative">
+  <div class="container">
+    <div class="questions-form d-flex bg-white p-2 p-md-3 rounded-3 col-lg-7">
+      <input class="form-control border-0 col ms-5" type="text" placeholder="Ask any question here…" id="input">
+      <a href="#search-results" class="btn btn-blue text-white col-auto">Search</a>
+    </div>
 
-  <div class="text-white my-5">
-    <?php the_field('text'); ?>
-  </div>
+    <div class="text-white my-5">
+      <?php the_field('text'); ?>
+    </div>
 
-  <div class="wp-block-group" id="search-results">
-    <div class="wp-block-group__inner-container">
-      <div class="wp-block-columns">
-        <div class="wp-block-column card">
-          <h2 class="question-title">Top questions</h2>
-          <div class="accordion accordion-flush" id="accordionQuestions">
-            <?php
-            $count = 0;
-            if( have_rows('question') ): while ( have_rows('question') ) : the_row();
-              $count++;
-            ?>
-              <div class="accordion-item">
-                <h3 class="accordion-header mb-0" id="question-heading<?php echo '-'.$count; ?>">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapse<?php echo '-'.$count; ?>" aria-expanded="false" aria-controls="accordion-collapse"><?php the_sub_field('title'); ?></button>
-                </h3>
-                <div id="accordion-collapse<?php echo '-'.$count; ?>" class="accordion-collapse collapse" aria-labelledby="question-heading<?php echo '-'.$count; ?>" data-bs-parent="#accordionQuestions">
-                  <div class="accordion-body pt-0">
-                    <?php the_sub_field('text'); ?>
+    <div class="wp-block-group" id="search-results">
+      <div class="wp-block-group__inner-container">
+        <div class="wp-block-columns">
+          <div class="wp-block-column card questions-content">
+            <h2 class="question-title">Top questions</h2>
+            <div class="accordion accordion-flush" id="accordionQuestions">
+              <?php
+              $count = 0;
+              if( have_rows('question') ): while ( have_rows('question') ) : the_row();
+                $count++;
+              ?>
+                <div class="accordion-item">
+                  <h3 class="accordion-header mb-0" id="question-heading<?php echo '-'.$count; ?>">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapse<?php echo '-'.$count; ?>" aria-expanded="false" aria-controls="accordion-collapse"><?php the_sub_field('title'); ?></button>
+                  </h3>
+                  <div id="accordion-collapse<?php echo '-'.$count; ?>" class="accordion-collapse collapse" aria-labelledby="question-heading<?php echo '-'.$count; ?>" data-bs-parent="#accordionQuestions">
+                    <div class="accordion-body pt-0">
+                      <?php the_sub_field('text'); ?>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <?php
-              endwhile; endif;
-            ?>
+              <?php
+                endwhile; endif;
+              ?>
+            </div>
           </div>
         </div>
       </div>
@@ -52,15 +54,19 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
   </div>
 </div>
 <style>
-  @media (max-width: 991.98px) {
-    .hero + .questions-container {
-      margin-top: -17rem;
+  @media (max-width: 1023.98px) {
+    .questions-container .container {
+      margin-top: -2rem;
     }
   }
 
-  @media (min-width: 992px) {
-    .hero + .questions-container {
-      margin-top: -47% !important;
+  @media (min-width: 1024px) {
+    .questions-container .container {
+      margin-top: -16rem;
+    }
+
+    h1 {
+      margin-right: -3.333rem !important;
     }
   }
 
@@ -68,6 +74,12 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
     background-image: url("data:image/svg+xml,%3Csvg width='41' height='38' viewBox='0 0 41 38' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27 15.5C27 21.8513 21.8513 27 15.5 27C9.14873 27 4 21.8513 4 15.5C4 9.14873 9.14873 4 15.5 4C21.8513 4 27 9.14873 27 15.5ZM25.5344 27.314C22.8305 29.6129 19.3272 31 15.5 31C6.93959 31 0 24.0604 0 15.5C0 6.93959 6.93959 0 15.5 0C24.0604 0 31 6.93959 31 15.5C31 18.791 29.9744 21.8424 28.2253 24.3521L39.6 34.1054C40.4386 34.8244 40.5355 36.087 39.8165 36.9255C39.0975 37.764 37.8349 37.8609 36.9963 37.142L25.5344 27.314Z' fill='%236D5CB8'/%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
     background-position: 1rem center;
+  }
+
+  .questions-content {
+    background-image: url("data:image/svg+xml,%3Csvg width='26' height='46' viewBox='0 0 26 46' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.7568 10.7057C16.9699 10.0596 17.1641 9.66038 17.1704 9.57807C17.1767 9.49576 17.2707 9.33733 17.3647 9.1789C17.6592 8.53899 17.8535 8.13982 17.8723 7.89287L17.9349 7.06974C17.9537 6.8228 17.9662 6.65817 17.891 6.56966C17.891 6.56966 17.6528 6.46875 17.4084 6.45015C16.8318 6.48907 15.992 6.75633 14.9829 7.09351C13.9676 7.513 13.203 7.86878 12.7706 8.16704C12.3319 8.54761 11.7115 9.16273 10.972 10.2655C10.2387 11.286 9.775 11.9958 9.74995 12.3251C9.64342 12.6481 9.53689 12.9712 9.36141 13.1234C9.18593 13.2757 9.06688 13.7633 8.84756 14.4918C8.62824 15.2202 8.50919 15.7079 8.49666 15.8725C8.47788 16.1194 8.55309 16.208 8.79752 16.2266C9.19864 16.3399 9.10464 16.4983 8.35256 16.6894C8.26482 16.7656 8.02039 16.747 7.69448 16.7222C7.36858 16.6974 7.20562 16.685 7.13041 16.5965C6.39712 16.5407 5.996 16.4274 5.85184 16.168C5.44445 16.137 4.96812 15.9352 4.50431 15.5687C4.0405 15.2023 3.74591 14.7659 3.61427 14.342C3.16919 12.6523 3.44488 11.1831 4.44759 9.85191C5.04918 8.40746 5.69467 7.46309 6.29632 7.09491C7.13607 5.75137 7.59982 5.04154 7.69382 4.88312C7.8693 4.73089 7.95704 4.65477 8.12 4.66717C8.31426 4.268 8.41453 4.02726 8.42079 3.94494C8.42705 3.86263 8.60253 3.7104 8.94723 3.48826C9.29192 3.26611 9.63035 3.12628 9.80583 2.97405C10.2383 2.67579 10.42 2.44125 10.4325 2.27662C10.677 2.29522 10.9277 2.2315 11.1783 2.16779C11.7549 2.12887 12.0996 1.90672 12.2814 1.67218C12.5258 1.69078 13.0209 1.64566 13.773 1.45451C14.5251 1.26336 15.5091 1.25544 16.8002 1.51925C16.9569 1.61396 17.3517 1.80959 17.897 2.18224C18.4423 2.55488 18.7557 2.74431 18.8371 2.75051C18.9124 2.83902 18.9938 2.84522 19.1505 2.93993C19.4702 3.04704 19.6958 3.31258 19.9152 3.66043C20.2348 3.76754 20.5482 3.95697 20.8616 4.14639C21.2439 4.50664 21.7077 4.87309 22.2655 5.08111L23.1994 5.7317C23.682 5.8512 24.0831 5.96451 24.3276 5.98311C24.4905 5.99551 24.6347 6.25485 24.8353 6.84964C24.7602 8.91368 23.651 11.6442 21.514 14.9588C21.4137 15.1995 21.1317 15.6748 20.7683 16.1439C20.3985 16.6953 20.2042 17.0944 20.1854 17.3414C19.7092 18.2158 18.4809 20.3577 16.4943 23.8493C14.5077 27.341 13.3735 29.3244 13.0037 29.8758C13.0037 29.8758 12.8345 29.9457 12.6527 30.1803C12.471 30.4148 12.3833 30.4909 12.2955 30.567L11.9195 31.2007C11.907 31.3654 11.65 31.5114 11.2364 31.5627C10.9857 31.6264 10.6535 31.684 10.4154 31.583L8.5414 31.4405C7.57621 31.2014 7.10614 30.9173 6.94945 30.8226C6.79902 30.6456 6.75512 30.1455 6.81775 29.3224C7.01816 26.6883 7.66985 24.5854 8.8543 23.0197C9.33684 22.0629 9.71911 21.3469 10.0889 20.7955C10.4586 20.2441 10.7343 19.8511 10.8409 19.5281C10.9474 19.205 11.3046 18.8182 11.9188 18.2854C12.2133 17.6455 12.4891 17.2525 12.7586 16.9419C12.9278 16.872 13.285 16.4852 13.661 15.8515C14.1185 15.224 14.319 14.7425 14.3315 14.5779C14.3503 14.3309 14.5258 14.1787 14.8705 13.9565C14.883 13.7919 14.9833 13.5512 15.2528 13.2405C15.2966 12.6643 15.4094 12.259 15.6726 12.0306C15.9358 11.8023 16.0424 11.4792 16.0674 11.15C16.1802 10.7446 16.3494 10.6747 16.7568 10.7057ZM5.60234 37.7573C5.64618 37.1811 5.83419 36.8642 6.0034 36.7943C6.17262 36.7244 6.33557 36.7368 6.41079 36.8253C6.56748 36.92 7.21303 37.0519 8.51039 37.2334C8.88019 37.7583 9.10584 38.0238 9.344 38.1247C10.2466 39.1869 10.7856 39.6419 11.1115 39.6667C11.4374 39.6915 11.5753 40.0331 11.4562 40.5208C11.4187 41.0147 11.1367 41.49 10.7732 41.959C10.1089 43.1504 9.30672 44 8.35412 44.6726C7.93421 44.8063 7.60204 44.8638 7.35761 44.8452C7.11318 44.8266 6.46763 44.6947 5.50244 44.4557C4.45577 44.2105 3.91048 43.8378 3.78511 43.3315L3.89157 41.9322C3.94794 41.1914 4.06073 40.786 4.23621 40.6338C4.48064 40.6524 4.58717 40.3293 4.63101 39.7531L4.8879 38.5308C5.14486 38.3848 5.40807 38.1564 5.60234 37.7573Z' fill='%235ECBD4'/%3E%3C/svg%3E%0A");
+    background-position: calc(100% - 1.5rem) 1.5rem;
+    background-repeat: no-repeat;
   }
 </style>
 

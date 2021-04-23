@@ -19,17 +19,17 @@ $button_link = get_field('button_link');
 // disable block frontend wrapper.
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
-<div class="full-width hero bg-indigo text-white py-5 text-center text-lg-start">
-  <div class="container pt-lg-4 pb-5 mb-5">
-    <div class="row justify-content-between pb-5 mb-5">
-      <div class="col-lg<?php echo ( $image_position == 'right' ) ? '-6 order-lg-1' : '-5'; ?>">
+<div class="full-width hero bg-indigo text-white pt-5 text-center text-lg-start">
+  <div class="container pt-lg-4">
+    <div class="row justify-content-between">
+      <div class="col-lg-6<?php if ( $image_position == 'right' ) : echo ' order-lg-1'; endif; ?>">
         <?php echo wp_get_attachment_image($image, full, '', ['class' => 'img-fluid']); ?>
       </div>
-      <div class="col-lg<?php echo ( $image_position == 'right' ) ? '-5' : '-6'; ?> mt-n5 mt-lg-0">
+      <div class="col-lg-6 mt-n5 mt-lg-0">
         <?php if ( !is_front_page() ) : echo '<h1 class="mb-0">'; endif; ?>
         <span class="d-block display-1"><?php echo $page_title; ?></span>
         <?php if ( !is_front_page() ) : echo '</h1>'; endif; ?>
-        <span class="d-block h1 text-white col-lg-10"><?php echo $page_tagline; ?></span>
+        <span class="d-block h1 text-white col-lg-11"><?php echo $page_tagline; ?></span>
         <div class="fs-4 pt-4 pb-3"><?php echo $hero_text; ?></div>
         <?php if ($button_text) : ?>
         <a href="<?php echo $button_link; ?>" class="btn btn-outline-primary"><?php echo $button_text; ?></a>
@@ -38,39 +38,27 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
     </div>
   </div>
   <style>
-    .hero {
-      position: relative;
-      margin-bottom: 1.45vw;
-    }
-
-    .hero::before {
-      content: '';
-      height: 1.45vw;
-      position: absolute;
-      width: 100%;
-      top: calc(100% - 2px);
-      left: 50%;
-      transform: translateX(-50%);
-      background-image: url("data:image/svg+xml,%3Csvg width='1440' height='19' viewBox='0 0 1440 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 7.50066C68 11.1064 71.5 4.08984 174 1.55608C212.8 -0.977685 320.1 7.11083 329.5 7.11083C424 7.40318 519 8.08542 614.2 8.86504C686.3 9.44975 758.4 10.1319 830.5 10.7167C899.3 11.3014 968 11.6911 1036.4 11.9834C1109.3 12.2758 1181.9 6.52623 1254.1 6.23387C1321.7 5.94152 1388.3 18.0256 1440 16.9536V19.0001V0.556152H0V11.9834V7.50066Z' fill='%236D5CB8'/%3E%3C/svg%3E%0A");
-      background-repeat: no-repeat;
-      background-position: top center;
-      background-size: 100% 100%;
-    }
-
+    .hero + .py-5,
+    .hero + .wp-block-group,
     .hero + * {
+      margin-top: 0 !important;
       position: relative;
     }
 
-    @media (max-width: 991.98px) {
-      .hero + * {
-        margin-top: -15rem;
-      }
-    }
-
-    @media (min-width: 992px) {
-      .hero + * {
-        margin-top: -35%;
-      }
+    .hero + .py-5::before,
+    .hero + .wp-block-group::before,
+    .hero + *::before {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      left: 0;
+      top: 0;
+      height: 45%;
+      width: 100%;
+      overflow: hidden;
+      background-image: url("data:image/svg+xml,%3Csvg width='1440' height='739' viewBox='0 0 1440 739' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.5 733.961C14.5 733.961 71.5 728.292 174 726.472C212.8 724.653 320.1 730.462 329.5 730.462C424 730.672 519 731.161 614.2 731.721C686.3 732.141 758.4 732.631 830.5 733.051C899.3 733.471 968 733.751 1036.4 733.961C1109.3 734.171 1181.9 730.042 1254.1 729.832C1321.7 729.622 1388.3 738.3 1440 737.53V739V0.00012207H0V735.641L14.5 733.961Z' fill='%236D5CB8'/%3E%3C/svg%3E%0A");
+      background-size: cover;
+      background-position: center bottom;
     }
   </style>
 </div>

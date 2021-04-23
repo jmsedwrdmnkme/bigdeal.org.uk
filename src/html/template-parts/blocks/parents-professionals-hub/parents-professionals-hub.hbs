@@ -80,8 +80,8 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
             <?php echo get_sub_field('text'); ?>
             <?php if( have_rows('factsheet') ): while ( have_rows('factsheet') ) : the_row();?>
               <a class="factsheet mt-5 mt-lg-4 border border-4 rounded-4 ps-4 pe-5 ps-md-5 pt-5 pt-lg-4 pb-2 pb-lg-5 d-block text-decoration-none" href="<?php $file =  get_sub_field('file'); echo wp_get_attachment_link($file); ?>">
-                <h4 class="mx-md-3"><?php echo get_sub_field('title'); ?></h4>
-                <p class="mx-md-3"><?php echo get_sub_field('text'); ?></p>
+                <h4 class="mx-md-3 text-purple"><?php echo get_sub_field('title'); ?></h4>
+                <p class="mx-md-3 text-purple"><?php echo get_sub_field('text'); ?></p>
               </a>
             <?php endwhile; endif;?>
           </div>
@@ -92,6 +92,11 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 </div>
 
 <style>
+  h3[id] {
+    padding-top: 9rem !important;
+    margin-top: -5.5rem !important;
+  }
+
   .section-content ul {
     list-style: none;
     padding: 0;

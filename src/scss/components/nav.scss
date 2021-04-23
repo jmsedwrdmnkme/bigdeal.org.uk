@@ -85,6 +85,10 @@
 .dropdown-menu {
   max-width: 100%;
 
+  @include media-breakpoint-down(md) {
+    padding-bottom: 1rem;
+  }
+
   li {
     @include media-breakpoint-up(lg) {
       &:not(:first-child) {
@@ -108,6 +112,10 @@
 .dropdown-item {
   white-space: break-spaces;
   font-weight: $font-weight-bold;
+
+  @include media-breakpoint-down(md) {
+    padding-left: 2.5rem;
+  }
 }
 
 .navbar-toggler {
