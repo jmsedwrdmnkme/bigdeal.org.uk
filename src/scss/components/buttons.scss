@@ -15,3 +15,10 @@
     }
   }
 }
+
+.btn-chat {
+  a.wp-block-button__link {
+    @extend .btn-outline-primary;
+    border-radius: $btn-border-radius !important;
+  }
+}

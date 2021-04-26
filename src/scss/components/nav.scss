@@ -83,7 +83,7 @@
 }
 
 .dropdown-menu {
-  max-width: 100%;
+  min-width: 100%;
 
   @include media-breakpoint-down(md) {
     padding-bottom: 1rem;
@@ -122,6 +122,29 @@
   &[aria-expanded="true"] {
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml,%3Csvg width='32' height='30' viewBox='0 0 32 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='2' y1='-2' x2='37.6124' y2='-2' transform='matrix(0.710879 -0.703315 0.710879 0.703315 3.83984 29.8599)' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3Cline x1='2' y1='-2' x2='37.6124' y2='-2' transform='matrix(0.710879 0.703315 -0.710879 0.703315 0 2.13989)' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+    }
+  }
+}
+
+[class*=current] {
+  > a {
+    &:not(.dropdown-item) {
+      color: rgba($white, 0.65) !important;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba($black, 0.15);
+      }
+    }
+
+    &.dropdown-item {
+      color: $primary !important;
     }
   }
 }

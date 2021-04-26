@@ -3,4 +3,32 @@
 <main id="content" class="my-n5 entry-content">
   <?php the_content(); ?>
 </main>
+<style>
+  .hub-main .btn {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 767.98px) {
+    .hub-aside {
+      postiion: relative;
+    }
+
+    .hub-aside::before {
+      content: '';
+      position: absolute;
+      width: 100vw;
+      height: 15rem;
+      top: -1rem;
+      left: calc(50% - 1px);
+      transform: translateX(-50%);
+      background-color: #5ECBD4;
+    }
+  }
+
+  [src*="icon-parents-1.svg"] {
+    position: relative;
+    top: 0.3rem;
+  }
+</style>
 <?php get_footer(); ?>
