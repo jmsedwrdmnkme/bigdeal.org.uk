@@ -286,3 +286,16 @@ h3 {
     }
   }
 }
+
+.gambling-nav {
+  @include media-breakpoint-down(md) {
+    .wp-block-button {
+      display: block;
+      width: 100%;
+    }
+
+    .wp-block-button__link {
+      width: 100%;
+    }
+  }
+}

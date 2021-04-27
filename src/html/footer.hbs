@@ -58,6 +58,47 @@
 <script>
   {{> global/loadjs.min }}loadjs('<?php echo get_theme_file_uri(); ?>/js/main.js');{{> global/js }}
 </script>
+<script src="https://app.five9.eu/consoles/SocialWidget/five9-social-widget.min.js"></script>
+<script>
+  var options = {
+    "rootUrl": "https://app.five9.eu/consoles/",
+    "type": "chat",
+    "title": "Gamcare Chat",
+    "tenant": "GamCare- (thru babble)",
+    "profiles": "BigDeal",
+    "showProfiles": true,
+    "autostart": true,
+    "theme": "default-theme.css",
+    "surveyOptions": {
+      "showComment": true,
+      "requireComment": false
+    },
+    "fields": {
+      "name": {
+        "value": "",
+        "show": true,
+        "label": "User Name"
+      },
+      "email": {
+        "value": "",
+        "show": true,
+        "label": "Email (Optional)"
+      }
+    },
+    "playSoundOnMessage": true,
+    "allowCustomerToControlSoundPlay": true,
+    "showEmailButton": true,
+    "hideDuringAfterHours": false,
+    "useBusinessHours": false,
+    "showPrintButton": false,
+    "allowUsabilityMenu": false,
+    "enableCallback": false,
+    "callbackList": "",
+    "allowRequestLiveAgent": false
+  };
+  Five9SocialWidget.addWidget(options);
+
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>
