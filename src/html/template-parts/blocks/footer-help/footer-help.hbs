@@ -22,7 +22,6 @@ $col_two_title = get_field('column_two_title');
 $col_one_text = get_field('column_one_text');
 $col_two_text = get_field('column_two_text');
 
-$col_one_link = get_field('column_one_link');
 $col_two_tel = get_field('column_two_telephone');
 ?>
 <aside class="full-width footer-top bg-indigo text-white py-5">
@@ -41,11 +40,9 @@ $col_two_tel = get_field('column_two_telephone');
       <div class="col mt-5 py-3 pe-4 d-flex flex-column">
         <h3 class="fs-4 text-reset"><?php echo $col_one_title; ?></h3>
         <span><?php echo $col_one_text; ?></span>
-        <?php if (isset($col_one_link)) { ?>
         <div class="mt-auto w-100">
-          <a href="<?php echo $col_one_link; ?>" class="btn btn-outline-primary text-white mt-4"><?php echo $col_one_title; ?></a>
+          <button type="button" class="btn btn-outline-primary text-white mt-4" data-bs-toggle="modal" data-bs-target="#liveChat">Live chat</button>
         </div>
-        <?php }; ?>
       </div>
       <div class="col mt-5 border-start border-white py-3 ps-4 px-md-4 d-flex flex-column">
         <h3 class="text-reset"><?php echo $col_two_title; ?></h3>

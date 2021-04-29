@@ -58,3 +58,19 @@
 .wp-block-button__link.is-style-outline:not(.has-text-color) {
   color: $purple !important;
 }
+
+// Background overrides
+.bg-blue-wave,
+.bg-blue {
+  .wp-block-button__link {
+    background-color: transparent !important;
+    border-color: $white !important;
+  }
+}
+
+.bg-primary-wave {
+  .wp-block-button__link {
+    border-radius: 0.5rem !important;
+    border-color: $white !important;
+  }
+}

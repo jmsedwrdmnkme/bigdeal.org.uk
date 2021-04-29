@@ -55,49 +55,23 @@
     </div>
   </div>
 </footer>
+
+<div class="modal fade modal-fullscreen-md-down" id="liveChat" tabindex="-1" aria-labelledby="liveChatLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content overflow-hidden">
+      <div class="modal-header">
+        <p class="h3 mb-0">Live chat</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="ratio" style="--bs-aspect-ratio: 100%;">
+        <iframe src="https://app.five9.eu/consoles/ChatConsole/index.html?title=Gamcare%20Chat&tenant=GamCare-%20(thru%20babble)&profiles=BigDeal&showProfiles=true&theme=default-theme.css&surveyOptions=%7B%22showComment%22%3Atrue%2C%22requireComment%22%3Afalse%7D&fields=%7B%22name%22%3A%7B%22value%22%3A%22%22%2C%22show%22%3Atrue%2C%22label%22%3A%22User%20Name%22%7D%2C%22email%22%3A%7B%22value%22%3A%22%22%2C%22show%22%3Atrue%2C%22label%22%3A%22Email%20(Optional)%22%7D%7D&playSoundOnMessage=true&allowCustomerToControlSoundPlay=false&showEmailButton=false&useBusinessHours=false&showPrintButton=false&allowUsabilityMenu=false"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   {{> global/loadjs.min }}loadjs('<?php echo get_theme_file_uri(); ?>/js/main.js');{{> global/js }}
-</script>
-<script src="https://app.five9.eu/consoles/SocialWidget/five9-social-widget.min.js"></script>
-<script>
-  var options = {
-    "rootUrl": "https://app.five9.eu/consoles/",
-    "type": "chat",
-    "title": "Gamcare Chat",
-    "tenant": "GamCare- (thru babble)",
-    "profiles": "BigDeal",
-    "showProfiles": true,
-    "autostart": true,
-    "theme": "default-theme.css",
-    "surveyOptions": {
-      "showComment": true,
-      "requireComment": false
-    },
-    "fields": {
-      "name": {
-        "value": "",
-        "show": true,
-        "label": "User Name"
-      },
-      "email": {
-        "value": "",
-        "show": true,
-        "label": "Email (Optional)"
-      }
-    },
-    "playSoundOnMessage": true,
-    "allowCustomerToControlSoundPlay": true,
-    "showEmailButton": true,
-    "hideDuringAfterHours": false,
-    "useBusinessHours": false,
-    "showPrintButton": false,
-    "allowUsabilityMenu": false,
-    "enableCallback": false,
-    "callbackList": "",
-    "allowRequestLiveAgent": false
-  };
-  Five9SocialWidget.addWidget(options);
-
 </script>
 <?php wp_footer(); ?>
 </body>
