@@ -18,25 +18,84 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 <div class="wp-block-group bg-green-offset">
   <div class="wp-block-group__inner-container">
     <h2 class="has-text-align-center"><?php echo $title; ?></h2>
-    <div class="wp-block-columns">
-      <?php 
-        $args = array( 
-        'orderby' => 'ASC',
-        'posts_per_page' => 2,
-        'post_type' => 'personal_stories',
-        );
-        $the_query = new WP_Query( $args );
-        $count = 0;
 
-        if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
-          $count++; ?>
-          <div class="personal-stories-post wp-block-column card block-heading <?php if($count == 1) : echo "red"; else : echo "blue"; endif; ?>">
-            <h3 class="display-2"><?php the_title(); ?></h3>
-            <div class="strip"><?php the_excerpt(); ?></div>
-            <p><a href="<?php the_permalink(); ?>" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
-          </div>
-        <?php endwhile; endif; ?>
-     <?php wp_reset_query(); ?>
+    <div class="wp-block-columns d-md-none">
+      <div id="carouselExampleControls" class="carousel slide px-5 mx-n4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <?php 
+            $args = array( 
+            'orderby' => 'ASC',
+            'posts_per_page' => -1,
+            'post_type' => 'personal_stories',
+            );
+            $the_query = new WP_Query( $args );
+            $count = 0;
+
+            if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+              $count++; ?>
+              <div class="carousel-item<?php if($count == 1) : echo " active";  endif; ?>">
+                <div class="personal-stories-post w-100 card block-heading <?php if($count == 1) : echo "red"; else : echo "blue"; endif; ?>">
+                  <h3 class="display-2"><?php the_title(); ?></h3>
+                  <div class="strip"><?php the_excerpt(); ?></div>
+                  <p><a href="<?php the_permalink(); ?>" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
+                </div>
+              </div>
+            <?php endwhile; endif; ?>
+         <?php wp_reset_query(); ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wp-block-columns d-none d-md-block">
+      <div id="carouselExampleControlsMd" class="carousel slide px-5 mx-n4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <?php 
+            $args = array( 
+            'orderby' => 'ASC',
+            'posts_per_page' => -1,
+            'post_type' => 'personal_stories',
+            );
+            $the_query = new WP_Query( $args );
+            $count = 0;
+
+            if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+              $count++; 
+              if ($count % 2 != 0) { ?>
+                <div class="carousel-item px-2 d-flex<?php if($count == 1) : echo " active";  endif; ?>">
+                  <div class="personal-stories-post card block-heading col-6 me-2 ms-n2 <?php if($count % 2 != 0) : echo "red"; else : echo "blue"; endif; ?>">
+                    <h3 class="display-2"><?php the_title(); ?></h3>
+                    <div class="strip"><?php the_excerpt(); ?></div>
+                    <p><a href="<?php the_permalink(); ?>" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
+                  </div>
+                <?php if(($the_query->current_post + 1) == $the_query->post_count) echo '</div>' ?>
+              <?php } else { ?>
+                  <div class="personal-stories-post card block-heading col-6 ms-2 me-n2 <?php if($count % 2 != 0) : echo "red"; else : echo "blue"; endif; ?>">
+                    <h3 class="display-2"><?php the_title(); ?></h3>
+                    <div class="strip"><?php the_excerpt(); ?></div>
+                    <p><a href="<?php the_permalink(); ?>" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
+                  </div>
+                </div>
+              <?php }
+            endwhile; endif; ?>
+         <?php wp_reset_query(); ?>
+        </div>
+        <button class="carousel-control-prev ms-n5" type="button" data-bs-target="#carouselExampleControlsMd" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next me-n5" type="button" data-bs-target="#carouselExampleControlsMd" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
     <div class="wp-block-buttons is-content-justification-center">
       <div class="wp-block-button is-style-fill">

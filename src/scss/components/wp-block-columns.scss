@@ -59,6 +59,13 @@
               background-size: 100%;
               margin: 0 .5rem -0.2em 0;
             }
+
+            &.active {
+              &::before {
+                background-image: url("data:image/svg+xml,%3Csvg width='34' height='17' viewBox='0 0 34 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='2' y1='8' x2='32' y2='8' stroke='%23F7C844' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E%0A") !important;
+                margin: 0 .5rem -0.2em 0;
+              }
+            }
           }
         }
       }
@@ -261,14 +268,6 @@ h3 {
   }
 }
 
-.personal-stories-post {
-  @include media-breakpoint-down(sm) {
-    &:last-child {
-      display: none;
-    }
-  }
-}
-
 .card {
   @include media-breakpoint-up(md) {
     .wp-block-image {
@@ -281,8 +280,8 @@ h3 {
   h2 {
     &.fw-normal {
       font-family: $font-family-sans-serif !important;
-      font-weight: $font-weight-normal !important;
       font-size: 2rem;
+      font-weight: bold !important;
     }
   }
 }

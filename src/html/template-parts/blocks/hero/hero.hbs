@@ -60,5 +60,13 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       background-size: cover;
       background-position: center bottom;
     }
+
+    @media (max-width: 767.98px) {
+      .hero + .py-5::before,
+      .hero + .wp-block-group::before,
+      .hero + *::before {
+        height: 70%;
+      }
+    }
   </style>
 </div>

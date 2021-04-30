@@ -72,5 +72,6 @@
   .wp-block-button__link {
     border-radius: 0.5rem !important;
     border-color: $white !important;
+    border-radius: 0 .5rem .5rem .5rem !important;
   }
 }

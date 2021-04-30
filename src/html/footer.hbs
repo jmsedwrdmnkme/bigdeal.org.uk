@@ -48,7 +48,7 @@
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home" class="d-block mb-3">
             <img src="<?php echo get_theme_file_uri(); ?>/img/footer-logo.svg" class="d-none d-md-block mt-2 mb-1" width="208" height="46" alt="BigDeal logo">
           </a>
-          <span class="d-block">&copy; <?php echo esc_html( date_i18n( __( 'Y', 'synthetic' ) ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+          <span class="d-block"><?php echo esc_html( get_bloginfo( 'name' ) ); ?> &copy; <?php echo esc_html( date_i18n( __( 'Y', 'synthetic' ) ) ); ?></span>
           <span class="d-block">GamCare is a registered charity no. 1060005</span>
         </div>
       </div>
@@ -56,16 +56,14 @@
   </div>
 </footer>
 
-<div class="modal fade modal-fullscreen-md-down" id="liveChat" tabindex="-1" aria-labelledby="liveChatLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="liveChat" tabindex="-1" aria-labelledby="liveChatLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-md-down">
     <div class="modal-content overflow-hidden">
       <div class="modal-header">
         <p class="h3 mb-0">Live chat</p>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="ratio" style="--bs-aspect-ratio: 100%;">
-        <iframe src="https://app.five9.eu/consoles/ChatConsole/index.html?title=Gamcare%20Chat&tenant=GamCare-%20(thru%20babble)&profiles=BigDeal&showProfiles=true&theme=default-theme.css&surveyOptions=%7B%22showComment%22%3Atrue%2C%22requireComment%22%3Afalse%7D&fields=%7B%22name%22%3A%7B%22value%22%3A%22%22%2C%22show%22%3Atrue%2C%22label%22%3A%22User%20Name%22%7D%2C%22email%22%3A%7B%22value%22%3A%22%22%2C%22show%22%3Atrue%2C%22label%22%3A%22Email%20(Optional)%22%7D%7D&playSoundOnMessage=true&allowCustomerToControlSoundPlay=false&showEmailButton=false&useBusinessHours=false&showPrintButton=false&allowUsabilityMenu=false"></iframe>
-      </div>
+      <iframe height="500" src="https://app.five9.eu/consoles/ChatConsole/index.html?title=Gamcare%20Chat&tenant=GamCare-%20(thru%20babble)&profiles=BigDeal&showProfiles=true&theme=default-theme.css&surveyOptions=%7B%22showComment%22%3Atrue%2C%22requireComment%22%3Afalse%7D&fields=%7B%22name%22%3A%7B%22value%22%3A%22%22%2C%22show%22%3Atrue%2C%22label%22%3A%22User%20Name%22%7D%2C%22email%22%3A%7B%22value%22%3A%22%22%2C%22show%22%3Atrue%2C%22label%22%3A%22Email%20(Optional)%22%7D%7D&playSoundOnMessage=true&allowCustomerToControlSoundPlay=false&showEmailButton=false&useBusinessHours=false&showPrintButton=false&allowUsabilityMenu=false"></iframe>
     </div>
   </div>
 </div>
