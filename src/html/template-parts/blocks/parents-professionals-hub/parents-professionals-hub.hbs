@@ -13,7 +13,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
 <div class="hero-parents pt-5 pb-md-5 full-width text-center">
   <div class="container pb-3">
-    <?php $image =  get_field('image'); echo wp_get_attachment_image($image, full, '', ['class' => 'img-fluid']); ?>
+    <?php $image =  get_field('image'); echo wp_get_attachment_image($image, 'full', '', ['class' => 'img-fluid']); ?>
     <h1 class="text-purple"><?php echo get_field('title'); ?></h1>
     <?php echo get_field('text'); ?>
     <div class="row justify-content-center mt-4">
@@ -73,7 +73,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <div>
             <div class="row">
               <div class="col-auto pt-5">
-                <?php $image =  get_sub_field('image'); echo wp_get_attachment_image($image, full, '', ['class' => 'img-fluid']); ?>
+                <?php $image =  get_sub_field('image'); echo wp_get_attachment_image($image, 'full', '', ['class' => 'img-fluid']); ?>
               </div>
               <h3 class="pt-5 col h6 text-purple"><?php echo get_sub_field('title'); ?></h3>
             </div>
