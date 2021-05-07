@@ -1,0 +1,14 @@
+<?php get_header(); ?>
+<main id="content" class="my-n5 entry-content">
+  <div class="container py-5">
+    <h1>Page not found</h1>
+    <p class="mt-4">The link you have followed goes to a page that no longer exists on the BigDeal website.</p>
+    <p>Please use the top navigation to browse the site, or if you need help, view how to get in contact with us below.</p>
+  </div>
+  <?php
+    $footer_top = get_post( 101 );
+    $footer_top_content = apply_filters('the_content', $footer_top->post_content);
+    echo $footer_top_content;
+  ?>
+</main>
+<?php get_footer(); ?>
