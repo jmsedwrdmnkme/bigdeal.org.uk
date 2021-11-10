@@ -22,7 +22,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       if( have_rows('section') ): while ( have_rows('section') ) : the_row();
         $counter++; ?>
         <div class="col-auto pb-2">
-          <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="btn-toggle btn btn<?php if ($counter > 1) : echo '-outline'; endif; ?>-purple text-white"><?php if ($counter == 1) : echo 'I am a '. substr(get_sub_field('title'), 0, -1); else : echo 'I work with young people'; ; endif; ?></a>
+          <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="btn-toggle btn btn<?php if ($counter > 1) : echo '-outline'; endif; ?>-purple text-white"><?php if ($counter == 1) : echo 'I am a parent'. substr(get_sub_field('title'), 0, -1); else : echo 'I work with young people'; endif; ?></a>
         </div>
       <?php endwhile; endif;?>
     </div>
@@ -47,7 +47,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         if( have_rows('section') ): while ( have_rows('section') ) : the_row();
           $counter++; ?>
           <li class="nav-item mx-n2">
-            <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="nav-toggle text-decoration-none p-2 d-block lh-sm rounded-3<?php if ($counter == 1) : echo ' bg-blue text-white'; endif; ?>">For <?php echo get_sub_field('title'); ?></a>
+            <a href="#<?php echo sanitize_title_with_dashes(get_sub_field('title')); ?>" class="nav-toggle text-decoration-none p-2 d-block lh-sm rounded-3<?php if ($counter == 1) : echo ' bg-blue text-white'; endif; ?>">For <?php if ($counter == 1) : echo 'parents'. substr(get_sub_field('title'), 0, -1); else : echo 'professionals'; endif; ?><?php echo get_sub_field('title'); ?></a>
           </li>
         <?php endwhile; endif;?>
       </ul>

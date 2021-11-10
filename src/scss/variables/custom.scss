@@ -88,7 +88,7 @@ $h4-font-size:                $font-size-lg; // 20px
 $h5-font-size:                $font-size-base * 0.83333333333333333333; // 15px
 $h6-font-size:                $h2-font-size; // 40px
 
-$headings-margin-bottom:      $spacer / 2;
+$headings-margin-bottom:      calc($spacer / 2);
 $headings-font-family:        'Oswald';
 $headings-font-style:         null;
 $headings-font-weight:        $font-weight-bold;
@@ -150,7 +150,7 @@ $dropdown-border-radius:            0;
 $dropdown-border-width:             0;
 $dropdown-inner-border-radius:      0;
 $dropdown-divider-bg:               $white;
-$dropdown-divider-margin-y:         $spacer / 2;
+$dropdown-divider-margin-y:         calc($spacer / 2);
 $dropdown-box-shadow:               box-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 $dropdown-link-color:               $white;
@@ -160,7 +160,7 @@ $dropdown-link-hover-bg:            $yellow;
 $dropdown-link-active-color:        $purple;
 $dropdown-link-active-bg:           $yellow;
 
-$dropdown-item-padding-y:           $spacer / 2;
+$dropdown-item-padding-y:           calc($spacer / 2);
 $dropdown-item-padding-x:           $spacer;
 
 $dropdown-header-color:             $white;
