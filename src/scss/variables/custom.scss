@@ -64,7 +64,7 @@ $container-max-widths: (
 );
 
 // Typography
-$font-family-sans-serif:      "Raleway";
+$font-family-sans-serif:      'Raleway', sans-serif;
 
 $font-size-root:              1.125rem;
 $font-size-base:              1rem; // 18px
@@ -89,7 +89,7 @@ $h5-font-size:                $font-size-base * 0.83333333333333333333; // 15px
 $h6-font-size:                $h2-font-size; // 40px
 
 $headings-margin-bottom:      calc($spacer / 2);
-$headings-font-family:        'Oswald';
+$headings-font-family:        'Oswald', sans-serif;
 $headings-font-style:         null;
 $headings-font-weight:        $font-weight-bold;
 $headings-line-height:        1.2;
