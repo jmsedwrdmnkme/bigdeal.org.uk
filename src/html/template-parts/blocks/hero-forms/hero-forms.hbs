@@ -1,0 +1,61 @@
+<?php
+/**
+ * Hero forms block
+ *
+ * @package      Synthetic
+ * @author       James Monk
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
+
+// disable block frontend wrapper.
+add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
+?>
+<div class="hero-forms pt-5 pb-md-5 full-width text-center">
+  <div class="container pb-3">
+    <?php $image =  get_field('image'); echo wp_get_attachment_image($image, 'full', '', ['class' => 'img-fluid']); ?>
+    <h1 class="text-purple"><?php echo get_field('title'); ?></h1>
+  </div>
+  <style>
+    .hero-forms {
+      background-image: url("data:image/svg+xml,%3Csvg width='1440' height='643' viewBox='0 0 1440 643' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 635.814C68 638.067 71.5 633.683 174 632.1C212.8 630.516 320.1 635.571 329.5 635.571C424 635.753 519 636.18 614.2 636.667C686.3 637.032 758.4 637.458 830.5 637.824C899.3 638.189 968 638.433 1036.4 638.615C1109.3 638.798 1181.9 635.205 1254.1 635.023C1321.7 634.84 1388.3 642.391 1440 641.721V643V0H0V638.615V635.814Z' fill='%23<?php echo get_field('text'); ?>'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom center;
+    }
+
+    ul.bullets {
+      list-style: none;
+      padding: 0;
+      margin-left: -0.5rem;
+    }
+
+    ul.bullets li {
+      position: relative;
+      padding: 1.25rem 0 0 4.25rem;
+      min-height: 4.1rem;
+    }
+
+    ul.bullets li::before {
+      top: 0;
+      left: 0;
+      position: absolute;
+      content: '';
+      height: 4.666rem;
+      width: 4.666rem;
+      background-image: url("data:image/svg+xml,%3Csvg width='84' height='84' viewBox='0 0 84 84' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_dd)'%3E%3Cpath d='M60 37.1881C60 42.4158 58.2879 49.577 51.9208 53.8218C47.6436 56.6733 39.5644 59.5822 35.7624 59.5247C28.8188 59.4199 22.9307 55.7228 19.2719 52.8713C13.5456 48.4085 12 42.4815 12 35.7624C12 29.7525 15.802 22.4789 17.9101 20.0792C22.9607 14.3301 28.6486 12 35.7624 12C43.2573 12 49.234 14.0201 54.297 20.0792C58.4367 25.0332 60 32.8066 60 37.1881Z' fill='%23ffffff'/%3E%3C/g%3E%3Cpath d='M27.207 31.0704C27.4414 31.549 28.0228 32.5728 28.777 33.8612C29.8718 36.7033 32.2022 39.8838 33.7691 42.239C34.1135 42.7567 34.8855 42.7624 35.2237 42.2406L40.0387 34.8117L44.9496 28.1582' stroke='%236D5CB8' stroke-width='3.37954' stroke-linecap='round'/%3E%3Cdefs%3E%3Cfilter id='filter0_dd' x='0.594059' y='0.594059' width='83.1683' height='82.6939' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dx='9.50495' dy='9.50495'/%3E%3CfeGaussianBlur stdDeviation='7.12871'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.427451 0 0 0 0 0.360784 0 0 0 0 0.721569 0 0 0 0.1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dx='-1.90099' dy='-1.90099'/%3E%3CfeGaussianBlur stdDeviation='4.75248'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.427451 0 0 0 0 0.360784 0 0 0 0 0.721569 0 0 0 0.05 0'/%3E%3CfeBlend mode='normal' in2='effect1_dropShadow' result='effect2_dropShadow'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect2_dropShadow' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .mobile-hide {
+      max-width: 24.375rem;
+    }
+
+    @media (max-width: 1023.98px) {
+      .mobile-hide {
+        display: none; 
+      }
+    }
+  </style>
+</div>

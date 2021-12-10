@@ -75,3 +75,14 @@
     border-radius: 0 .5rem .5rem .5rem !important;
   }
 }
+
+.card {
+  .is-style-outline.outlined-button {
+    .wp-block-button__link {
+      @extend .btn;
+      @extend .btn-outline-primary;
+      border-color: $primary !important;
+      border-radius: 0 .5rem .5rem .5rem !important;
+    }
+  }
+}
