@@ -1,5 +1,3 @@
 .DS_Store
 node_modules
-wp-content
-package-lock.json
 dist/

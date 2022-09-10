@@ -20,14 +20,14 @@ export function scripts() {
   return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'src/js/main.js'], { sourcemaps: true })
     .pipe(uglify())
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/js/'));
+    .pipe(gulp.dest('./dist/js/'));
 }
 
 export function styles() {
   return gulp.src('src/scss/style.scss')
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(cleanCSS())
-    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/'));
+    .pipe(gulp.dest('./dist/'));
 }
 
 //
@@ -68,24 +68,19 @@ export function images() {
         ]
       })
     ]))
-    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/img/'));
+    .pipe(gulp.dest('./dist/img/'));
 }
 
 export function fonts() {
   return gulp.src('./src/fonts/*', { allowEmpty: true })
-    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/fonts/'));
-}
-
-export function htaccess() {
-  return gulp.src('./src/htaccess/.htaccess', { allowEmpty: true })
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/fonts/'));
 }
 
 export function html() {
   return gulp.src(['src/html/**/**/*.hbs', '!src/html/partials/**/*.hbs'])
     .pipe(hb().partials('src/html/partials/**/*.hbs'))
     .pipe(ext('.php'))
-    .pipe(gulp.dest('./dist/wp-content/themes/synthetic/'));
+    .pipe(gulp.dest('./dist/'));
 }
 
 function watchFiles() {
@@ -93,11 +88,11 @@ function watchFiles() {
   gulp.watch('src/sprite/**/*.svg', sprite);
   gulp.watch('src/scss/**/*', styles);
   gulp.watch('src/html/**/**/*.hbs', html);
-  gulp.watch('src/htaccess/*', htaccess);
   gulp.watch('src/img/**/*', images);
   gulp.watch('src/fonts/**/*', fonts);
 }
 
-const build = gulp.series(clean, gulp.parallel(htaccess, sprite, images, styles, fonts, scripts), html, watchFiles);
+export const build = gulp.series(clean, gulp.parallel(sprite, images, styles, fonts, scripts), html);
+const watch = gulp.series(build, watchFiles);
 
-export default build;
+export default watch;
