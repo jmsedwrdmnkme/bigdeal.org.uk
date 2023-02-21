@@ -26,6 +26,7 @@
     max-width: unset !important;
   }
 
+  input[type="radio"],
   input[type="checkbox"] {
     @extend .form-check-input;
     appearance: none;
