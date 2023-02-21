@@ -3,6 +3,7 @@
 //
 
 .wpforms-form {
+  input:not([type="radio"]),
   input:not([type="checkbox"]),
   textarea {
     @extend .form-control;
