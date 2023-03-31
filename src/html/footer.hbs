@@ -36,6 +36,13 @@
             <use xlink:href="#youtube"></use>
           </svg>
         </a>
+        <div class="footer-logos mt-3">
+          <?php
+            $footer_logos = get_post( 2705 );
+            $footer_logos_content = apply_filters('the_content', $footer_logos->post_content);
+            echo $footer_logos_content;
+          ?>
+        </div>
       </div>
       <nav class="col-md text-reset row">
         <div class="col col-md-12">
