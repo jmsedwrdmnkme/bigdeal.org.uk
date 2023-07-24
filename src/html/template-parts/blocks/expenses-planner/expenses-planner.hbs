@@ -1,0 +1,447 @@
+<?php
+/**
+ * Expenses planner block
+ *
+ * @package      Synthetic
+ * @author       James Monk
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
+
+// disable block frontend wrapper.
+add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
+?>
+<div class="container pb-5">
+  <div class="row">
+
+    <div class="col-lg-6 table-container table__income mt-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Source</th>
+            <th scope="col">Income</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Source">
+            </th>
+            <td>
+              <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Source">
+            </th>
+            <td>
+              <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Source">
+            </th>
+            <td>
+              <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn-container text-end table__income--btn">
+        <button type="button" class="btn btn-sm btn-purple btn--add">Add a income</button>
+      </div>
+    </div>
+
+    <div class="col-lg-6 table-container table__saving mt-5">
+      <table class="table table-secondary">
+        <thead>
+          <tr>
+            <th scope="col">Saving Goal</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Goal">
+            </th>
+            <td>
+              <input type="number" class="form-control input__saving" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Goal">
+            </th>
+            <td>
+              <input type="number" class="form-control input__saving" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Goal">
+            </th>
+            <td>
+              <input type="number" class="form-control input__saving" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn-container text-end table__saving--btn">
+        <button type="button" class="btn btn-sm btn-purple btn--add">Add a savings goal</button>
+      </div>
+    </div>
+
+    <div class="col-lg-12 table-container table__fixed mt-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Expense</th>
+            <th scope="col">Budget</th>
+            <th scope="col">Spent</th>
+            <th scope="col">Left</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Expense">
+            </th>
+            <td>
+              <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+            <td>
+              <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+            <td>
+              <span class="form-control span__left">0</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Expense">
+            </th>
+            <td>
+              <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+            <td>
+              <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+            <td>
+              <span class="form-control span__left">0</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <input type="text" class="form-control" placeholder="Expense">
+            </th>
+            <td>
+              <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+            <td>
+              <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="0">
+            </td>
+            <td>
+              <span class="form-control span__left">0</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn-container text-end table__fixed--btn">
+        <button type="button" class="btn btn-sm btn-purple btn--add">Add an expense</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mt-5">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Total Income</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <span class="total__income">0</span>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mt-5">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Total Expenses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <span class="total__expenses">0</span>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md col-lg-4 mt-5">
+      <table class="table table-dark text-center">
+        <thead>
+          <tr>
+            <th scope="col">Total Saved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <span class="total__saved">0</span>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <small class="d-block">Amount to reach savings goal</small>
+              <span class="total__goal">0</span>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-5">
+    <button type="button" class="btn btn-blue text-white btn--pdf">Save as PDF</button>
+    <a href="#" class="btn btn-outline-purple">Download blank PDF</a>
+    <button type="button" class="btn btn-primary btn--clear" disabled>Clear ALL data</button>
+  </div>
+
+</div>
+ <script>
+  // Calc
+  const tables = document.querySelectorAll('.table-container');
+
+  let totalIncome = document.querySelector('.total__income'),
+      totalExpenses = document.querySelector('.total__expenses'),
+      totalSaved = document.querySelector('.total__saved'),
+      totalGoal = document.querySelector('.total__goal');
+
+  /*
+   * HTML to PDF output
+   */
+
+  const btnDownload = document.querySelector('.btn--pdf');
+  const page = document.querySelector('.row');
+
+  btnDownload.addEventListener('click', function(){
+    const btns = page.querySelectorAll('.btn');
+    btns.forEach((btn) => {
+      btn.style.display = 'none';
+    });
+
+    html2PDF(page, {
+      jsPDF: {
+        format: 'a4',
+      },
+      imageType: 'image/jpeg',
+      output: 'big-deal-budget.pdf',
+      html2canvas: {
+        scrollX: 0,
+        scrollY: -window.scrollY,
+      },
+    });
+
+    btns.forEach((btn) => {
+      btn.style.display = '';
+    });
+  });
+
+
+  /*
+   * Clear button
+   */
+
+  let btnClear = document.querySelector('.btn--clear');
+
+  btnClear.addEventListener('click', function(){
+    tables.forEach((table) => {
+      let inputs = table.querySelectorAll('input');
+      let spanLeft = table.querySelectorAll('.span__left');
+
+      inputs.forEach((input) => {
+        input.value = '';
+        totalIncome.innerHTML = '0';
+        totalExpenses.innerHTML = '0';
+        totalSaved.innerHTML = '0';
+        totalGoal.innerHTML = '0';
+
+        if (spanLeft) {
+          spanLeft.forEach((span) => {
+            span.innerHTML = '0';
+          });
+        }
+      });
+
+      btnClear.disabled = true;
+    });
+  });
+
+
+  /*
+   * Budget functionality
+   */
+
+  tables.forEach((table) => {
+    const btnContainer = table.querySelector('.btn-container'),
+          btnAdd = table.querySelector('.btn--add');
+
+    getInputs();
+
+    // Remove button creation
+    let btnRemove = document.createElement('button');
+    btnRemove.type = 'button';
+    btnRemove.classList.add('btn', 'btn-sm', 'btn-primary', 'btn--remove');
+    btnRemove.innerHTML = 'Remove row';
+
+    // Add button functionality
+    btnAdd.addEventListener('click', () => {
+      let tableRows = [...table.querySelectorAll('tr')];
+
+      if (tableRows.length < 10) {
+        let tableRowLast = tableRows.pop(),
+            tableRowClone = tableRowLast.cloneNode(true),
+            tableRowCloneInputs = tableRowClone.querySelectorAll('input'),
+            tableRowSpan = tableRowClone.querySelector('span');
+
+        tableRowCloneInputs.forEach((input) => {
+          input.value = ''; 
+        });
+
+        if (tableRowSpan) {
+          tableRowSpan.innerHTML = '0';
+        }
+
+        tableRowLast.insertAdjacentElement('afterend', tableRowClone);
+        btnContainer.insertAdjacentElement('beforeend', btnRemove);
+        btnRemove.style.display = '';
+
+        if (tableRows.length === 8) {
+          btnAdd.style.display = 'none';
+        }
+      } else {
+        btnAdd.style.display = 'none';
+      }
+
+      getInputs();
+      calculation();
+    });
+
+    // Remove button functionality
+    btnRemove.addEventListener('click', () => {
+      let tableRows = [...table.querySelectorAll('tr')];
+
+      if (tableRows.length > 4) {
+        let tableRowLast = tableRows.pop();
+        
+        tableRowLast.remove();
+        btnAdd.style.display = '';
+
+        if (tableRows.length === 4) {
+          btnRemove.style.display = 'none';
+        }
+      } else {
+        btnRemove.style.display = 'none';
+      }
+
+      getInputs();
+      calculation();
+    });
+
+    function getInputs(event) {
+      let inputs = table.querySelectorAll('input[type="number"]');
+
+      // Recalculate on input interaction
+      inputs.forEach((input) => {
+        'change input focus blur'.split(' ').map(name => input.addEventListener(name, calculation, false));
+      });
+    }
+
+    function calculation(event) {
+      let rows = table.querySelectorAll('tbody tr');
+
+      rows.forEach((row) => {
+        let inputBudget = row.querySelector('.input__budget'),
+            inputSpent = row.querySelector('.input__spent'),
+            inputIncome = row.querySelector('.input__income'),
+            inputSaving = row.querySelector('.input__saving'),
+            spanLeft = row.querySelector('.span__left');
+
+        if (inputBudget) {
+          spanLeft.innerHTML = Math.round(inputBudget.value - inputSpent.value);
+        }
+      });
+
+      let arrayBudget = [],
+          arraySpent = [],
+          arrayIncome = [],
+          arraySaving = [],
+          allBudget = [...document.querySelectorAll('.input__budget')],
+          allSpent = [...document.querySelectorAll('.input__spent')],
+          allIncome = [...document.querySelectorAll('.input__income')],
+          allSaving = [...document.querySelectorAll('.input__saving')];
+
+      allBudget.forEach((input) => {
+        let value = parseInt(input.value, 10);
+
+        if (value) {
+          arrayBudget.push(value);
+        }
+      });
+
+      allSpent.forEach((input) => {
+        let value = parseInt(input.value, 10);
+
+        if (value) {
+          arraySpent.push(value);
+        }
+      });
+
+      allIncome.forEach((input) => {
+        let value = parseInt(input.value, 10);
+
+        if (value) {
+          arrayIncome.push(value);
+        }
+      });
+
+      allSaving.forEach((input) => {
+        let value = parseInt(input.value, 10);
+
+        if (value) {
+          arraySaving.push(value);
+        }
+      });
+
+      let grandBudget = arrayBudget.reduce((a, b) => a + b, 0),
+          grandSpent = arraySpent.reduce((a, b) => a + b, 0),
+          grandIncome = arrayIncome.reduce((a, b) => a + b, 0),
+          grandSaving = arraySaving.reduce((a, b) => a + b, 0),
+          grandSaved = Math.round(grandIncome - grandSpent);
+
+      totalIncome.innerHTML = grandIncome;
+      totalExpenses.innerHTML = grandSpent;
+      totalSaved.innerHTML = grandSaved;
+
+      if (grandSaving > grandSaved) {
+        totalGoal.innerHTML = Math.round(grandSaving - grandSaved);
+      } else {
+        totalGoal.innerHTML = '0';
+      }
+
+      btnClear.disabled = false;
+    };
+  });
+ </script>

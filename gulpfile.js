@@ -17,7 +17,7 @@ import ext from 'gulp-ext-replace'
 export const clean = () => del([ 'dist/' ]);
 
 export function scripts() {
-  return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'src/js/main.js'], { sourcemaps: true })
+  return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'node_modules/jspdf-html2canvas/dist/jspdf-html2canvas.min.js', 'src/js/main.js'], { sourcemaps: true })
     .pipe(uglify())
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./dist/js/'));
