@@ -219,229 +219,232 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
     <button type="button" class="btn btn-primary btn--clear" disabled>Clear ALL data</button>
   </div>
 
-</div>
- <script>
-  // Calc
-  const tables = document.querySelectorAll('.table-container');
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-html2canvas@latest/dist/jspdf-html2canvas.min.js"></script>
+  <script>
+    // Calc
+    const tables = document.querySelectorAll('.table-container');
 
-  let totalIncome = document.querySelector('.total__income'),
-      totalExpenses = document.querySelector('.total__expenses'),
-      totalSaved = document.querySelector('.total__saved'),
-      totalGoal = document.querySelector('.total__goal');
+    let totalIncome = document.querySelector('.total__income'),
+        totalExpenses = document.querySelector('.total__expenses'),
+        totalSaved = document.querySelector('.total__saved'),
+        totalGoal = document.querySelector('.total__goal');
 
-  /*
-   * HTML to PDF output
-   */
+    /*
+     * HTML to PDF output
+     */
 
-  const btnDownload = document.querySelector('.btn--pdf');
-  const page = document.querySelector('.expenses-planner');
+    const btnDownload = document.querySelector('.btn--pdf');
+    const page = document.querySelector('.expenses-planner .row');
 
-  btnDownload.addEventListener('click', function(){
-    const btns = page.querySelectorAll('.btn');
-    btns.forEach((btn) => {
-      btn.style.display = 'none';
-    });
-
-    html2PDF(page, {
-      jsPDF: {
-        format: 'a4',
-      },
-      imageType: 'image/jpeg',
-      output: 'big-deal-budget.pdf',
-      html2canvas: {
-        scrollX: 0,
-        scrollY: -window.scrollY,
-      },
-    });
-
-    btns.forEach((btn) => {
-      btn.style.display = '';
-    });
-  });
-
-
-  /*
-   * Clear button
-   */
-
-  let btnClear = document.querySelector('.btn--clear');
-
-  btnClear.addEventListener('click', function(){
-    tables.forEach((table) => {
-      let inputs = table.querySelectorAll('input');
-      let spanLeft = table.querySelectorAll('.span__left');
-
-      inputs.forEach((input) => {
-        input.value = '';
-        totalIncome.innerHTML = '0';
-        totalExpenses.innerHTML = '0';
-        totalSaved.innerHTML = '0';
-        totalGoal.innerHTML = '0';
-
-        if (spanLeft) {
-          spanLeft.forEach((span) => {
-            span.innerHTML = '0';
-          });
-        }
+    btnDownload.addEventListener('click', function(){
+      const btns = page.querySelectorAll('.btn');
+      btns.forEach((btn) => {
+        btn.style.display = 'none';
       });
 
-      btnClear.disabled = true;
+      html2PDF(page, {
+        jsPDF: {
+          format: 'a4',
+        },
+        imageType: 'image/jpeg',
+        output: 'big-deal-budget.pdf',
+        html2canvas: {
+          scrollX: 0,
+          scrollY: -window.scrollY,
+        },
+      });
+
+      btns.forEach((btn) => {
+        btn.style.display = '';
+      });
     });
-  });
 
 
-  /*
-   * Budget functionality
-   */
+    /*
+     * Clear button
+     */
 
-  tables.forEach((table) => {
-    const btnContainer = table.querySelector('.btn-container'),
-          btnAdd = table.querySelector('.btn--add');
+    let btnClear = document.querySelector('.btn--clear');
 
-    getInputs();
+    btnClear.addEventListener('click', function(){
+      tables.forEach((table) => {
+        let inputs = table.querySelectorAll('input');
+        let spanLeft = table.querySelectorAll('.span__left');
 
-    // Remove button creation
-    let btnRemove = document.createElement('button');
-    btnRemove.type = 'button';
-    btnRemove.classList.add('btn', 'btn-sm', 'btn-primary', 'btn--remove');
-    btnRemove.innerHTML = 'Remove row';
+        inputs.forEach((input) => {
+          input.value = '';
+          totalIncome.innerHTML = '0';
+          totalExpenses.innerHTML = '0';
+          totalSaved.innerHTML = '0';
+          totalGoal.innerHTML = '0';
 
-    // Add button functionality
-    btnAdd.addEventListener('click', () => {
-      let tableRows = [...table.querySelectorAll('tr')];
-
-      if (tableRows.length < 10) {
-        let tableRowLast = tableRows.pop(),
-            tableRowClone = tableRowLast.cloneNode(true),
-            tableRowCloneInputs = tableRowClone.querySelectorAll('input'),
-            tableRowSpan = tableRowClone.querySelector('span');
-
-        tableRowCloneInputs.forEach((input) => {
-          input.value = ''; 
+          if (spanLeft) {
+            spanLeft.forEach((span) => {
+              span.innerHTML = '0';
+            });
+          }
         });
 
-        if (tableRowSpan) {
-          tableRowSpan.innerHTML = '0';
-        }
+        btnClear.disabled = true;
+      });
+    });
 
-        tableRowLast.insertAdjacentElement('afterend', tableRowClone);
-        btnContainer.insertAdjacentElement('beforeend', btnRemove);
-        btnRemove.style.display = '';
 
-        if (tableRows.length === 8) {
+    /*
+     * Budget functionality
+     */
+
+    tables.forEach((table) => {
+      const btnContainer = table.querySelector('.btn-container'),
+            btnAdd = table.querySelector('.btn--add');
+
+      getInputs();
+
+      // Remove button creation
+      let btnRemove = document.createElement('button');
+      btnRemove.type = 'button';
+      btnRemove.classList.add('btn', 'btn-sm', 'btn-primary', 'btn--remove');
+      btnRemove.innerHTML = 'Remove row';
+
+      // Add button functionality
+      btnAdd.addEventListener('click', () => {
+        let tableRows = [...table.querySelectorAll('tr')];
+
+        if (tableRows.length < 10) {
+          let tableRowLast = tableRows.pop(),
+              tableRowClone = tableRowLast.cloneNode(true),
+              tableRowCloneInputs = tableRowClone.querySelectorAll('input'),
+              tableRowSpan = tableRowClone.querySelector('span');
+
+          tableRowCloneInputs.forEach((input) => {
+            input.value = ''; 
+          });
+
+          if (tableRowSpan) {
+            tableRowSpan.innerHTML = '0';
+          }
+
+          tableRowLast.insertAdjacentElement('afterend', tableRowClone);
+          btnContainer.insertAdjacentElement('beforeend', btnRemove);
+          btnRemove.style.display = '';
+
+          if (tableRows.length === 8) {
+            btnAdd.style.display = 'none';
+          }
+        } else {
           btnAdd.style.display = 'none';
         }
-      } else {
-        btnAdd.style.display = 'none';
-      }
 
-      getInputs();
-      calculation();
-    });
+        getInputs();
+        calculation();
+      });
 
-    // Remove button functionality
-    btnRemove.addEventListener('click', () => {
-      let tableRows = [...table.querySelectorAll('tr')];
+      // Remove button functionality
+      btnRemove.addEventListener('click', () => {
+        let tableRows = [...table.querySelectorAll('tr')];
 
-      if (tableRows.length > 4) {
-        let tableRowLast = tableRows.pop();
-        
-        tableRowLast.remove();
-        btnAdd.style.display = '';
+        if (tableRows.length > 4) {
+          let tableRowLast = tableRows.pop();
+          
+          tableRowLast.remove();
+          btnAdd.style.display = '';
 
-        if (tableRows.length === 4) {
+          if (tableRows.length === 4) {
+            btnRemove.style.display = 'none';
+          }
+        } else {
           btnRemove.style.display = 'none';
         }
-      } else {
-        btnRemove.style.display = 'none';
+
+        getInputs();
+        calculation();
+      });
+
+      function getInputs(event) {
+        let inputs = table.querySelectorAll('input[type="number"]');
+
+        // Recalculate on input interaction
+        inputs.forEach((input) => {
+          'change input focus blur'.split(' ').map(name => input.addEventListener(name, calculation, false));
+        });
       }
 
-      getInputs();
-      calculation();
+      function calculation(event) {
+        let rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach((row) => {
+          let inputBudget = row.querySelector('.input__budget'),
+              inputSpent = row.querySelector('.input__spent'),
+              inputIncome = row.querySelector('.input__income'),
+              inputSaving = row.querySelector('.input__saving'),
+              spanLeft = row.querySelector('.span__left');
+
+          if (inputBudget) {
+            spanLeft.innerHTML = Math.round(inputBudget.value - inputSpent.value);
+          }
+        });
+
+        let arrayBudget = [],
+            arraySpent = [],
+            arrayIncome = [],
+            arraySaving = [],
+            allBudget = [...document.querySelectorAll('.input__budget')],
+            allSpent = [...document.querySelectorAll('.input__spent')],
+            allIncome = [...document.querySelectorAll('.input__income')],
+            allSaving = [...document.querySelectorAll('.input__saving')];
+
+        allBudget.forEach((input) => {
+          let value = parseInt(input.value, 10);
+
+          if (value) {
+            arrayBudget.push(value);
+          }
+        });
+
+        allSpent.forEach((input) => {
+          let value = parseInt(input.value, 10);
+
+          if (value) {
+            arraySpent.push(value);
+          }
+        });
+
+        allIncome.forEach((input) => {
+          let value = parseInt(input.value, 10);
+
+          if (value) {
+            arrayIncome.push(value);
+          }
+        });
+
+        allSaving.forEach((input) => {
+          let value = parseInt(input.value, 10);
+
+          if (value) {
+            arraySaving.push(value);
+          }
+        });
+
+        let grandBudget = arrayBudget.reduce((a, b) => a + b, 0),
+            grandSpent = arraySpent.reduce((a, b) => a + b, 0),
+            grandIncome = arrayIncome.reduce((a, b) => a + b, 0),
+            grandSaving = arraySaving.reduce((a, b) => a + b, 0),
+            grandSaved = Math.round(grandIncome - grandSpent);
+
+        totalIncome.innerHTML = grandIncome;
+        totalExpenses.innerHTML = grandSpent;
+        totalSaved.innerHTML = grandSaved;
+
+        if (grandSaving > grandSaved) {
+          totalGoal.innerHTML = Math.round(grandSaving - grandSaved);
+        } else {
+          totalGoal.innerHTML = '0';
+        }
+
+        btnClear.disabled = false;
+      };
     });
-
-    function getInputs(event) {
-      let inputs = table.querySelectorAll('input[type="number"]');
-
-      // Recalculate on input interaction
-      inputs.forEach((input) => {
-        'change input focus blur'.split(' ').map(name => input.addEventListener(name, calculation, false));
-      });
-    }
-
-    function calculation(event) {
-      let rows = table.querySelectorAll('tbody tr');
-
-      rows.forEach((row) => {
-        let inputBudget = row.querySelector('.input__budget'),
-            inputSpent = row.querySelector('.input__spent'),
-            inputIncome = row.querySelector('.input__income'),
-            inputSaving = row.querySelector('.input__saving'),
-            spanLeft = row.querySelector('.span__left');
-
-        if (inputBudget) {
-          spanLeft.innerHTML = Math.round(inputBudget.value - inputSpent.value);
-        }
-      });
-
-      let arrayBudget = [],
-          arraySpent = [],
-          arrayIncome = [],
-          arraySaving = [],
-          allBudget = [...document.querySelectorAll('.input__budget')],
-          allSpent = [...document.querySelectorAll('.input__spent')],
-          allIncome = [...document.querySelectorAll('.input__income')],
-          allSaving = [...document.querySelectorAll('.input__saving')];
-
-      allBudget.forEach((input) => {
-        let value = parseInt(input.value, 10);
-
-        if (value) {
-          arrayBudget.push(value);
-        }
-      });
-
-      allSpent.forEach((input) => {
-        let value = parseInt(input.value, 10);
-
-        if (value) {
-          arraySpent.push(value);
-        }
-      });
-
-      allIncome.forEach((input) => {
-        let value = parseInt(input.value, 10);
-
-        if (value) {
-          arrayIncome.push(value);
-        }
-      });
-
-      allSaving.forEach((input) => {
-        let value = parseInt(input.value, 10);
-
-        if (value) {
-          arraySaving.push(value);
-        }
-      });
-
-      let grandBudget = arrayBudget.reduce((a, b) => a + b, 0),
-          grandSpent = arraySpent.reduce((a, b) => a + b, 0),
-          grandIncome = arrayIncome.reduce((a, b) => a + b, 0),
-          grandSaving = arraySaving.reduce((a, b) => a + b, 0),
-          grandSaved = Math.round(grandIncome - grandSpent);
-
-      totalIncome.innerHTML = grandIncome;
-      totalExpenses.innerHTML = grandSpent;
-      totalSaved.innerHTML = grandSaved;
-
-      if (grandSaving > grandSaved) {
-        totalGoal.innerHTML = Math.round(grandSaving - grandSaved);
-      } else {
-        totalGoal.innerHTML = '0';
-      }
-
-      btnClear.disabled = false;
-    };
-  });
- </script>
+   </script>
+</div>
