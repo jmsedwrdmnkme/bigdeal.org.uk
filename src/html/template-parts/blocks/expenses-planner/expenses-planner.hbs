@@ -1,228 +1,232 @@
 <?php
 /**
- * Expenses planner block
- *
- * @package      Synthetic
- * @author       James Monk
- * @since        1.0.0
- * @license      GPL-2.0+
+* Expenses planner block
+*
+* @package      Synthetic
+* @author       James Monk
+* @since        1.0.0
+* @license      GPL-2.0+
 **/
 
 // disable block frontend wrapper.
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
-<div class="budget-planner py-5">
-  <div class="container">
-    <h2 data-html2canvas-ignore="true">Calculator</h2>
-    <div class="budget-planner__row border border-white border-5 shadow-lg rounded-4">
-      <div class="row mx-2 mb-3 mb-md-4 mx-md-3">
+<div class="wp-block-group is-layout-constrained">
+  <div class="wp-block-group__inner-container">
+    <div class="budget-planner py-5 mx-3">
+      <div class="container">
+        <h2 data-html2canvas-ignore="true">Calculator</h2>
+        <div class="budget-planner__row border border-white border-5 shadow-lg rounded-4">
+          <div class="row mx-2 mb-3 mb-md-4 mx-md-3">
 
-        <div class="col-lg-6 table-container table__income">
-          <div class="mx-md-3">
-            <h3 class="header header__income">Income</h3>
-            <div class="table-parent shadow-lg">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Source</th>
-                    <th scope="col">Income</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <input type="text" class="form-control" placeholder="Source">
-                    </th>
-                    <td>
-                      <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <input type="text" class="form-control" placeholder="Source">
-                    </th>
-                    <td>
-                      <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <input type="text" class="form-control" placeholder="Source">
-                    </th>
-                    <td>
-                      <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="btn-container table__income--btn mx-2 px-1 mt-n2">
-                <button type="button" data-html2canvas-ignore="true" class="btn btn-sm btn-orange text-white btn--add">Add income</button>
+            <div class="col-lg-6 table-container table__income">
+              <div class="mx-md-3">
+                <h3 class="header header__income">Income</h3>
+                <div class="table-parent shadow-lg">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Source</th>
+                        <th scope="col">Income</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <input type="text" class="form-control" placeholder="Source">
+                        </th>
+                        <td>
+                          <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <input type="text" class="form-control" placeholder="Source">
+                        </th>
+                        <td>
+                          <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <input type="text" class="form-control" placeholder="Source">
+                        </th>
+                        <td>
+                          <input type="number" class="form-control input__income" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="btn-container table__income--btn mx-2 px-1 mt-n2">
+                    <button type="button" data-html2canvas-ignore="true" class="btn btn-sm btn-orange text-white btn--add">Add income</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 table-container table__saving">
+              <div class="mx-md-3">
+                <h3 class="header header__saving">Saving goals</h3>
+                <div class="table-parent shadow-lg">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Saving Goal</th>
+                        <th scope="col">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <input type="text" class="form-control" placeholder="Goal">
+                        </th>
+                        <td>
+                          <input type="number" class="form-control input__saving" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <input type="text" class="form-control" placeholder="Goal">
+                        </th>
+                        <td>
+                          <input type="number" class="form-control input__saving" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="btn-container table__saving--btn mx-2 px-1 mt-n2">
+                    <button type="button" data-html2canvas-ignore="true" class="btn btn-sm btn-orange text-white btn--add">Add goal</button>
+                  </div>
+                  <small class="table__saving--total d-flex mt-2 text-white position-relative py-2 ms-n2 mb-n1">
+                    <div>Total</div>
+                    <div class="span__saved">&pound;0</div>
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 table-container table__fixed">
+              <div class="mx-md-3">
+                <h3 class="header header__expenses">Expenses</h3>
+                <div class="table-parent shadow-lg">
+                  <div class="overflow-x-scroll mb-4 mb-lg-0">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Expense</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Budget</th>
+                          <th scope="col">Spent</th>
+                          <th scope="col">Left over</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            <input type="text" class="form-control" placeholder="Expense">
+                          </th>
+                          <td>
+                            <select class="form-select" aria-label="Fixed/Variable" data-html2canvas-ignore="true">
+                              <option value="Fixed">Fixed</option>
+                              <option value="Variable">Variable</option>
+                            </select>
+                          </td>
+                          <td>
+                            <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                          </td>
+                          <td>
+                            <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                          </td>
+                          <td>
+                            <span class="form-control span__left">&pound;0</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">
+                            <input type="text" class="form-control" placeholder="Expense">
+                          </th>
+                          <td>
+                            <select class="form-select" aria-label="Fixed/Variable" data-html2canvas-ignore="true">
+                              <option value="Fixed">Fixed</option>
+                              <option value="Variable">Variable</option>
+                            </select>
+                          </td>
+                          <td>
+                            <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                          </td>
+                          <td>
+                            <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                          </td>
+                          <td>
+                            <span class="form-control span__left">&pound;0</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">
+                            <input type="text" class="form-control" placeholder="Expense">
+                          </th>
+                          <td>
+                            <select class="form-select" aria-label="Fixed/Variable" data-html2canvas-ignore="true">
+                              <option value="Fixed">Fixed</option>
+                              <option value="Variable">Variable</option>
+                            </select>
+                          </td>
+                          <td>
+                            <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                          </td>
+                          <td>
+                            <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
+                          </td>
+                          <td>
+                            <span class="form-control span__left">&pound;0</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="btn-container table__fixed--btn mx-2 px-1 mt-n2">
+                    <button type="button" data-html2canvas-ignore="true" class="btn btn-sm btn-orange text-white btn--add">Add expense</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-container py-3 p-md-4 border-top border-white border-5">
+            <div class="row mx-2 px-lg-2">
+              <div class="col-6 col-lg-3 d-flex">
+                <div class="rounded-3 result result__income p-2 p-lg-3 w-100">
+                  <div>Total Income</div>
+                  <span class="total__income ms-n2 ms-lg-n3 mt-3">&pound;0</span>
+                </div>
+              </div>
+
+              <div class="col-6 col-lg-3 d-flex">
+                <div class="rounded-3 result result__expenses p-2 p-lg-3 w-100">
+                  <div>Total Expenses</div>
+                  <span class="total__expenses ms-n2 ms-lg-n3 mt-3">&pound;0</span>
+                </div>
+              </div>
+
+              <div class="col-lg-6 d-flex mt-3 mt-lg-0">
+                <div class="rounded-3 result result__saved p-2 p-lg-3 w-100">
+                  <div>Total Saved</div>
+                  <span class="total__saved d-block my-2">&pound;0</span>
+                  <small class="d-block">Left to reach savings goal: <span class="total__goal fw-bold">&pound;0</span></small>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6 table-container table__saving">
-          <div class="mx-md-3">
-            <h3 class="header header__saving">Saving goals</h3>
-            <div class="table-parent shadow-lg">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Saving Goal</th>
-                    <th scope="col">Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <input type="text" class="form-control" placeholder="Goal">
-                    </th>
-                    <td>
-                      <input type="number" class="form-control input__saving" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <input type="text" class="form-control" placeholder="Goal">
-                    </th>
-                    <td>
-                      <input type="number" class="form-control input__saving" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="btn-container table__saving--btn mx-2 px-1 mt-n2">
-                <button type="button" data-html2canvas-ignore="true" class="btn btn-sm btn-orange text-white btn--add">Add goal</button>
-              </div>
-              <small class="table__saving--total d-flex mt-2 text-white position-relative py-2 ms-n2 mb-n1">
-                <div>Total</div>
-                <div class="span__saved">&pound;0</div>
-              </small>
+        <div class="text-center mt-4 pt-3 position-relative" data-html2canvas-ignore="true">
+          <div class="d-flex flex-wrap justify-content-center">
+            <button type="button" class="col-auto btn btn-purple text-white btn--pdf">Save as PDF</button>
+            <div class="col-12 col-md-auto ms-md-auto">
+              <button type="button" class="btn btn-link btn--download d-block py-0 mx-auto mt-4 mt-md-0">Download as blank PDF</button>
+              <button type="button" class="btn btn-link btn--clear d-block py-0 mx-auto me-md-0 mt-3 mt-md-0" disabled>Clear all data</button>
             </div>
           </div>
-        </div>
-
-        <div class="col-lg-12 table-container table__fixed">
-          <div class="mx-md-3">
-            <h3 class="header header__expenses">Expenses</h3>
-            <div class="table-parent shadow-lg">
-              <div class="overflow-x-scroll mb-4 mb-lg-0">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Expense</th>
-                      <th scope="col">Type</th>
-                      <th scope="col">Budget</th>
-                      <th scope="col">Spent</th>
-                      <th scope="col">Left over</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">
-                        <input type="text" class="form-control" placeholder="Expense">
-                      </th>
-                      <td>
-                        <select class="form-select" aria-label="Fixed/Variable" data-html2canvas-ignore="true">
-                          <option value="Fixed">Fixed</option>
-                          <option value="Variable">Variable</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                      </td>
-                      <td>
-                        <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                      </td>
-                      <td>
-                        <span class="form-control span__left">&pound;0</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <input type="text" class="form-control" placeholder="Expense">
-                      </th>
-                      <td>
-                        <select class="form-select" aria-label="Fixed/Variable" data-html2canvas-ignore="true">
-                          <option value="Fixed">Fixed</option>
-                          <option value="Variable">Variable</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                      </td>
-                      <td>
-                        <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                      </td>
-                      <td>
-                        <span class="form-control span__left">&pound;0</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <input type="text" class="form-control" placeholder="Expense">
-                      </th>
-                      <td>
-                        <select class="form-select" aria-label="Fixed/Variable" data-html2canvas-ignore="true">
-                          <option value="Fixed">Fixed</option>
-                          <option value="Variable">Variable</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input type="number" class="form-control input__budget" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                      </td>
-                      <td>
-                        <input type="number" class="form-control input__spent" style="-webkit-appearance: none; -moz-appearance: textfield;" placeholder="£">
-                      </td>
-                      <td>
-                        <span class="form-control span__left">&pound;0</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="btn-container table__fixed--btn mx-2 px-1 mt-n2">
-                <button type="button" data-html2canvas-ignore="true" class="btn btn-sm btn-orange text-white btn--add">Add expense</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="results-container py-3 p-md-4 border-top border-white border-5">
-        <div class="row mx-2 px-lg-2">
-          <div class="col-6 col-lg-3 d-flex">
-            <div class="rounded-3 result result__income p-2 p-lg-3 w-100">
-              <div>Total Income</div>
-              <span class="total__income ms-n2 ms-lg-n3 mt-3">&pound;0</span>
-            </div>
-          </div>
-
-          <div class="col-6 col-lg-3 d-flex">
-            <div class="rounded-3 result result__expenses p-2 p-lg-3 w-100">
-              <div>Total Expenses</div>
-              <span class="total__expenses ms-n2 ms-lg-n3 mt-3">&pound;0</span>
-            </div>
-          </div>
-
-          <div class="col-lg-6 d-flex mt-3 mt-lg-0">
-            <div class="rounded-3 result result__saved p-2 p-lg-3 w-100">
-              <div>Total Saved</div>
-              <span class="total__saved d-block my-2">&pound;0</span>
-              <small class="d-block">Left to reach savings goal: <span class="total__goal fw-bold">&pound;0</span></small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-4 pt-3 position-relative" data-html2canvas-ignore="true">
-      <div class="d-flex flex-wrap justify-content-center">
-        <button type="button" class="col-auto btn btn-purple text-white btn--pdf">Save as PDF</button>
-        <div class="col-12 col-md-auto ms-md-auto">
-          <button type="button" class="btn btn-link btn--download d-block py-0 mx-auto mt-4 mt-md-0">Download as blank PDF</button>
-          <button type="button" class="btn btn-link btn--clear d-block py-0 mx-auto me-md-0 mt-3 mt-md-0" disabled>Clear all data</button>
         </div>
       </div>
     </div>
