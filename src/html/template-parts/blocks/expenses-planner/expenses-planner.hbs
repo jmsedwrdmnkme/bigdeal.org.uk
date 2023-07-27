@@ -12,7 +12,7 @@
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
 <div class="wp-block-group is-layout-constrained">
-  <div class="wp-block-group__inner-container">
+  <div class="wp-block-group__inner-container overflow-hidden">
     <div class="budget-planner py-5 mx-n3">
       <div class="container">
         <h2 data-html2canvas-ignore="true">Calculator</h2>
@@ -278,7 +278,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         select.parentNode.insertBefore(selectInput, select.nextSibling);
       });
 
-      document.body.style.minWidth = '1024px';
+      capture.style.minWidth = '1024px';
 
       planner.classList.remove('py-5');
 
@@ -294,7 +294,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         },
       });
 
-      document.body.style.minWidth = 'inherit';
+      capture.style.minWidth = 'inherit';
 
       planner.classList.add('py-5');
 
