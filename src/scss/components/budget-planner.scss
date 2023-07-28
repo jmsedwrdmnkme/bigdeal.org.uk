@@ -167,7 +167,7 @@
   }
 
  [type="number"] {
-   + span {
+   ~ span {
      margin: 0.56rem 1.3rem;
      pointer-events: none;
      position: absolute;
