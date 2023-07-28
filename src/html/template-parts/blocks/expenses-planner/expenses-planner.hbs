@@ -463,7 +463,6 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           'change input focus blur'.split(' ').map(name => input.addEventListener(name, calculation, false));
 
           let inputParent = input.parentNode;
-          console.log(inputParent);
           let spanValue = inputParent.querySelector('span');
 
           input.addEventListener('focus', () => {
@@ -486,8 +485,15 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           let inputBudget = row.querySelector('.input__budget'),
             inputSpent = row.querySelector('.input__spent'),
             inputIncome = row.querySelector('.input__income'),
+            selectType = row.querySelector('select'),
             inputSaving = row.querySelector('.input__saving'),
             spanLeft = row.querySelector('.span__left');
+
+          if (selectType) {
+            selectType.addEventListener('change', () => {
+              inputSpent.value = selectType.value;
+            });
+          }
 
           if (inputBudget) {
             spanLeft.innerHTML = pounds.format(Math.round(inputBudget.value - inputSpent.value));
