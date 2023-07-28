@@ -223,7 +223,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <div class="d-flex flex-wrap justify-content-center">
             <button type="button" class="col-auto btn btn-purple text-white btn--pdf">Save as PDF</button>
             <div class="col-12 col-md-auto ms-md-auto">
-              <button type="button" class="btn btn-link btn--download d-block py-0 mx-auto mt-4 mt-md-0">Download as blank PDF</button>
+              <a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2023/07/big-deal-budget.pdf" class="btn btn-link d-block py-0 mx-auto mt-4 mt-md-0">Download as blank PDF</a>
               <button type="button" class="btn btn-link btn--clear d-block py-0 mx-auto me-md-0 mt-3 mt-md-0" disabled>Clear all data</button>
             </div>
           </div>
@@ -369,18 +369,6 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         btnClear.disabled = true;
       });
     }
-
-    /*
-     * Blank button
-     */
-
-    let btnBlank = document.querySelector('.btn--download');
-
-    btnBlank.addEventListener('click', () => {
-      clearData();
-      downloadSheet();
-    });
-
 
     /*
      * Budget functionality
