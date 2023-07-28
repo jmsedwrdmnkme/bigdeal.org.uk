@@ -491,14 +491,18 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 
           if (selectType) {
             function calcSpent() {
+              let inputParent = inputSpent.parentNode;
+              let spanValue = inputParent.querySelector('span');
+
+              inputSpent.value = inputBudget.value;
+
               if (selectType.value === 'Fixed') {
-                let inputParent = inputSpent.parentNode;
-                let spanValue = inputParent.querySelector('span');
-
-                inputSpent.value = inputBudget.value;
-
                 spanValue.classList.remove('d-none');
                 let inputValue = pounds.format(inputSpent.value);
+                spanValue.innerHTML = inputValue;
+              } else {
+                spanValue.classList.add('d-none');
+                let inputValue = pounds.format('0');
                 spanValue.innerHTML = inputValue;
               }
             }
