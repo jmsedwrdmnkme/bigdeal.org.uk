@@ -15,7 +15,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
   <div class="wp-block-group__inner-container overflow-hidden">
     <div class="budget-planner py-5 mx-n3">
       <div class="container">
-        <h2 data-html2canvas-ignore="true">Calculator</h2>
+        <h2 class="budget__heading">Calculator</h2>
         <div class="budget-planner__row border border-white border-5 shadow-lg rounded-4">
           <div class="row mx-2 mb-3 mb-md-4 mx-md-3">
 
@@ -284,6 +284,11 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         select.parentNode.insertBefore(selectInput, select.nextSibling);
       });
 
+      let budgetHeading = document.querySelector('.budget__heading');
+      let budgetHeadingContent = budgetHeading.innerHTML;
+      budgetHeading.innerHTML = 'BigDeal Budget Planner';
+      budgetHeading.classList.add('text-center');
+
       capture.style.minWidth = '1024px';
 
       planner.classList.remove('py-5');
@@ -303,6 +308,9 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       capture.style.minWidth = 'inherit';
 
       planner.classList.add('py-5');
+
+      budgetHeading.innerHTML = budgetHeadingContent;
+      budgetHeading.classList.remove('text-center');
 
       shadows.forEach((shadow) => {
         shadow.classList.add('shadow-lg');
