@@ -462,9 +462,11 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         inputs.forEach((input) => {
           'change input focus blur'.split(' ').map(name => input.addEventListener(name, calculation, false));
 
+          let spanValue = document.querySelector('${input} + span');
+
           input.addEventListener('focus', () => {
             input.value = '';
-            spanValue.querySelector('${input} + span');
+            spanValue.classList.add('d-none');
           });
 
           input.addEventListener('change', () => {
