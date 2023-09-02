@@ -58,7 +58,7 @@
       </style>
     <?php } else { ?>
       <?php
-        $terms = get_the_terms( $post->ID , 'age-group');
+        $terms = get_the_terms(get_the_ID(), 'age-group');
         if (!$terms) {
       ?>
         <header class="full-width pt-4 pt-md-5 bg-indigo-offset text-center text-md-start">
