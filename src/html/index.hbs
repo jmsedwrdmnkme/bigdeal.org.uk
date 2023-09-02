@@ -35,6 +35,29 @@
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
         get_template_part( 'entry' );
       endwhile; endif; ?>
+
+      <?php 
+        $args = array( 
+          'orderby' => 'ASC',
+          'posts_per_page' => -1,
+          'post_type' => 'post',
+          'tax_query' => array(
+            array(
+              'taxonomy'  => 'age-group',
+              'field'     => 'slug',
+              'terms'     => '18-to-25',
+              'operator'  => 'NOT IN'
+            )
+          )
+        );
+        $the_query = new WP_Query( $args );
+
+        if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+          get_template_part( 'entry' );
+      ?>
+      <?php endwhile; endif; ?>
+      <?php wp_reset_query(); ?>
+
       <div class="row" id="extra-posts"></div>
     </div>
 
