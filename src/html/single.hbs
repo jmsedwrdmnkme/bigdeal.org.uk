@@ -57,60 +57,56 @@
         .bg-green-offset .wp-block-buttons { display: none; }
       </style>
     <?php } else { ?>
-      <?php if (has_term('18-to-25', 'age-group')) { ?>
-        <header class="full-width pt-4 pt-md-5 bg-indigo-offset text-center text-md-start">
-          <div class="container">
-            <h1 class="post-title text-white mb-5"><?php the_title(); ?></h1>
-            <?php if ( has_post_thumbnail() ) : ?>
-              <?php the_post_thumbnail(array(960, 500), ['class' => 'post-image img-fluid']); ?>
-            <?php endif; ?>
-            <div class="post-meta d-flex mx-2 mb-3">
-              <span class="post-category col-auto">
-                <?php
-                $categories = get_the_category();
-                if ( ! empty( $categories ) ) {
-                  foreach( $categories as $category ) {
-                    echo '<span class="btn btn-blue text-white">'. esc_html( $category->name ) .'</span>';
-                  }
+      <header class="full-width pt-4 pt-md-5 bg-indigo-offset text-center text-md-start">
+        <div class="container">
+          <h1 class="post-title text-white mb-5"><?php the_title(); ?></h1>
+          <?php if ( has_post_thumbnail() ) : ?>
+            <?php the_post_thumbnail(array(960, 500), ['class' => 'post-image img-fluid']); ?>
+          <?php endif; ?>
+          <div class="post-meta d-flex mx-2 mb-3">
+            <span class="post-category col-auto">
+              <?php
+              $categories = get_the_category();
+              if ( ! empty( $categories ) ) {
+                foreach( $categories as $category ) {
+                  echo '<span class="btn btn-blue text-white">'. esc_html( $category->name ) .'</span>';
                 }
-                ?>
-              </span>
-              <span class="post-author col-auto btn">Written by BigDeal</span>
-              <span class="post-date col-auto ms-auto"><?php the_time( get_option( 'date_format' ) ); ?></span>
-            </div>
+              }
+              ?>
+            </span>
+            <span class="post-author col-auto btn">Written by BigDeal</span>
+            <span class="post-date col-auto ms-auto"><?php the_time( get_option( 'date_format' ) ); ?></span>
           </div>
-        </header>
-        <div class="py-3">
-          <?php the_content(); ?>
         </div>
-        <footer class="pb-5">
-          <div class="post-share">
-            <p class="h2">Share this blog:</p>
-            <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
-              <span class="visually-hidden">Share on Twitter</span>
-              <svg class="social">
-                <use xlink:href="#facebook"></use>
-              </svg>
-            </a>
-            <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
-              <span class="visually-hidden">Share on Twitter</span>
-              <svg class="social">
-                <use xlink:href="#twitter"></use>
-              </svg>
-            </a>
-            <script>
-              const encodedPageUrl = encodeURI(window.location.href);
-              document.querySelector('.facebook').href += encodedPageUrl;
-              document.querySelector('.twitter').href += encodedPageUrl;
-            </script>
-          </div>
-          <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="post-back d-block mt-5 fw-bold">Back to all blogs</a>
-        </footer>
-      <?php } ?>
-      </article>
-    <?php } else { ?>
-      18 to 25 post
+      </header>
+      <div class="py-3">
+        <?php the_content(); ?>
+      </div>
+      <footer class="pb-5">
+        <div class="post-share">
+          <p class="h2">Share this blog:</p>
+          <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
+            <span class="visually-hidden">Share on Twitter</span>
+            <svg class="social">
+              <use xlink:href="#facebook"></use>
+            </svg>
+          </a>
+          <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
+            <span class="visually-hidden">Share on Twitter</span>
+            <svg class="social">
+              <use xlink:href="#twitter"></use>
+            </svg>
+          </a>
+          <script>
+            const encodedPageUrl = encodeURI(window.location.href);
+            document.querySelector('.facebook').href += encodedPageUrl;
+            document.querySelector('.twitter').href += encodedPageUrl;
+          </script>
+        </div>
+        <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="post-back d-block mt-5 fw-bold">Back to all blogs</a>
+      </footer>
     <?php } ?>
+    </article>
   <?php endwhile; endif; ?>
   <?php
     $footer_top = get_post( 101 );
