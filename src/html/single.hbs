@@ -57,6 +57,14 @@
         .bg-green-offset .wp-block-buttons { display: none; }
       </style>
     <?php } else { ?>
+    <?php 
+      $id = get_the_ID();
+      $terms = get_the_terms( $id, 'age-group' ); 
+      foreach($terms as $term) {
+        echo $term->name;
+      }
+    ?>
+
       <header class="full-width pt-4 pt-md-5 bg-indigo-offset text-center text-md-start">
         <div class="container">
           <h1 class="post-title text-white mb-5"><?php the_title(); ?></h1>
