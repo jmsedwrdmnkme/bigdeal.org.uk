@@ -299,6 +299,14 @@ function load_more_posts() {
     'orderby'	     => 'date',
     'order'	     => 'DESC',
     'offset'	     => $offset,
+    'tax_query' => array(
+      array(
+        'taxonomy'  => 'age-group',
+        'field'     => 'slug',
+        'terms'     => '18-to-25',
+        'operator'  => 'NOT IN'
+      )
+    )
   ];
 
   $loop = new WP_Query($args);
