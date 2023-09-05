@@ -278,6 +278,66 @@ function my_acf_init_block_types() {
       'icon'              => 'admin-comments',
       'keywords'          => array( 'expenses', 'planner', 'forms' ),
     ));
+
+    acf_register_block_type(array(
+      'name'              => 'adult_hero',
+      'title'             => __('Adult Hero'),
+      'description'       => __('Adult Hero block.'),
+      'render_template'   => 'template-parts/blocks/adult-hero/adult-hero.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'adult', 'hero' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'adult_section_overview',
+      'title'             => __('Adult Section Overview'),
+      'description'       => __('Adult Section Overview block.'),
+      'render_template'   => 'template-parts/blocks/adult-section-overview/adult-section-overview.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'adult', 'section', 'overview' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'adult-section-real-stories-carousel',
+      'title'             => __('Adult Real Stories Carousel'),
+      'description'       => __('Adult Real Stories Carousel block.'),
+      'render_template'   => 'template-parts/blocks/adult-real-stories-carousel/adult-section-real-stories-carousel.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'adult', 'real', 'stories', 'carousel' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'adult_resources',
+      'title'             => __('Adult Resources'),
+      'description'       => __('Adult Resources block.'),
+      'render_template'   => 'template-parts/blocks/adult-resources/adult-resources.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'adult', 'resources' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'adult_news',
+      'title'             => __('Adult News'),
+      'description'       => __('Adult News block.'),
+      'render_template'   => 'template-parts/blocks/adult-news/adult-news.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'adult', 'news' ),
+    ));
+
+    acf_register_block_type(array(
+      'name'              => 'adult_are_you_worried',
+      'title'             => __('Adult Are You Worried?'),
+      'description'       => __('Adult Are You Worried? block.'),
+      'render_template'   => 'template-parts/blocks/adult-are-you-worried/adult-are-you-worried.php',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'adult', 'worried', 'contact' ),
+    ));
   }
 }
 
