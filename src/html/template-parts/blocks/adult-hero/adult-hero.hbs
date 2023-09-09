@@ -24,7 +24,8 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <?php $menu_item = get_sub_field('menu_item'); ?>
           <?php $anchor_link = get_sub_field('anchor_link'); ?>
           <?php if(!$anchor_link): ?>
-              <option value="<?php echo esc_html( $menu_item->post_url ); ?>"><?php echo esc_html( $menu_item->post_title ); ?></option>
+            <?php $id = $menu_item->ID; ?>
+            <option value="<?php echo esc_url( get_page_link( $id ) ); ?>"><?php echo esc_html( $menu_item->post_title ); ?></option>
           <?php else: ?>
             <?php $has_anchor = 'true'; ?>
           <?php endif; ?>
@@ -42,9 +43,14 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
               <div class="col-md-6 col-lg-4 mt-4">
                 <a href="#<?php echo strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', esc_html( $menu_item->post_title )))))), '-')); ?>" class="card">
                   <div class="card-img-top">
-                    <img src="<?php echo $thumbnail_image; ?>" alt="" class="img-fluid mx-auto">
+                    <?php if( !empty( $thumbnail_image ) ): ?>
+                      <img src="<?php echo esc_url($thumbnail_image['url']); ?>" alt="<?php echo esc_html( $menu_item->post_title ); ?>" class="img-fluid mx-auto" />
+                    <?php endif; ?>
                   </div>
                   <div class="card-body">
+                    <div class="card-title">
+                      <?php echo esc_html( $menu_item->post_title ); ?>
+                    </div>
                     <div class="card-text">
                       <?php echo $thumbnail_tagline; ?>
                     </div>
