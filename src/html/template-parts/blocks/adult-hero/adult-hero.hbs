@@ -24,7 +24,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <?php $menu_item = get_sub_field('menu_item'); ?>
           <?php $anchor_link = get_sub_field('anchor_link'); ?>
           <?php if(!$anchor_link): ?>
-              <option value="<?php echo esc_html( $menu_item->post_link ); ?>"><?php echo esc_html( $menu_item->post_title ); ?></option>
+              <option value="<?php echo esc_html( $menu_item->post_url ); ?>"><?php echo esc_html( $menu_item->post_title ); ?></option>
           <?php else: ?>
             <?php $has_anchor = 'true'; ?>
           <?php endif; ?>
@@ -44,7 +44,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                   <img src="<?php echo $thumbnail_image; ?>" alt="" class="img-fluid mx-auto">
                 </div>
                 <div class="card-body">
-                  <div="card-text">
+                  <div class="card-text">
                     <?php echo $thumbnail_tagline; ?>
                   </div>
                 </div>
