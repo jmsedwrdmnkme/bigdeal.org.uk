@@ -31,15 +31,15 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         <?php endwhile; ?>
       </select>
 
-      <?php while( have_rows('pages') ) : the_row(); ?>
-        <?php if($has_anchor == 'true'): ?>
-          <div class="row">
+      <?php if($has_anchor == 'true'): ?>
+        <div class="row">
+          <?php while( have_rows('pages') ) : the_row(); ?>
             <?php $menu_item = get_sub_field('menu_item'); ?>
             <?php $anchor_link = get_sub_field('anchor_link'); ?>
             <?php if($anchor_link): ?>
               <?php $thumbnail_image = get_sub_field('thumbnail_image'); ?>
               <?php $thumbnail_tagline = get_sub_field('thumbnail_tagline'); ?>
-              <a href="<?php echo strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', esc_html( $menu_item->post_title )))))), '-')); ?>" class="card col-md-6 col-lg-4 mt-4">
+              <a href="#<?php echo strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', esc_html( $menu_item->post_title )))))), '-')); ?>" class="card col-md-6 col-lg-4 mt-4">
                 <div class="card-img-top">
                   <img src="<?php echo $thumbnail_image; ?>" alt="" class="img-fluid mx-auto">
                 </div>
@@ -50,9 +50,9 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                 </div>
               </a>
             <?php endif; ?>
-          </div>
-        <?php endif; ?>
-      <?php endwhile; ?>
+          <?php endwhile; ?>
+        </div>
+      <?php endif; ?>
     <?php endif; ?>
   </div>
 </div>
