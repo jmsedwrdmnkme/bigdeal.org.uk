@@ -31,8 +31,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                 array(
                   'taxonomy'  => 'age-group',
                   'field'     => 'slug',
-                  'terms'     => '18-to-25',
-                  'operator'  => 'IN'
+                  'terms'     => '18-to-25'
                 )
               )
             );
@@ -51,14 +50,6 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
             <?php endwhile; endif; ?>
          <?php wp_reset_query(); ?>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
 
@@ -97,19 +88,6 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
             endwhile; endif; ?>
          <?php wp_reset_query(); ?>
         </div>
-        <button class="carousel-control-prev ms-n5" type="button" data-bs-target="#carouselExampleControlsMd" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next me-n5" type="button" data-bs-target="#carouselExampleControlsMd" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-    <div class="wp-block-buttons is-content-justification-center text-center">
-      <div class="wp-block-button is-style-fill">
-        <a class="wp-block-button__link" href="<?php echo $button_link; ?>"><?php echo $button_text; ?></a></div>
       </div>
     </div>
   </div>
