@@ -43,7 +43,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
               <div class="carousel-item w-100<?php if($count == 1) : echo " active";  endif; ?>">
                 <div class="personal-stories-post w-100 card block-heading">
                   <div class="strip"><?php the_excerpt(); ?></div>
-                  <p><a href="<?php the_permalink(); ?>" class="text-white" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
+                  <p class="text-end"><a href="<?php the_permalink(); ?>" class="text-white" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
                 </div>
               </div>
             <?php endwhile; endif; ?>
@@ -66,13 +66,13 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                   <div class="px-2 d-flex">
                     <div class="personal-stories-post card block-heading col-6 me-2 ms-n2">
                       <div class="strip"><?php the_excerpt(); ?></div>
-                      <p><a href="<?php the_permalink(); ?>" class="text-white" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
+                      <p class="text-end"><a href="<?php the_permalink(); ?>" class="text-white" data-type="page" data-id="28">Read <?php the_title(); ?></a></p>
                     </div>
                 <?php if(($the_query->current_post + 1) == $the_query->post_count) echo '</div></div>' ?>
               <?php } else { ?>
                     <div class="personal-stories-post card block-heading col-6 ms-2 me-n2">
                       <div class="strip"><?php the_excerpt(); ?></div>
-                      <p><a href="<?php the_permalink(); ?>" data-type="page" class="text-white" data-id="28">Read <?php the_title(); ?></a></p>
+                      <p class="text-end"><a href="<?php the_permalink(); ?>" data-type="page" class="text-white" data-id="28">Read <?php the_title(); ?></a></p>
                     </div>
                   </div>
                 </div>
@@ -108,6 +108,12 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 
     .adult__real-stories .personal-stories-post + .personal-stories-post {
       background-color: var(--bs-orange);
+    }
+
+    .adult__real-stories .personal-stories-post .strip p:first-child {
+      font-family: Caveat,cursive;
+      font-size: 1.5rem;
+      text-transform: uppercase;
     }
 
     .adult__real-stories--title {
