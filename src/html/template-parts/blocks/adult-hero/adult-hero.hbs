@@ -18,9 +18,9 @@ $title = preg_replace('!^<p>(.*?)</p>$!i', '$1', $title);
 // disable block frontend wrapper.
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
-<div class="full-width adult__hero bg-indigo text-white pt-5 text-center">
+<div class="full-width adult__hero bg-indigo text-white pt-5 mb-5 text-center">
   <div class="container pt-lg-4">
-    <h1 class="text-primary"><?php echo $title; ?></h1>
+    <h1 class="text-primary adult__hero--title"><?php echo $title; ?></h1>
     <?php if ($tagline) : ?>
       <div class="col-lg-10 mx-auto mt-4 pb-1">
         <?php echo $tagline; ?>
@@ -56,7 +56,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       </form>
 
       <?php if($has_anchor == 'true'): ?>
-        <div class="row mt-4 adult__hero-thumbnails">
+        <div class="row mt-4 adult__hero--thumbnails">
           <?php while( have_rows('pages') ) : the_row(); ?>
             <?php $menu_item = get_sub_field('menu_item'); ?>
             <?php $anchor_link = get_sub_field('anchor_link'); ?>
@@ -68,7 +68,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                   <div class="card-img-top bg-primary px-2 pt-2 d-flex justify-content-center align-items-end">
                     <?php if( !empty( $thumbnail_image ) ): ?>
                       <div class="mb-n3">
-                        <img src="<?php echo esc_url($thumbnail_image['url']); ?>" alt="<?php echo esc_html( $menu_item->post_title ); ?>" class="img-fluid adult__hero-icon mt-2" />
+                        <img src="<?php echo esc_url($thumbnail_image['url']); ?>" alt="<?php echo esc_html( $menu_item->post_title ); ?>" class="img-fluid adult__hero--icon mt-2" />
                       </div>
                     <?php endif; ?>
                   </div>
@@ -90,23 +90,27 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
   </div>
 
   <style>
-    .adult__hero {
+    .adult__hero--title strong {
+      color: white;
     }
 
-    .adult__hero-thumbnails {
+    .adult__hero--thumbnails {
       position: relative;
     }
 
-    .adult__hero-thumbnails::before {
+    .adult__hero--thumbnails::before {
       position: absolute;
       content: '';
       width: 100vw;
       top: 40%;
       height: 100%;
-      left: calc(50vw - 50%);
+      background-color: white;
+      left: 0;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
     }
 
-    .adult__hero-icon {
+    .adult__hero--icon {
       max-height: 9rem;
     }
   </style>
