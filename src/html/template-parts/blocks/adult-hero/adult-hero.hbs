@@ -30,7 +30,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       <form class="row align-items-center justify-content-center col-md-9 col-lg-6 mx-auto rounded-3 bg-white py-2 ps-1 pe-3 mt-3 border-3 border border-primary">
         <div class="col me-1 my-1">
           <select class="form-select select__url">
-            <option value="" disabled selected>I am looking for information on&hellip;</option>
+            <option value="" disabled selected>I am looking for info on&hellip;</option>
             <?php while( have_rows('pages') ) : the_row(); ?>
               <?php $menu_item = get_sub_field('menu_item'); ?>
               <?php $anchor_link = get_sub_field('anchor_link'); ?>
@@ -43,7 +43,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
             <?php endwhile; ?>
           </select>
         </div>
-        <input type="button" class="btn btn-primary col-auto btn__nav my-1" value="Go!" />
+        <input type="button" class="btn btn-orange text-white col-auto btn__nav my-1 px-4" value="Go!" />
 
         <script>
           const goBtn = document.querySelector('.btn__nav');
