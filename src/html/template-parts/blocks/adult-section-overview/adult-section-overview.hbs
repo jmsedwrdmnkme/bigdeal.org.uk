@@ -26,7 +26,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <?php $section_image = get_sub_field('section_image'); ?>
           <div class="col-lg-6 mt-3">
             <div class="row">
-              <div class="col-5 col-md-6">
+              <div class="col-5 col-md-6 position-relative overflow-hidden adult__overview--section-img-container" style="padding-bottom: 44.25%;">
                 <img src="<?php echo esc_url($section_image['url']); ?>" alt="<?php echo $section_title; ?>" class="img-fluid" />
               </div>
               <div class="col-7 col-md-6 mt-3 mt-md-0">
@@ -47,6 +47,18 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       background-size: cover;
       padding: 0.25rem 1rem 0.4rem;
       background-position: 50% 50%;
+    }
+
+    .adult__overview--section-img-container img {
+      position: absolute;
+      min-height: 100%;
+      min-width: 100%;
+      width: auto;
+      height: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 375px;
     }
   </style>
 </div>
