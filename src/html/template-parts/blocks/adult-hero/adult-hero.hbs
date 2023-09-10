@@ -56,7 +56,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       </form>
 
       <?php if($has_anchor == 'true'): ?>
-        <div class="row mt-4">
+        <div class="row mt-4 adult__hero-thumbnails">
           <?php while( have_rows('pages') ) : the_row(); ?>
             <?php $menu_item = get_sub_field('menu_item'); ?>
             <?php $anchor_link = get_sub_field('anchor_link'); ?>
@@ -67,8 +67,8 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                 <a href="#<?php echo strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', esc_html( $menu_item->post_title )))))), '-')); ?>" class="card h-100">
                   <div class="card-img-top bg-primary px-2 pt-2 d-flex justify-content-center align-items-end">
                     <?php if( !empty( $thumbnail_image ) ): ?>
-                      <div class="col-6 mb-n3">
-                        <img src="<?php echo esc_url($thumbnail_image['url']); ?>" alt="<?php echo esc_html( $menu_item->post_title ); ?>" class="img-fluid" />
+                      <div class="mb-n3">
+                        <img src="<?php echo esc_url($thumbnail_image['url']); ?>" alt="<?php echo esc_html( $menu_item->post_title ); ?>" class="img-fluid adult__hero-icon mt-2" />
                       </div>
                     <?php endif; ?>
                   </div>
@@ -88,4 +88,26 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       <?php endif; ?>
     <?php endif; ?>
   </div>
+
+  <style>
+    .adult__hero {
+    }
+
+    .adult__hero-thumbnails {
+      position: relative;
+    }
+
+    .adult__hero-thumbnails::before {
+      position: absolute;
+      content: '';
+      width: 100vw;
+      top: 40%;
+      height: 100%;
+      left: calc(50vw - 50%);
+    }
+
+    .adult__hero-icon {
+      max-height: 9rem;
+    }
+  </style>
 </div>
