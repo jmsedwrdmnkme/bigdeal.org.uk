@@ -119,7 +119,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
     }
 
     .adult__hero--thumbnails > *:nth-child(3) .adult__hero--icon-bg {
-      background-color: var(--bg-yellow);
+      background-color: var(--bs-yellow);
     }
 
     .adult__hero--icon {
@@ -127,20 +127,20 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
     }
 
     .adult__hero--thumbnails .adult__hero--card-title {
-      -webkit-background-clip: text;
+      -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent;
     }
 
     .adult__hero--thumbnails > *:nth-child(1) .adult__hero--card-title {
-      background: -webkit-linear-gradient(var(--bs-indigo), var(--bs-green));
+      background: -webkit-linear-gradient(to right, var(--bs-indigo), var(--bs-green));
     }
 
     .adult__hero--thumbnails > *:nth-child(2) .adult__hero--card-title {
-      background: -webkit-linear-gradient(var(--bs-yellow), var(--bs-red));
+      background: -webkit-linear-gradient(to right, var(--bs-yellow), var(--bs-red));
     }
 
     .adult__hero--thumbnails > *:nth-child(3) .adult__hero--card-title {
-      background: -webkit-linear-gradient(var(--bs-purple), var(--bg-yellow));
+      background: -webkit-linear-gradient(to right, var(--bs-purple), var(--bs-yellow));
     }
   </style>
 </div>
