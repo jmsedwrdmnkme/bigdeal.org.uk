@@ -14,7 +14,7 @@ $intro_section = get_field('intro_section');
 // disable block frontend wrapper.
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
-<div class="adult__resources wp-block-group">
+<div class="adult__resources wp-block-group overflow-hidden">
   <div class="wp-block-group__inner-container">
     <div class="has-text-align-center">
       <h2 class="adult__resources--title d-inline-block"><?php echo $title; ?></h2>
@@ -28,7 +28,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         <div class="rounded-3 bg-indigo text-white p-3 px-lg-5 py-lg-4 position-relative">
           <div class="row justify-content-end">
             <div class="col-12 col-md-8 col-lg-9 mb-n4 mb-md-0">
-              <div>
+              <div class="adult__resources--section-title">
                 <?php echo $section_title; ?>
               </div>
               <div>
@@ -50,15 +50,20 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       background-color: #e2ddfc;
     }
 
+    .adult__resources--title {
+      position: relative;
+    }
+
     .adult__resources--section::before {
       content: '';
       position: absolute;
       background: white;
-      height: 50%;
+      height: 100vh;
       width: 100vw;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
       left: 0;
+      bottom: 50%;
     }
 
     .adult__resources--title {
@@ -67,6 +72,16 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       background-size: cover;
       padding: 0.25rem 1rem 0.4rem;
       background-position: 50% 50%;
+    }
+
+    .adult__resources--section-title {
+      font-family: Oswald,sans-serif;
+      text-transform: uppercase;
+      font-size: 1.75rem;
+    }
+
+    .adult__resources--section-title strong {
+      color: var(--bs-yellow);
     }
 
     .adult__resources--section-link {
