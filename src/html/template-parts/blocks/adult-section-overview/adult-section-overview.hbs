@@ -16,7 +16,7 @@ $sections_to_show = get_field('sections_to_show');
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
 <div class="adult__overview position-relative">
-  <div class="container py-4 text-center">
+  <div class="container pt-4 pb-5 text-center">
     <h2 class="adult__overview--title d-inline-block"><?php echo $title; ?></h2>
     <?php if( have_rows('section') ): ?>
       <?php $counter = 0; ?>
@@ -27,10 +27,11 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <?php $section_title = get_sub_field('section_title'); ?>
           <?php $section_tagline = get_sub_field('section_tagline'); ?>
           <?php $section_image = get_sub_field('section_image'); ?>
+          <?php $section_link = get_sub_field('section_link'); ?>
           <?php if ($counter > $sections_to_show) : ?>
-          <div class="col-lg-6 mt-3 d-none adult__overview--section">
+          <a class="col-lg-6 mt-3 d-none adult__overview--section" src="<?php echo $section_link; ?>">
             <?php else : ?>
-          <div class="col-lg-6 mt-3 adult__overview--section">
+          <a class="col-lg-6 mt-3 adult__overview--section" src="<?php echo $section_link; ?>">
           <?php endif; ?>
             <div class="row">
               <div class="col-5 col-md-6 position-relative overflow-hidden adult__overview--section-img-container rounded-3" style="padding-bottom: 44.25%;">
@@ -41,7 +42,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                 <?php echo $section_tagline; ?>
               </div>
             </div>
-          </div>
+          </a>
           <?php if ($counter > $sections_to_show) : ?>
             <?php $show_btn = 'true'; ?>
           <?php endif; ?>
