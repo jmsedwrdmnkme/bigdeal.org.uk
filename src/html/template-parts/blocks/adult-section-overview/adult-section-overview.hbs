@@ -25,11 +25,11 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <?php $section_tagline = get_sub_field('section_tagline'); ?>
           <?php $section_image = get_sub_field('section_image'); ?>
           <div class="col-lg-6 mt-3">
-            <div class="row">
+            <div class="row align-items-center">
               <div class="col-5 col-md-6 position-relative overflow-hidden adult__overview--section-img-container" style="padding-bottom: 44.25%;">
                 <img src="<?php echo esc_url($section_image['url']); ?>" alt="<?php echo $section_title; ?>" class="img-fluid" />
               </div>
-              <div class="col-7 col-md-6 mt-3 mt-md-0">
+              <div class="col-7 col-md-6">
                 <h3><?php echo $section_title; ?></h3>
                 <?php echo $section_tagline; ?>
               </div>
