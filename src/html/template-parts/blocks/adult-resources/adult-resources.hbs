@@ -14,12 +14,12 @@ $intro_section = get_field('intro_section');
 // disable block frontend wrapper.
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
-<div class="adult__resources wp-block-group overflow-x-hidden">
+<div class="adult__resources wp-block-group">
   <div class="wp-block-group__inner-container">
     <div class="has-text-align-center">
       <h2 class="adult__resources--title d-inline-block"><?php echo $title; ?></h2>
     </div>
-    <div class="">
+    <div class="adult__resources--section">
       <?php if ($intro_section) : ?>
         <?php $section_title = $intro_section['section_title']; ?>
         <?php $section_description = $intro_section['section_description']; ?>
@@ -54,6 +54,13 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       background-size: cover;
       padding: 0.25rem 1rem 0.4rem;
       background-position: 50% 50%;
+    }
+
+    .adult__resources--section {
+      background-color: #e2ddfc;
+    }
+
+    .adult__resources--section-link {
     }
   </style>
 </div>
