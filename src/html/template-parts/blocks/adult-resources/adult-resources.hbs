@@ -56,12 +56,12 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         <?php $file_url = get_sub_field('file'); ?>
 
         <?php if ($counter > $sections_to_show) : ?>
-        <div class="d-none bg-white rounded-3 border border-primary border-2 p-3 mt-3">
+        <a href="<?php echo $file_url; ?>" class="d-block d-none bg-white rounded-3 border border-indigo border-2 p-3 mt-3">
         <?php else : ?>
-        <div class="bg-white rounded-3 border border-primary border-2 p-3 mt-3">
+        <a href="<?php echo $file_url; ?>" class="d-block bg-white rounded-3 border border-primary border-2 p-3 mt-3">
         <?php endif; ?>
-          <a href="<?php echo $file_url; ?>"><?php echo $file_title; ?></a>
-        </div>
+          <?php echo $file_title; ?>
+        </a>
       <?php endwhile; ?>
     <?php endif; ?>
   </div>
