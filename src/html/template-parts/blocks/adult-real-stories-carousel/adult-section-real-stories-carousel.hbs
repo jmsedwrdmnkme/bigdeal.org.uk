@@ -56,11 +56,6 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       <div id="carouselExampleControlsMd" class="carousel slide px-5 mx-n4" data-bs-ride="carousel">
         <div class="carousel-inner">
           <?php 
-            $args = array( 
-            'orderby' => 'ASC',
-            'posts_per_page' => -1,
-            'post_type' => 'personal_stories',
-            );
             $the_query = new WP_Query( $args );
             $count = 0;
 
