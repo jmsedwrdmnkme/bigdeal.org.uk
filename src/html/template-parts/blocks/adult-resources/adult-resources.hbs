@@ -27,7 +27,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         <?php $section_icon = $intro_section['section_icon']; ?>
         <div class="container">
           <div class="rounded-3 bg-indigo text-white p-3 px-lg-5 py-lg-4">
-            <div class="row">
+            <div class="row justify-content-end">
               <div class="col-12 col-md-8 col-lg-9">
                 <div>
                   <?php echo $section_title; ?>
@@ -38,7 +38,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
                 <p><a href="<?php echo $section_link; ?>" class="adult__resources--section-link text-white">Read more</a></p>
               </div>
               <div class="col-6 col-md-4 col-lg-3">
-                <img loading="lazy" src="<?php echo $section_icon; ?>" class="img-fluid">
+                <img loading="lazy" src="<?php echo $section_icon; ?>" class="img-fluid mb-n5">
               </div>
             </div>
           </div>
