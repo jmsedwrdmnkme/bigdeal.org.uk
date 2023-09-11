@@ -27,6 +27,62 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         </figure>
       <?php endif; ?>
     </div>
+
+    <div class="py-5 container">
+      <h2 class="has-text-align-center">Blogs</h2>
+      <div class="row" class="blog-posts">
+        <?php 
+          $args = array( 
+            'orderby' => 'ASC',
+            'posts_per_page' => 6,
+            'post_type' => 'post',
+            'tax_query' => array(
+              array(
+                'taxonomy'  => 'age-group',
+                'field'     => 'slug',
+                'terms'     => '18-to-25'
+              )
+            )
+          );
+          $the_query = new WP_Query( $args );
+
+          if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+            get_template_part( 'entry' );
+        ?>
+        <?php endwhile; endif; ?>
+        <?php wp_reset_query(); ?>
+
+        <div class="row" id="extra-posts"></div>
+      </div>
+
+      <div class="text-center pt-4" id="load-more-posts">
+        <button class="btn btn-primary" type="button">Load More</button>
+      </div>
+
+      <?php $nonce = wp_create_nonce('extra-special'); ?>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        offset = 6;
+        jQuery('#load-more-posts button').click(function() {
+          var ajax_url = '/wp-admin/admin-ajax.php';
+          var data = {
+            'action': 'load_more_posts',
+            'offset': offset,
+            'security': '<?php echo $nonce; ?>',
+          };
+
+          jQuery.post(ajax_url, data, function(response) {
+            if (response !== ''){
+              jQuery('#extra-posts').append(response);
+              offset += 6;
+              jQuery('#extra-posts').css('opacity', '1');
+            } else {
+              jQuery('#load-more-posts').hide();
+            }
+          });
+        });
+      </script>
+    </div>
   </div>
 
   <style>
