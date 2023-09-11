@@ -20,7 +20,12 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
   <div class="wp-block-group__inner-container">
       <div class="border border-primary border-4 rounded-3 bg-white mb-5">
         <div class="d-md-flex align-items-center justify-content-center m-3 m-lg-4">
-          <div class="col-12 col-md py-3 px-4 text-center text-md-start">
+          <?php if( !empty( $image ) ): ?>
+            <div class="col-8 col-md-3 mx-auto order-md-1">
+              <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid" />
+            </div>
+          <?php endif; ?>
+          <div class="col-12 col-md py-3 px-4 text-center text-md-start order-md-0">
             <div class="adult__worried--title">
               <?php echo $title; ?>
             </div>
@@ -29,11 +34,6 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
             </div>
             <a href="<?php echo $link['url']; ?>" class="btn btn-orange text-white"><?php echo $link['title']; ?></a>
           </div>
-          <?php if( !empty( $image ) ): ?>
-            <div class="col-8 col-md-3 mx-auto">
-              <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid" />
-            </div>
-          <?php endif; ?>
         </div>
       </div>
     </div>
