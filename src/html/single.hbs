@@ -139,6 +139,13 @@
     <?php } ?>
     </article>
   <?php endwhile; endif; ?>
+  <?php if ($adult == true) : ?>
+    <?php
+      $adult_footer_top = get_post( 3467 );
+      $adult_footer_top_content = apply_filters('the_content', $adult_footer_top->post_content);
+      echo $adult_footer_top_content;
+    ?>
+  <?php endif; ?>
   <?php
     $footer_top = get_post( 101 );
     $footer_top_content = apply_filters('the_content', $footer_top->post_content);
