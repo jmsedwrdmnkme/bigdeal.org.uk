@@ -47,7 +47,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           $the_query = new WP_Query( $args );
 
           if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
-            get_template_part( 'entry' );
+            get_template_part( 'entry18' );
         ?>
         <?php endwhile; endif; ?>
         <?php wp_reset_query(); ?>
@@ -56,7 +56,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       </div>
 
       <div class="text-center pt-4" id="load-more-posts">
-        <button class="btn btn-primary" type="button">Load More</button>
+        <button class="btn btn-orange text-white" type="button">Load More</button>
       </div>
 
       <?php $nonce = wp_create_nonce('extra-special'); ?>
@@ -66,7 +66,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         jQuery('#load-more-posts button').click(function() {
           var ajax_url = '/wp-admin/admin-ajax.php';
           var data = {
-            'action': 'load_more_posts',
+            'action': 'load_more_posts18',
             'offset': offset,
             'security': '<?php echo $nonce; ?>',
           };
