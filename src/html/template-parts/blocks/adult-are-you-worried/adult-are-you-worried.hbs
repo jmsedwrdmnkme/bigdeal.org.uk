@@ -30,7 +30,8 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
             <a href="<?php echo $link['url']; ?>" class="btn btn-orange text-white"><?php echo $link['title']; ?></a>
           </div>
           <div class="col-8 col-md-3 mx-auto">
-            <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-fluid" loading="lazy">
+            <?php echo $image; ?>
+            <img src="" alt="<?php echo $title; ?>" class="img-fluid" loading="lazy">
           </div>
         </div>
       </div>
