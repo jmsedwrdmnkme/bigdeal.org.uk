@@ -26,20 +26,15 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         <?php echo $tagline; ?>
       </div>
     <?php endif; ?>
-    <?php if( have_rows('pages') ): ?>
+    <?php if( have_rows('navigation_items') ): ?>
       <form class="row align-items-center justify-content-center col-md-9 col-lg-6 mx-auto rounded-3 bg-white py-2 ps-1 pe-3 mt-3 border-3 border border-primary">
         <div class="col me-1 my-1">
           <select class="form-select select__url">
             <option value="" disabled selected>I am looking for info on&hellip;</option>
-            <?php while( have_rows('pages') ) : the_row(); ?>
+            <?php while( have_rows('navigation_items') ) : the_row(); ?>
               <?php $menu_item = get_sub_field('menu_item'); ?>
-              <?php $anchor_link = get_sub_field('anchor_link'); ?>
-              <?php if(!$anchor_link): ?>
-                <?php $id = $menu_item->ID; ?>
-                <option value="<?php echo esc_url( get_page_link( $id ) ); ?>"><?php echo esc_html( $menu_item->post_title ); ?></option>
-              <?php else: ?>
-                <?php $has_anchor = 'true'; ?>
-              <?php endif; ?>
+              <?php $id = $menu_item->ID; ?>
+              <option value="<?php echo esc_url( get_page_link( $id ) ); ?>"><?php echo esc_html( $menu_item->post_title ); ?></option>
             <?php endwhile; ?>
           </select>
         </div>
@@ -55,34 +50,31 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         </script>
       </form>
 
-      <?php if($has_anchor == 'true'): ?>
+      <?php if( have_rows('pages') ): ?>
         <div class="row mt-4 adult__hero--thumbnails">
           <?php while( have_rows('pages') ) : the_row(); ?>
-            <?php $menu_item = get_sub_field('menu_item'); ?>
-            <?php $anchor_link = get_sub_field('anchor_link'); ?>
-            <?php if($anchor_link): ?>
-              <?php $thumbnail_image = get_sub_field('thumbnail_image'); ?>
-              <?php $thumbnail_tagline = get_sub_field('thumbnail_tagline'); ?>
-              <div class="col-md-6 col-lg-4 mt-4">
-                <a href="#<?php echo strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', esc_html( $menu_item->post_title )))))), '-')); ?>" class="card overflow-hidden h-100 text-decoration-none">
-                  <div class="card-img-top adult__hero--icon-bg px-2 pt-2 d-flex justify-content-center align-items-end position-relative">
-                    <?php if( !empty( $thumbnail_image ) ): ?>
-                      <div class="mb-n3 position-relative">
-                        <img src="<?php echo esc_url($thumbnail_image['url']); ?>" alt="<?php echo esc_html( $menu_item->post_title ); ?>" class="img-fluid adult__hero--icon mt-2" />
-                      </div>
-                    <?php endif; ?>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-title adult__hero--card-title fs-4 fw-bold">
-                      <?php echo esc_html( $menu_item->post_title ); ?>
+            <?php $thumbnail_title = get_sub_field('thumbnail_title'); ?>
+            <?php $thumbnail_image = get_sub_field('thumbnail_image'); ?>
+            <?php $thumbnail_tagline = get_sub_field('thumbnail_tagline'); ?>
+            <div class="col-md-6 col-lg-4 mt-4">
+              <a href="#<?php echo strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $thumbnail_title))))), '-')); ?>" class="card overflow-hidden h-100 text-decoration-none">
+                <div class="card-img-top adult__hero--icon-bg px-2 pt-2 d-flex justify-content-center align-items-end position-relative">
+                  <?php if( !empty( $thumbnail_image ) ): ?>
+                    <div class="mb-n3 position-relative">
+                      <img src="<?php echo esc_url($thumbnail_image['url']); ?>" alt="<?php echo $thumbnail_title; ?>" class="img-fluid adult__hero--icon mt-2" />
                     </div>
-                    <div class="card-text">
-                      <?php echo $thumbnail_tagline; ?>
-                    </div>
+                  <?php endif; ?>
+                </div>
+                <div class="card-body">
+                  <div class="card-title adult__hero--card-title fs-4 fw-bold">
+                    <?php echo esc_html( $menu_item->post_title ); ?>
                   </div>
-                </a>
-              </div>
-            <?php endif; ?>
+                  <div class="card-text">
+                    <?php echo $thumbnail_tagline; ?>
+                  </div>
+                </div>
+              </a>
+            </div>
           <?php endwhile; ?>
         </div>
       <?php endif; ?>
