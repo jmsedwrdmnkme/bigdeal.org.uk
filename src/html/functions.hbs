@@ -341,6 +341,7 @@ function my_acf_init_block_types() {
   }
 }
 
+// Load more blogs
 add_action( 'wp_ajax_load_more_posts', 'load_more_posts' );
 add_action( 'wp_ajax_nopriv_load_more_posts', 'load_more_posts' );
 function load_more_posts() {
@@ -365,6 +366,47 @@ function load_more_posts() {
         'field'     => 'slug',
         'terms'     => '18-to-25',
         'operator'  => 'NOT IN'
+      )
+    )
+  ];
+
+  $loop = new WP_Query($args);
+
+  if ( $loop->have_posts() ){
+
+    while( $loop->have_posts() ){
+      $loop->the_post();
+      get_template_part( 'entry' );
+    }
+    wp_reset_postdata();
+  }
+  wp_die();
+}
+
+// Load more 18-25 blogs
+add_action( 'wp_ajax_load_more_posts', 'load_more_posts18' );
+add_action( 'wp_ajax_nopriv_load_more_posts', 'load_more_posts18' );
+function load_more_posts18() {
+  $nonce_check = check_ajax_referer( 'extra-special', 'security' );
+
+  if ( ! $nonce_check ) { 
+    return;
+  }
+
+  $offset = $_POST['offset'];
+
+  $args = [
+    'post_type'      => 'post',
+    'post_status'    => 'publish',
+    'posts_per_page' => '6',
+    'orderby'	     => 'date',
+    'order'	     => 'DESC',
+    'offset'	     => $offset,
+    'tax_query' => array(
+      array(
+        'taxonomy'  => 'age-group',
+        'field'     => 'slug',
+        'terms'     => '18-to-25'
       )
     )
   ];
