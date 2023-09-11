@@ -22,7 +22,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
       <?php if ($video) : ?>
         <figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo">
           <div class="wp-block-embed__wrapper">
-            <iframe loading="lazy" title="<?php echo $title; ?>" src="<?php echo $title; ?>" width="1920" height="1280" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+            <iframe loading="lazy" title="<?php echo $title; ?>" src="<?php echo $video; ?>" width="1920" height="1280" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           </div>
         </figure>
       <?php endif; ?>
