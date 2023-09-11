@@ -384,9 +384,9 @@ function load_more_posts() {
 }
 
 // Load more 18-25 blogs
-add_action( 'wp_ajax_load_more_posts', 'load_more_posts18' );
-add_action( 'wp_ajax_nopriv_load_more_posts', 'load_more_posts18' );
-function load_more_posts18() {
+add_action( 'wp_ajax_load_more_posts', 'load_more_posts_adult' );
+add_action( 'wp_ajax_nopriv_load_more_posts', 'load_more_posts_adult' );
+function load_more_posts_adult() {
   $nonce_check = check_ajax_referer( 'extra-special', 'security' );
 
   if ( ! $nonce_check ) { 

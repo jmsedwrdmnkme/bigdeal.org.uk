@@ -47,7 +47,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           $the_query = new WP_Query( $args );
 
           if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
-            get_template_part( 'entry18' );
+            get_template_part( 'entry_adult' );
         ?>
         <?php endwhile; endif; ?>
         <?php wp_reset_query(); ?>
@@ -66,7 +66,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         jQuery('#load-more-posts button').click(function() {
           var ajax_url = '/wp-admin/admin-ajax.php';
           var data = {
-            'action': 'load_more_posts18',
+            'action': 'load_more_posts_adult',
             'offset': offset,
             'security': '<?php echo $nonce; ?>',
           };
