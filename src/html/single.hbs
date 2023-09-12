@@ -100,6 +100,27 @@
       <div class="py-3">
         <?php the_content(); ?>
       </div>
+      <footer class="pt-2">
+        <div class="post-share">
+          <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
+            <span class="visually-hidden">Share on Twitter</span>
+            <svg class="social">
+              <use xlink:href="#facebook"></use>
+            </svg>
+          </a>
+          <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
+            <span class="visually-hidden">Share on Twitter</span>
+            <svg class="social">
+              <use xlink:href="#twitter"></use>
+            </svg>
+          </a>
+          <script>
+            const encodedPageUrl = encodeURI(window.location.href);
+            document.querySelector('.facebook').href += encodedPageUrl;
+            document.querySelector('.twitter').href += encodedPageUrl;
+          </script>
+        </div>
+      </footer>
       <?php if ($adult != true) : ?>
         <footer class="pb-5">
           <div class="post-share">
