@@ -9,26 +9,33 @@
 **/
 
 $title = get_field('title');
+$content = get_field('content');
+$link = get_field('link');
+$image = get_field('image');
 
 // disable block frontend wrapper.
 add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
 <div class="single__adult">
   <div class="single__adult--title text-white mt-3">
-    <h1 class="single__adult--title-highlight text-white">Real stories</h1>
-    <p class="single__adult--title-text text-end">from real people</p>
+    <h1 class="single__adult--title-highlight text-white">News</h1>
+    <p class="single__adult--title-text text-end"></p>
   </div>
   <div class="single__adult--intro-box position-relative">
     <div class="border border-primary border-4 rounded-3 bg-white mt-5 mb-4 position-relative">
       <div class="d-md-flex align-items-center justify-content-center m-3 mx-lg-4">
-        <div class="col-auto">
-          <img src="" alt="" width="100" height="100">
+        <div class="col-8 col-md-2">
+          <img src="<?php echo $content; ?>" alt="<?php echo $title; ?>" class="img-fluid">
         </div>
         <div class="col-12 col-md py-3 px-4 text-md-start">
-          <div class="fw-bold">Do you have a story to share?</div>
-          <div>Lorem ipsum sit dolor amet</div>
+          <div class="fw-bold"><?php echo $title; ?></div>
+          <div>
+            <?php echo $content; ?>
+          </div>
         </div>
-        <a href="#" class="btn btn-primary col-auto">Contact us</a>
+        <?php if ($link) : ?>
+          <a href="<?php echo $link['url']; ?>" class="btn btn-primary col-auto"><?php echo $link['title']; ?></a>
+        <?php endif ?>
       </div>
     </div>
 
