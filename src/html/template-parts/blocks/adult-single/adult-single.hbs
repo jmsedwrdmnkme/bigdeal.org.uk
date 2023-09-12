@@ -20,7 +20,13 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 <div class="single__adult">
   <div class="single__adult--title text-white mt-3">
     <h1 class="single__adult--title-highlight d-inline-block text-white"><?php echo $topic; ?></h1>
+    <?php if ( get_post_type( get_the_ID() ) == 'personal_stories' ) : ?>
+    <p class="single__adult--title-text text-md-end">From real people</p>
+    <?php else if ( get_post_type( get_the_ID() ) == 'post' ) : ?>
     <p class="single__adult--title-text"><?php the_title(); ?></p>
+    <?php else : ?>
+    <p class="single__adult--title-text text-md-end"><?php the_title(); ?></p>
+    <?php endif; ?>
   </div>
   <div class="single__adult--intro-box position-relative">
     <div class="border border-primary border-4 rounded-3 bg-white mt-5 mb-4 position-relative">
