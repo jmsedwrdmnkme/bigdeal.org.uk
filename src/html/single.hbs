@@ -3,59 +3,88 @@
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php if (get_post_type() == "personal_stories") { ?>
-      <?php
-        $personal_stories_hero = get_post( 280 );
-        $personal_stories_hero_content = apply_filters('the_content', $personal_stories_hero->post_content);
-        echo $personal_stories_hero_content;
+      <?php 
+        $id = get_the_ID();
+        $terms = get_the_terms( $id, 'age-group' ); 
+        $adult;
+        foreach($terms as $term) {
+          if ($term->name == '18 to 25') {
+            $adult = 'true';
+          }
+        }
       ?>
-
-      <div class="wp-block-group position-relative mb-n5">
-        <div class="wp-block-group__inner-container">
-          <div class="wp-block-columns">
-            <div class="wp-block-column card block-heading blue">
-              <header>
-                <h1 class="has-text-align-center h3 display-2"><?php the_title(); ?></h1>
-              </header>
-              <?php the_content(); ?>
-              <footer class="pt-2">
-                <div class="post-share">
-                  <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
-                    <span class="visually-hidden">Share on Twitter</span>
-                    <svg class="social">
-                      <use xlink:href="#facebook"></use>
-                    </svg>
-                  </a>
-                  <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
-                    <span class="visually-hidden">Share on Twitter</span>
-                    <svg class="social">
-                      <use xlink:href="#twitter"></use>
-                    </svg>
-                  </a>
-                  <script>
-                    const encodedPageUrl = encodeURI(window.location.href);
-                    document.querySelector('.facebook').href += encodedPageUrl;
-                    document.querySelector('.twitter').href += encodedPageUrl;
-                  </script>
-                </div>
-              </footer>
+      <?php if ($adult == true) : ?>
+        <header class="full-width pt-4 pt-md-5 text-center overflow-hidden bg-indigo">
+          <div class="container position-relative">
+            <?php
+              $adult_story_top = get_post( 3570 );
+              $adult_story_top_content = apply_filters('the_content', $adult_story_top->post_content);
+              echo $adult_story_top_content;
+            ?>
+          </div>
+        </header>
+        <div class="py-3">
+          <?php the_content(); ?>
+        </div>
+        <?php
+          $adult_footer_top = get_post( 3467 );
+          $adult_footer_top_content = apply_filters('the_content', $adult_footer_top->post_content);
+          echo $adult_footer_top_content;
+        ?>
+      <?php else : ?>
+        <?php
+          $personal_stories_hero = get_post( 280 );
+          $personal_stories_hero_content = apply_filters('the_content', $personal_stories_hero->post_content);
+          echo $personal_stories_hero_content;
+        ?>
+        <div class="wp-block-group position-relative mb-n5">
+          <div class="wp-block-group__inner-container">
+            <div class="wp-block-columns">
+              <div class="wp-block-column card block-heading blue">
+                <header>
+                  <h1 class="has-text-align-center h3 display-2"><?php the_title(); ?></h1>
+                </header>
+                <?php the_content(); ?>
+                <footer class="pt-2">
+                  <div class="post-share">
+                    <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
+                      <span class="visually-hidden">Share on Twitter</span>
+                      <svg class="social">
+                        <use xlink:href="#facebook"></use>
+                      </svg>
+                    </a>
+                    <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
+                      <span class="visually-hidden">Share on Twitter</span>
+                      <svg class="social">
+                        <use xlink:href="#twitter"></use>
+                      </svg>
+                    </a>
+                    <script>
+                      const encodedPageUrl = encodeURI(window.location.href);
+                      document.querySelector('.facebook').href += encodedPageUrl;
+                      document.querySelector('.twitter').href += encodedPageUrl;
+                    </script>
+                  </div>
+                </footer>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <style>
-        h1 { text-transform: inherit !important; }
-      </style>
+        <style>
+          h1 { text-transform: inherit !important; }
+        </style>
 
-      <?php
-        $personal_stories = get_post( 171 );
-        $personal_stories_content = apply_filters('the_content', $personal_stories->post_content);
-        echo $personal_stories_content;
-      ?>
-      <style>
-        .bg-green-offset::before { content: inherit; }
-        .bg-green-offset h2::before { content: 'More '; }
-        .bg-green-offset .wp-block-buttons { display: none; }
-      </style>
+        <?php
+          $personal_stories = get_post( 171 );
+          $personal_stories_content = apply_filters('the_content', $personal_stories->post_content);
+          echo $personal_stories_content;
+        ?>
+        <style>
+          .bg-green-offset::before { content: inherit; }
+          .bg-green-offset h2::before { content: 'More '; }
+          .bg-green-offset .wp-block-buttons { display: none; }
+        </style>
+      <?php endif; ?>
     <?php } else { ?>
       <?php 
         $id = get_the_ID();
