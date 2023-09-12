@@ -92,8 +92,10 @@
           }
         }
       ?>
-      <header class="full-width pt-4 pt-md-5 text-center overflow-hidden <?php if ($adult == true) : ?>bg-indigo<?php else : ?>bg-indigo-offset text-md-start<?php endif; ?>">
+      <?php if (!$adult == true) : ?>
+      <header class="full-width pt-4 pt-md-5 text-center overflow-hidden bg-indigo-offset text-md-start">
         <div class="container position-relative">
+      <?php endif; ?>
           <?php if ($adult == true) : ?>
             <?php
               $adult_top = get_post( 3544 );
@@ -120,8 +122,10 @@
               <span class="post-date col-auto ms-auto"><?php the_time( get_option( 'date_format' ) ); ?></span>
             </div>
           <?php endif; ?>
+      <?php if (!$adult == true) : ?>
         </div>
       </header>
+      <?php endif; ?>
       <div class="py-3">
         <?php the_content(); ?>
       </div>
