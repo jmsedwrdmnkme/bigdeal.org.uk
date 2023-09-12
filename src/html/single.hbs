@@ -121,31 +121,6 @@
           </script>
         </div>
       </footer>
-      <?php if ($adult != true) : ?>
-        <footer class="pb-5">
-          <div class="post-share">
-            <p class="h2">Share this blog:</p>
-            <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
-              <span class="visually-hidden">Share on Twitter</span>
-              <svg class="social">
-                <use xlink:href="#facebook"></use>
-              </svg>
-            </a>
-            <a class="twitter text-yellow d-inline-block" href="https://twitter.com/intent/tweet?url=">
-              <span class="visually-hidden">Share on Twitter</span>
-              <svg class="social">
-                <use xlink:href="#twitter"></use>
-              </svg>
-            </a>
-            <script>
-              const encodedPageUrl = encodeURI(window.location.href);
-              document.querySelector('.facebook').href += encodedPageUrl;
-              document.querySelector('.twitter').href += encodedPageUrl;
-            </script>
-          </div>
-          <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="post-back d-block mt-5 fw-bold">Back to all blogs</a>
-        </footer>
-      <?php endif; ?>
     <?php } ?>
     </article>
   <?php endwhile; endif; ?>
