@@ -100,7 +100,7 @@
       <div class="py-3">
         <?php the_content(); ?>
       </div>
-      <footer class="pt-2">
+      <footer class="pt-2<?php if ($adult != true) : ?> pb-5<?php endif; ?>">
         <div class="post-share">
           <a class="facebook text-yellow d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=">
             <span class="visually-hidden">Share on Twitter</span>
