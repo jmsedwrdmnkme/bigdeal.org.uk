@@ -19,7 +19,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
 ?>
 <div class="single__adult">
   <div class="single__adult--title text-white mt-3">
-    <h1 class="single__adult--title-highlight text-white"><?php echo $topic; ?></h1>
+    <h1 class="single__adult--title-highlight d-inline-block text-white"><?php echo $topic; ?></h1>
     <p class="single__adult--title-text"><?php the_title(); ?></p>
   </div>
   <div class="single__adult--intro-box position-relative">
@@ -47,6 +47,7 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
         background-size: cover;
         padding: 0.25rem 1rem 0.4rem;
         background-position: 50% 50%;
+        min-width: 265px;
       }
 
       .single__adult--title-text {
