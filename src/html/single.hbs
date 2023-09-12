@@ -14,15 +14,11 @@
         }
       ?>
       <?php if ($adult == true) : ?>
-        <header class="full-width pt-4 pt-md-5 text-center overflow-hidden bg-indigo">
-          <div class="container position-relative">
-            <?php
-              $adult_story_top = get_post( 3570 );
-              $adult_story_top_content = apply_filters('the_content', $adult_story_top->post_content);
-              echo $adult_story_top_content;
-            ?>
-          </div>
-        </header>
+        <?php
+          $adult_story_top = get_post( 3570 );
+          $adult_story_top_content = apply_filters('the_content', $adult_story_top->post_content);
+          echo $adult_story_top_content;
+        ?>
         <div class="py-3">
           <?php the_content(); ?>
         </div>
