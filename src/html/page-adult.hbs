@@ -5,15 +5,6 @@ Template Name: Adult section
 ?>
 <?php get_header(); ?>
 <main id="content" class="my-n5 entry-content adult__container">
-  <header class="full-width pt-4 pt-md-5 text-center overflow-hidden bg-indigo mb-4">
-    <div class="container position-relative">
-      <?php
-        $adult_top = get_post( 3566 );
-        $adult_top_content = apply_filters('the_content', $adult_top->post_content);
-        echo $adult_top_content;
-      ?>
-    </div>
-  </header>
   <?php the_content(); ?>
   <?php
     $adult_footer_top = get_post( 3467 );
