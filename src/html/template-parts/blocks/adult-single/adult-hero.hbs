@@ -1,0 +1,49 @@
+<?php
+/**
+ * Adult Single block
+ *
+ * @package      Synthetic
+ * @author       James Monk
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
+
+$title = get_field('title');
+
+// disable block frontend wrapper.
+add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
+?>
+<div class="single__adult">
+  <div class="single__adult--title text-white mt-3">
+    <h1 class="single__adult--title-highlight text-white">Real stories</h1>
+    <p class="single__adult--title-text text-end">from real people</p>
+  </div>
+  <div class="single__adult--intro-box position-relative">
+    <div class="border border-primary border-4 rounded-3 bg-white mt-5 mb-4 position-relative">
+      <div class="d-md-flex align-items-center justify-content-center m-3 mx-lg-4">
+        <div class="col-auto">
+          <img src="" alt="" width="100" height="100">
+        </div>
+        <div class="col-12 col-md py-3 px-4 text-md-start">
+          <div class="fw-bold">Do you have a story to share?</div>
+          <div>Lorem ipsum sit dolor amet</div>
+        </div>
+        <a href="#" class="btn btn-primary col-auto">Contact us</a>
+      </div>
+    </div>
+
+    <style>
+      .single__adult--intro-box::before {
+        content: '';
+        position: absolute;
+        width: 100vw;
+        left: 0;
+        top: 50%;
+        height: 100vh;
+        background: white;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
+    </style>
+  </div>
+</div>
