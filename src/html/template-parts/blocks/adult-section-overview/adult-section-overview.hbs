@@ -29,9 +29,9 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
           <?php $section_image = get_sub_field('section_image'); ?>
           <?php $section_link = get_sub_field('section_link'); ?>
           <?php if ($counter > $sections_to_show) : ?>
-          <a class="col-lg-6 mt-4 d-none adult__overview--section text-decoration-none" src="<?php echo $section_link; ?>">
+          <a class="col-lg-6 mt-4 d-none adult__overview--section text-decoration-none" href="<?php echo $section_link; ?>">
             <?php else : ?>
-          <a class="col-lg-6 mt-4 adult__overview--section text-decoration-none" src="<?php echo $section_link; ?>">
+          <a class="col-lg-6 mt-4 adult__overview--section text-decoration-none" href="<?php echo $section_link; ?>">
           <?php endif; ?>
             <div class="row">
               <div class="col-5 col-md-6 position-relative overflow-hidden adult__overview--section-img-container rounded-3" style="padding-bottom: 44.25%;">
