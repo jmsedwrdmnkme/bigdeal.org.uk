@@ -35,11 +35,17 @@ add_filter( 'acf/hero/frontend_allow_wrapper', '__return_false' );
             'posts_per_page' => 6,
             'post_type' => 'post',
             'tax_query' => array(
-              array(
+              'relation' => 'OR',
+               array(
                 'taxonomy'  => 'age-group',
                 'field'     => 'slug',
                 'terms'     => '18-to-25'
-              )
+               ),
+               array(
+                'taxonomy'  => 'age-group',
+                'field'     => 'slug',
+                'terms'     => 'all-ages'
+               )
             )
           );
           $the_query = new WP_Query( $args );
