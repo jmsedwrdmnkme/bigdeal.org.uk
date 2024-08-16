@@ -8,7 +8,7 @@ Will play nice(st) with the latest versions of modern browsers:-
 * Safari
 
 ## Get started
-* git clone https://git.jamesmonk.me/James/bigdeal.org.uk.git
+* git clone https://github.com/jmsedwrdmnkme/bigdeal.org.uk.git
 * cd bigdeal.org.uk
 * npm install --save-dev
 * gulp
